@@ -1,11 +1,12 @@
 package com.mypup.demo.repos;
 
-import com.mypup.demo.controllers.BreederPosts;
+import com.mypup.demo.controllers.BreederPostsController;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PostsRepo extends JpaRepository <BreederPosts, Long> {
+public interface PostsRepo extends JpaRepository <BreederPostsController, Long> {
 
-    BreederPosts findById(long id);
+    BreederPostsController findById(long id);
+    BreederPostsController findByTitle(String title);
 
 
 }

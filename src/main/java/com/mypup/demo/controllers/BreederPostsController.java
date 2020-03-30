@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class BreederPosts {
+public class BreederPostsController {
 
     private PostsRepo breederPostDao;
     private UsersRepo userDao;
 
-    public BreederPosts(PostsRepo breederPostDao, UsersRepo userDao) {
+    public BreederPostsController(PostsRepo breederPostDao, UsersRepo userDao) {
         this.breederPostDao = breederPostDao;
         this.UsersDao = userDao;
     }
@@ -32,11 +32,11 @@ public class BreederPosts {
 
     @GetMapping("/breeder-posts/create")
     public String getCreatedBreederPostForm(Model model){
-        model.addAttribute("breeder-posts", new BreederPosts());
+        model.addAttribute("breeder-posts", new BreederPostsController());
         return "breeder-posts/create";
     }
     @PostMapping("/breeder-posts/create")
-    public String createBreederPost(@ModelAttribute BreederPosts breederPosts){
+    public String createBreederPost(@ModelAttribute BreederPostsController breederPosts){
         breederPosts.setUser(userDao.getOne(1L));
         breederPostDao.save(breederPosts);
         return "redirect:/breeder-posts";
@@ -51,13 +51,13 @@ public class BreederPosts {
     @GetMapping("/breeder-posts/{id}/update")
     public String editBreederPostForm(@PathVariable long id, Model model) {
 //        BreederPosts breederPostToEdit = breederPostDao.getOne(id);
-        model.addAttribute("breeder-post", breederPostToEdit);
+        model.addAttribute("breeder-post", editBreederPostForm());
         return "breeder-posts/update";
     }
 
 
     @PostMapping("/breeder-posts/{id}/update")
-    public String updateBreederPost(@PathVariable long id, @ModelAttribute BreederPosts bp) {
+    public String updateBreederPost(@PathVariable long id, @ModelAttribute BreederPostsController bp) {
         bp = breederPostDao.getOne(id);
         bp.setTitle(bp.getTitle());
         bp.setBody(bp.getBody());
