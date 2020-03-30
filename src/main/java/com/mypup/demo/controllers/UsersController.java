@@ -1,6 +1,6 @@
 package com.mypup.demo.controllers;
 
-import com.mypup.demo.repos.UsersRepo;
+import com.mypup.demo.repos.UserRepo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UsersController {
-    private UsersRepo users;
+    private UserRepo usersdao;
     private PasswordEncoder passwordEncoder;
 
-    public UsersController(UsersRepo users, PasswordEncoder passwordEncoder) {
-        this.users = (UsersRepo) users;
+    public UsersController(UserRepo users, PasswordEncoder passwordEncoder) {
+        this.usersdao = (UserRepo) users;
         this.passwordEncoder = passwordEncoder;
     }
 
