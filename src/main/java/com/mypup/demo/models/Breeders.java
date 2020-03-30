@@ -3,7 +3,7 @@ import javax.persistence.*;
 import java.util.List;
 @Entity
 @Table(name = "users")
-public class Users {
+public class Breeders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "INT(10) UNSIGNED")
@@ -38,7 +38,7 @@ public class Users {
         this.breeds = breeds;
     }
 
-    public Users(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
+    public Breeders(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
         this.userRole = userRole;
         this.username = username;
         this.password = password;
@@ -54,7 +54,7 @@ public class Users {
         return dogPost;
     }
 
-    public Users() {}
+    public Breeders() {}
 
 
     public void setDogPost(List<DogPost> dogPost) {
@@ -134,9 +134,7 @@ public class Users {
         this.zipcode = zipcode;
     }
 
-    public static void main(String[] args) {
-        System.out.println(org.hibernate.Version.getVersionString());
-    }
+
 
 
 }

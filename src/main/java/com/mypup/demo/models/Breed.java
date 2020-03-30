@@ -20,21 +20,21 @@ public class Breed {
             joinColumns={@JoinColumn(name="breed_id")},
             inverseJoinColumns={@JoinColumn(name="user_id")}
     )
-    private List<Users> users;
+    private List<Breeders> users;
 
     public Breed() {}
 
-    public Breed(String name, List<DogPost> dogPosts, List<Users> users) {
+    public Breed(String name, List<DogPost> dogPosts, List<Breeders> users) {
         this.name = name;
         this.dogPosts = dogPosts;
         this.users = users;
     }
 
-    public List<Users> getUsers() {
+    public List<Breeders> getUsers() {
         return users;
     }
 
-    public void setUsers(List<Users> users) {
+    public void setUsers(List<Breeders> users) {
         this.users = users;
     }
 
