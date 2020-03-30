@@ -1,9 +1,19 @@
 package com.mypup.demo.models;
+
+
+
+
 import javax.persistence.*;
 import java.util.List;
+
+
+
+
+
+
 @Entity
 @Table(name = "users")
-public class Breeders {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "INT(10) UNSIGNED")
@@ -38,7 +48,7 @@ public class Breeders {
         this.breeds = breeds;
     }
 
-    public Breeders(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
+    public Users(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
         this.userRole = userRole;
         this.username = username;
         this.password = password;
@@ -54,7 +64,7 @@ public class Breeders {
         return dogPost;
     }
 
-    public Breeders() {}
+    public Users() {}
 
 
     public void setDogPost(List<DogPost> dogPost) {
@@ -133,7 +143,6 @@ public class Breeders {
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-
 
 
 

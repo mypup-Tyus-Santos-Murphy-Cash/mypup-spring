@@ -3,6 +3,7 @@ package com.mypup.demo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class MypupApplication {
 
@@ -10,5 +11,6 @@ public class MypupApplication {
 
         SpringApplication.run(MypupApplication.class, args);
     }
+
 
 }
