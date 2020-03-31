@@ -4,9 +4,11 @@ package com.mypup.demo.controllers;
 //import com.mypup.demo.models.DogPost;
 //import com.mypup.demo.models.User;
 import com.mypup.demo.models.DogPost;
+import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
 //import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +45,8 @@ public class BreederPostsController {
 
     @PostMapping("/breeder-posts/create")
     public String createBreederPost(@ModelAttribute DogPost dogPost){
-//        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
+        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedinUser.getId() == dogPostDao.getOne(1l).getUser().getId())
         dogPost.setUser(userDao.getOne(1L));
         dogPostDao.save(dogPost);
         return "redirect:/breeder-posts";
@@ -52,8 +54,8 @@ public class BreederPostsController {
 
     @DeleteMapping("/breeder-posts/{id}/delete")
     public String deletePost(@PathVariable long id){
-//        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
+        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
             dogPostDao.deleteById(id);
         return "redirect:/posts/index";
     }
