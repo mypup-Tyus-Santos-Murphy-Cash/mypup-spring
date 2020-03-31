@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up!</title>
+</head>
+<body>
+<form th:action="@{/sign-up}" method="POST" th:object="${user}">
+    <label for="userRole">user role</label>
+    <input th:type="radio" th:field="*{userRole}"/>
+    <label for="breeder">breeder</label>
+    <input th:type="radio" th:field="*{userRole}"/>
+    <label for="buyer">buyer</label>
+
+    <label for="username">Username</label>
+    <input th:field="*{username}" />
+
+    <label for="password">Password</label>
+    <input type="password" th:field="*{password}" />
+
+    <label for="email">Email</label>
+    <input th:field="*{email}"/>
+
+    <label for="phoneNumber">phone number</label>
+    <input th:field="*{phoneNumber}" />
+
+    <label for="city">city</label>
+    <input th:field="*{city}" />
+
+    <label for="state">state</label>
+    <input th:field="*{state}" />
+
+    <label for="zipcode">zipcode</label>
+    <input th:field="*{zipcode}" />
+    <input value="Sign me up!" type="submit" />
+</form>

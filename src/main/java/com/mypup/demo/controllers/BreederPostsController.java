@@ -60,7 +60,6 @@ public class BreederPostsController {
 
     @GetMapping("/breeder-posts/{id}/update")
     public String editDogPostForm(@PathVariable long id, Model model) {
-        DogPost dogPostToEdit = dogPostDao.getOne(id);
         model.addAttribute("breederPosts", editDogPostForm(id, model));
         return "breeder-posts/update";
     }

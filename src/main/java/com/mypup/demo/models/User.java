@@ -35,6 +35,10 @@ public class User {
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;
 
+    public User(User user) {
+
+    }
+
     public List<Breed> getBreeds() {
         return breeds;
     }

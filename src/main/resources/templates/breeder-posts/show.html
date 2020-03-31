@@ -14,10 +14,10 @@
 <button class="delete-button" th:id="'delete-button-'+${breederPost.id}"></button>
 
 </div>
-<!--<div sec:authorize="isAuthenticated()">-->
-<!--    <div th:if="userName == post.user.userName">-->
-<!--        <a th:href="@{|/posts/${dogPost.id}/update|}"><button>Update Post</button></a>-->
-<!--    </div>-->
-<!--</div>-->
+<div sec:authorize="isAuthenticated()">
+    <div th:if="userName == breederPost.user.username">
+        <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
+    </div>
+</div>
 </body>
 </html>
