@@ -7,13 +7,13 @@ package com.mypup.demo.controllers;
 //import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.ModelAttribute;
 //import org.springframework.web.bind.annotation.PostMapping;
-
-
+//
+//
 //@Controller
 //public class UsersController {
 //    private UserRepo usersdao;
 //    private PasswordEncoder passwordEncoder;
-
+//
 //    public UsersController(UserRepo users, PasswordEncoder passwordEncoder) {
 //        this.usersdao = (UserRepo) users;
 //        this.passwordEncoder = passwordEncoder;
@@ -24,7 +24,7 @@ package com.mypup.demo.controllers;
 //        model.addAttribute("breeder", new Breeder());
 //        return "breederPosts/sign-up";
 //    }
-//
+
 //    @PostMapping("/sign-up")
 //    public String saveBreeder(@ModelAttribute Breeder breeder){
 //        String hash = passwordEncoder.encode(breeder.getPassword());
@@ -32,6 +32,7 @@ package com.mypup.demo.controllers;
 //        breeders.save(breeder);
 //        return "redirect:/login";
 //    }
+
 
 
 

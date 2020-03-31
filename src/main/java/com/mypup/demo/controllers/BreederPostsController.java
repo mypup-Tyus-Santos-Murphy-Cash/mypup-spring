@@ -50,31 +50,32 @@ public class BreederPostsController {
         return "redirect:/breeder-posts";
     }
 
-//    @DeleteMapping("/breeder-posts/{id}/delete")
-//    public String deletePost(@PathVariable long id){
+    @DeleteMapping("/breeder-posts/{id}/delete")
+    public String deletePost(@PathVariable long id){
 //        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 //        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
-//            dogPostDao.deleteById(id);
-//        return "redirect:/posts/index";
-//    }
-//    @GetMapping("/breeder-posts/{id}/update")
-//    public String editDogPostForm(@PathVariable long id, Model model) {
-//        DogPost dogPostToEdit = dogPostDao.getOne(id);
-//        model.addAttribute("breeder-post", editDogPostForm(id, model));
-//        return "breeder-posts/update";
-//    }
-//
-//
-//    @PostMapping("/breeder-posts/{id}/update")
-//    public String updateBreederPost(@PathVariable long id, @ModelAttribute DogPost dogPost) {
-//        DogPost newDogPost = dogPostDao.getOne(id);
-//        newDogPost.setBreeds(newDogPost.getBreeds());
-//        newDogPost.setDogDescription(newDogPost.getDogDescription());
-//        newDogPost.setDogGroup(newDogPost.getDogGroup());
-//        newDogPost.setDogPrice(newDogPost.getDogPrice());
-//        dogPostDao.save(newDogPost);
-//        return "redirect:/breeder-post";
-//    }
+            dogPostDao.deleteById(id);
+        return "redirect:/posts/index";
+    }
+
+    @GetMapping("/breeder-posts/{id}/update")
+    public String editDogPostForm(@PathVariable long id, Model model) {
+        DogPost dogPostToEdit = dogPostDao.getOne(id);
+        model.addAttribute("breederPosts", editDogPostForm(id, model));
+        return "breeder-posts/update";
+    }
+
+
+    @PostMapping("/breeder-posts/{id}/update")
+    public String updateBreederPost(@PathVariable long id, @ModelAttribute DogPost dogPost) {
+        DogPost newDogPost = dogPostDao.getOne(id);
+        newDogPost.setBreeds(newDogPost.getBreeds());
+        newDogPost.setDogDescription(newDogPost.getDogDescription());
+        newDogPost.setDogGroup(newDogPost.getDogGroup());
+        newDogPost.setDogPrice(newDogPost.getDogPrice());
+        dogPostDao.save(newDogPost);
+        return "redirect:/breeder-post";
+    }
 
 
 }
