@@ -6,11 +6,11 @@
 </head>
 <body>
 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
-    <label for="userRole">user role</label>
-    <input th:type="radio" th:field="*{userRole}"/>
-    <label for="breeder">breeder</label>
-    <input th:type="radio" th:field="*{userRole}"/>
-    <label for="buyer">buyer</label>
+    <label for="userRole">Select User Role</label>
+    <select th:field="*{userRole}">
+        <option value="breeder">Breeder</option>
+        <option value="buyer">Buyer</option>
+    </select>
 
     <label for="username">Username</label>
     <input th:field="*{username}" />
