@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: header('All Post')"></head>
+<body>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+    <header class="container my-5">
+        <div class="jumbotron">
+            <h1 class="text-center display-1">Posts</h1>
+        </div>
+    </header>
+    <main class="container">
+        <th:block th:each="breederPost : ${breederPosts}">
+            <div>
+                <h1 th:text="${breederPost.dogBreed}"></h1>
+                <p th:text="${breederPost.dogDescription}"></p>
+                <p th:text="${breederPost.dogGroup}"></p>
+                <p th:text="${breederPost.dogPrice}"></p>
+                <h5 th:text="${breederPost.getUser().getEmail()}"></h5>
+                <hr>
+            </div>
+            <!--    Checks to see if user is logged in-->
+<!--            <div sec:authorize="isAuthenticated()">-->
+<!--                &lt;!&ndash;        Checks to see if person who created the post is also the person logged in&ndash;&gt;-->
+<!--                <button th:if="${breeder-post.getUser().id == #authentication.getPrincipal().id}" type="submit"><a th:href="@{'/breeder-post/{id}/delete/' + ${breeder-post.getId()}}">Delete Post</a></button>-->
+<!--            </div>-->
+        </th:block>
+
+    </main>
+</div>
+<th: block th:replace="fragments/scripts.html :: scripts"/>
+
+
+
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
+</body>
+</html>

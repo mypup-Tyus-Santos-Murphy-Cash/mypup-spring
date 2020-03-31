@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+</head>
+<body>
+<h1>Create Post</h1>
+<form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${dogPost}">
+    <label for="dogBreed">Enter dog breed.</label>
+    <input  type="text" name="title" th:field="*{dogBreed}" placeholder="Enter breed">
+    <label for="dogGroup">Enter dog group.</label>
+    <input  type="text" name="title" th:field="*{dogGroup}" placeholder="Enter group">
+    <label for="dogDescription">Enter dog description</label>
+    <textarea name="body" th:field="*{dogDescription}" placeholder="Enter description"></textarea>
+    <label for="dogPrice">Enter Price.</label>
+    <input  type="text" name="title" th:field="*{dogPrice}" placeholder="Enter Price">
+    <button>Save Post</button>
+</form>
+</body>
+</html>

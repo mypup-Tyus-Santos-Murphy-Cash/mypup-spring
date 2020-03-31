@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Viewing Post</title>
+</head>
+<body>
+<div th:each="breederPost : ${breederPosts}">
+    <h1 th:text="${breederPost.dogBreed}"></h1>
+    <p th:text="${breederPost.dogDescription}"></p>
+    <p th:text="${breederPost.dogGroup}"></p>
+    <p th:text="${breederPost.dogPrice}"></p>
+<!--<a href="'mailto:'+${post.user.email}"><span th:text="${post.user.email}"></span></a>-->
+<button class="delete-button" th:id="'delete-button-'+${breederPost.id}"></button>
+
+</div>
+<!--<div sec:authorize="isAuthenticated()">-->
+<!--    <div th:if="userName == post.user.userName">-->
+<!--        <a th:href="@{|/posts/${dogPost.id}/update|}"><button>Update Post</button></a>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>
