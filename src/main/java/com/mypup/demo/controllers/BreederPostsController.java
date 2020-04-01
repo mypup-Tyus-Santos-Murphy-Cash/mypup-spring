@@ -27,7 +27,7 @@ public class BreederPostsController {
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        return "breeder-posts/index";
+        return "breeder-posts/show";
     }
 
 
@@ -44,10 +44,10 @@ public class BreederPostsController {
     }
 
     @PostMapping("/breeder-posts/create")
-    public String createBreederPost(@ModelAttribute DogPost dogPost){
+    public String createBreederPost(@PathVariable long id,@ModelAttribute DogPost dogPost){
         User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (loggedinUser.getId() == dogPostDao.getOne(1l).getUser().getId())
-        dogPost.setUser(userDao.getOne(1L));
+        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
+        dogPost.setUser(userDao.getOne(id));
         dogPostDao.save(dogPost);
         return "redirect:/breeder-posts";
     }
@@ -57,12 +57,12 @@ public class BreederPostsController {
         User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
             dogPostDao.deleteById(id);
-        return "redirect:/posts/index";
+        return "redirect:/breeder-posts/home";
     }
 
     @GetMapping("/breeder-posts/{id}/update")
-    public String editDogPostForm(@PathVariable long id, Model model) {
-        model.addAttribute("breederPosts", editDogPostForm(id, model));
+    public String updateDogPostForm(@PathVariable long id, Model model) {
+        model.addAttribute("breederPosts", updateDogPostForm(id, model));
         return "breeder-posts/update";
     }
 
@@ -75,7 +75,7 @@ public class BreederPostsController {
         newDogPost.setDogGroup(newDogPost.getDogGroup());
         newDogPost.setDogPrice(newDogPost.getDogPrice());
         dogPostDao.save(newDogPost);
-        return "redirect:/breeder-post";
+        return "redirect:/breeder-posts";
     }
 
 
