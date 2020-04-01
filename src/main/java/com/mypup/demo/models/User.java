@@ -15,7 +15,7 @@ public class User {
     private long id;
     @Column(nullable = false, name = "user_role")
     private String userRole;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
     private String password;
@@ -35,9 +35,7 @@ public class User {
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;
 
-    public User(User user) {
 
-    }
 
     public List<Breed> getBreeds() {
         return breeds;
@@ -65,7 +63,12 @@ public class User {
 
     public User() {}
 
-
+    public User(User copy) {
+        id = copy.id;
+        username = copy.username;
+        password = copy.password;
+        email = copy.email;
+    }
     public void setDogPost(List<DogPost> dogPost) {
         this.dogPost = dogPost;
     }

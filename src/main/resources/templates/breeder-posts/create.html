@@ -14,15 +14,18 @@
         </div>
 
 <h1>Create Post</h1>
-<form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${dogPost}">
+<form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${newDogPost}">
     <label for="dogBreed">Enter dog breed.</label>
-    <input  type="text" name="title" th:field="*{dogBreed}" placeholder="Enter breed">
+    <input  type="text" name="dogBreed" th:field="*{dogBreed}" placeholder="Enter breed">
+
     <label for="dogGroup">Enter dog group.</label>
-    <input  type="text" name="title" th:field="*{dogGroup}" placeholder="Enter group">
+    <input  type="text" name="dogGroup" th:field="*{dogGroup}" placeholder="Enter group">
+
     <label for="dogDescription">Enter dog description</label>
-    <textarea name="body" th:field="*{dogDescription}" placeholder="Enter description"></textarea>
+    <textarea name="dogDescription" th:field="*{dogDescription}" placeholder="Enter description"></textarea>
+
     <label for="dogPrice">Enter Price.</label>
-    <input  type="text" name="title" th:field="*{dogPrice}" placeholder="Enter Price">
+    <input  type="text" name="dogPrice" th:field="*{dogPrice}" placeholder="Enter Price">
     <button>Save Post</button>
 </form>
 

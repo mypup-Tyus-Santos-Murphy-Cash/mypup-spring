@@ -27,7 +27,7 @@ public class BreederPostsController {
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        return "breeder-posts/index";
+        return "breeder-posts/show";
     }
 
 
@@ -38,17 +38,26 @@ public class BreederPostsController {
     }
 //get these to work//
     @GetMapping("/breeder-posts/create")
-    public String getCreatedBreederPostForm(Model model){
-        model.addAttribute("dogPost", new DogPost());
-        return "breeder-posts/create";
+    public String getCreatedBreederPostForm(){
+        User loggedIn = (User)
+        SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(loggedIn != null)
+            return "breeder-posts/create";
+        else
+        return "redirect:/login";
     }
 
     @PostMapping("/breeder-posts/create")
-    public String createBreederPost(@ModelAttribute DogPost dogPost){
-        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (loggedinUser.getId() == dogPostDao.getOne(1l).getUser().getId())
-        dogPost.setUser(userDao.getOne(1L));
-        dogPostDao.save(dogPost);
+    public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        newDogPost.setDogBreed(dogBreed);
+        newDogPost.setDogGroup(dogGroup);
+        newDogPost.setDogDescription(dogDescription);
+        newDogPost.setDogPrice(dogPrice);
+        newDogPost.setUser(loggedInUser);
+
+
+        dogPostDao.save(newDogPost);
         return "redirect:/breeder-posts";
     }
 
@@ -57,12 +66,12 @@ public class BreederPostsController {
         User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
             dogPostDao.deleteById(id);
-        return "redirect:/posts/index";
+        return "redirect:/breeder-posts/home";
     }
 
     @GetMapping("/breeder-posts/{id}/update")
-    public String editDogPostForm(@PathVariable long id, Model model) {
-        model.addAttribute("breederPosts", editDogPostForm(id, model));
+    public String updateDogPostForm(@PathVariable long id, Model model) {
+        model.addAttribute("breederPosts", updateDogPostForm(id, model));
         return "breeder-posts/update";
     }
 
@@ -75,7 +84,7 @@ public class BreederPostsController {
         newDogPost.setDogGroup(newDogPost.getDogGroup());
         newDogPost.setDogPrice(newDogPost.getDogPrice());
         dogPostDao.save(newDogPost);
-        return "redirect:/breeder-post";
+        return "redirect:/breeder-posts";
     }
 
 

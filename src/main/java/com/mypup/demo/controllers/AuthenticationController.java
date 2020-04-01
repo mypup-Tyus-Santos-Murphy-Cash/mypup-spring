@@ -15,15 +15,8 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-//        if (userDao.findByUserRole("breeder")) {
-//            return "users/breederProfile";
-
-        return "users/buyerProfile";
-        }
-
-    @GetMapping("/logout")
-    public String showLogoutForm() {
-        return "users/logout";
+        return "users/login";
     }
+
 
 }
