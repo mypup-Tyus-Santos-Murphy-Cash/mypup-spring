@@ -4,7 +4,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "image")
-public class Images {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "INT UNSIGNED")
@@ -19,9 +19,9 @@ public class Images {
     )
     private List<DogPost> dogPosts;
 
-    public Images() {}
+    public Image() {}
 
-    public Images(String location, List<DogPost> dogPosts) {
+    public Image(String location, List<DogPost> dogPosts) {
         this.location = location;
         this.dogPosts = dogPosts;
     }

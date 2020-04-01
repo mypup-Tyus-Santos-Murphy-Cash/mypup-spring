@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "INT(10) UNSIGNED")
@@ -35,6 +35,10 @@ public class Users {
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;
 
+    public User(User user) {
+
+    }
+
     public List<Breed> getBreeds() {
         return breeds;
     }
@@ -43,7 +47,7 @@ public class Users {
         this.breeds = breeds;
     }
 
-    public Users(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
+    public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
         this.userRole = userRole;
         this.username = username;
         this.password = password;
@@ -59,7 +63,7 @@ public class Users {
         return dogPost;
     }
 
-    public Users() {}
+    public User() {}
 
 
     public void setDogPost(List<DogPost> dogPost) {

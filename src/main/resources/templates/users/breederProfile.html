@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main class="container">
+    <div class=>
+    <div th:each="breederPost : ${breederPosts}">
+        <a th:href="@{|/breeder-posts/${breederPost.id}|}"><h1 th:text="${breederPost.dogBreed}"></h1></a>
+        <p th:text="${breederPost.dogDescription}"></p>
+        <a th:href="'mailto:'+${breederPost.user.email}"><span th:text="${breederPost.user.email}"></span> </a>
+        <br>
+        <a th:href="@{|/breeder-posts/${breederPost.id}/update|}">
+            <button>Update Post</button>
+        </a>
+        <form th:action="@{|/breeder-posts/${breederPost.id}/delete|}" th:method="POST" style="display:inline">
+            <button>Delete Post</button>
+        </form>
+    </div>
+    </div>
+</main>
+</body>
+</html>
