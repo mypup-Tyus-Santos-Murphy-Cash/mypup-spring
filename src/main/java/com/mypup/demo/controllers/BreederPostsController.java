@@ -38,7 +38,8 @@ public class BreederPostsController {
     }
 //get these to work//
     @GetMapping("/breeder-posts/create")
-    public String getCreatedBreederPostForm(){
+    public String getCreatedBreederPostForm(Model model){
+        model.addAttribute("newDogPost", new DogPost());
         User loggedIn = (User)
         SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(loggedIn != null)
@@ -55,8 +56,6 @@ public class BreederPostsController {
         newDogPost.setDogDescription(dogDescription);
         newDogPost.setDogPrice(dogPrice);
         newDogPost.setUser(loggedInUser);
-
-
         dogPostDao.save(newDogPost);
         return "redirect:/breeder-posts";
     }

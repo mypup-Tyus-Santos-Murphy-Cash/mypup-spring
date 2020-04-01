@@ -21,8 +21,10 @@
             <li class="nav-item ml-auto">
                 <a class="nav-link" th:href="@{/login}">Login</a>
             </li>
-            <li th:action="@{/logout}" th:method="post">
-                    <button class="btn-link btn" style="margin-top: 8px">Logout</button>
+            <li>
+                <form th:action="@{/logout}" th:method="post">
+                    <button class="btn-link btn" style="margin-top: 1px">Logout</button>
+                </form>
             </li>
         </ul>
     </div>
