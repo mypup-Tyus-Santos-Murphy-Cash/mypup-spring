@@ -6,6 +6,7 @@
 </head>
 <body>
 <main class="container">
+    <div class=>
     <div th:each="breederPost : ${breederPosts}">
         <a th:href="@{|/breeder-posts/${breederPost.id}|}"><h1 th:text="${breederPost.dogBreed}"></h1></a>
         <p th:text="${breederPost.dogDescription}"></p>
@@ -17,6 +18,7 @@
         <form th:action="@{|/breeder-posts/${breederPost.id}/delete|}" th:method="POST" style="display:inline">
             <button>Delete Post</button>
         </form>
+    </div>
     </div>
 </main>
 </body>

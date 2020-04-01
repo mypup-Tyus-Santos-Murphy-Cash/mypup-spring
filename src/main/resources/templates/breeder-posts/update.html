@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/header.html :: header('All Post')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+    <header class="container my-5">
+        <div class="jumbotron">
+            <h1 class="text-center display-1">Update a Post!</h1>
+        </div>
+
 <form th:action="@{|/breeder-posts/${id}/update|}" th:method="POST" th:object="${breederPosts}">
     <label for="post-id">
         <h3>Id</h3>
@@ -24,5 +31,8 @@
     </label>
     <button type="submit">submit!</button>
 </form>
+
+<th: block th:replace="fragments/scripts.html :: scripts"/>
+<footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

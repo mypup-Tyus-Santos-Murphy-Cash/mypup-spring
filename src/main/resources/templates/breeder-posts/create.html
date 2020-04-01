@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="fragments/header.html :: header('All Post')">
     <meta charset="UTF-8">
     <title>Create Post</title>
 </head>
 <body>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+    <header class="container my-5">
+        <div class="jumbotron">
+            <h1 class="text-center display-1">Create a Post</h1>
+        </div>
+
 <h1>Create Post</h1>
 <form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${dogPost}">
     <label for="dogBreed">Enter dog breed.</label>
@@ -17,5 +24,12 @@
     <input  type="text" name="title" th:field="*{dogPrice}" placeholder="Enter Price">
     <button>Save Post</button>
 </form>
+
+<th: block th:replace="fragments/scripts.html :: scripts"/>
+
+
+
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

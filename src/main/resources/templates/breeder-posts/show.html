@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
+<head th:replace="fragments/header.html :: header('All Post')">
     <meta charset="UTF-8">
     <title>Viewing Post</title>
 </head>
 <body>
-<div th:each="breederPost : ${breederPosts}">
-    <h1 th:text="${breederPost.dogBreed}"></h1>
-    <p th:text="${breederPost.dogGroup}"></p>
-    <p th:text="${breederPost.dogDescription}"></p>
-    <p th:text="${breederPost.dogPrice}"></p>
-<!--<a href="'mailto:'+${post.user.email}"><span th:text="${post.user.email}"></span></a>-->
-<button class="delete-button" th:id="'delete-button-'+${breederPost.id}"></button>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+    <header class="container my-5">
+        <div class="jumbotron">
+            <h1 class="text-center display-1">Breeder Posts</h1>
+        </div>
 
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div th:each="breederPost : ${breederPosts}">
+        <h1 th:text="${breederPost.dogBreed}"></h1>
+        <p th:text="${breederPost.dogGroup}"></p>
+        <p th:text="${breederPost.dogDescription}"></p>
+        <p th:text="${breederPost.dogPrice}"></p>
+        <!--<a href="'mailto:'+${post.user.email}"><span th:text="${post.user.email}"></span></a>-->
+        <button class="delete-button" th:id="'delete-button-'+${breederPost.id}"></button>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
 </div>
+
 <div sec:authorize="isAuthenticated()">
     <div th:if="userName == breederPost.user.username">
         <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
     </div>
 </div>
+
+<th: block th:replace="fragments/scripts.html :: scripts"/>
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>
