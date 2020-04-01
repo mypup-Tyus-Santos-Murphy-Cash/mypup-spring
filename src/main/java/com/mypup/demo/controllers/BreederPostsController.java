@@ -38,17 +38,26 @@ public class BreederPostsController {
     }
 //get these to work//
     @GetMapping("/breeder-posts/create")
-    public String getCreatedBreederPostForm(Model model){
-        model.addAttribute("dogPost", new DogPost());
-        return "breeder-posts/create";
+    public String getCreatedBreederPostForm(){
+        User loggedIn = (User)
+        SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(loggedIn != null)
+            return "breeder-posts/create";
+        else
+        return "redirect:/login";
     }
 
     @PostMapping("/breeder-posts/create")
-    public String createBreederPost(@PathVariable long id,@ModelAttribute DogPost dogPost){
-        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
-        dogPost.setUser(userDao.getOne(id));
-        dogPostDao.save(dogPost);
+    public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        newDogPost.setDogBreed(dogBreed);
+        newDogPost.setDogGroup(dogGroup);
+        newDogPost.setDogDescription(dogDescription);
+        newDogPost.setDogPrice(dogPrice);
+        newDogPost.setUser(loggedInUser);
+
+
+        dogPostDao.save(newDogPost);
         return "redirect:/breeder-posts";
     }
 
