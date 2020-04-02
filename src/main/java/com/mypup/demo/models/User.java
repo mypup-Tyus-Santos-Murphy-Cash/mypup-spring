@@ -68,6 +68,7 @@ public class User {
         username = copy.username;
         password = copy.password;
         email = copy.email;
+        userRole = copy.userRole;
     }
     public void setDogPost(List<DogPost> dogPost) {
         this.dogPost = dogPost;
