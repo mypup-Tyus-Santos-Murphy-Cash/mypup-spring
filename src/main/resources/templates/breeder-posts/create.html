@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header.html :: header('All Post')">
+<head th:replace="fragments/header.html :: header(title)">
     <meta charset="UTF-8">
     <title>Create Post</title>
 </head>
 <body>
 <div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+    <nav th:replace="fragments/breeder-navbar.html :: navbar"></nav>
     <header class="container my-5"></header>
         <div class="jumbotron">
             <h1 class="text-center display-1">Create a Post</h1>
@@ -31,11 +31,7 @@
     </div>
 </div>
 
-<th: block th:replace="fragments/scripts.html :: scripts"/>
-
-
-
-
+<div th: block th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>
