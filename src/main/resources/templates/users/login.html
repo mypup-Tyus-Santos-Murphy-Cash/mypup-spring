@@ -6,7 +6,11 @@
 </head>
 <body>
 <div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+    <div th:if="${#authentication.principal}">
+        <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+        <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
+        <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
+    </div>
     <header class="container my-5"></header>
     <div class="jumbotron">
         <h1 class="text-center display-1"> Login</h1>

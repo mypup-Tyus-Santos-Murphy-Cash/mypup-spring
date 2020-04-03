@@ -22,7 +22,7 @@
                 <a th:href="@{|/breeder-profile/update|}">
                     <button>Update Post</button>
                 </a>
-        <form th:action="@{|/breeder-profile|}" th:method="POST">
+        <form th:action="@{|/breeder-profile|}" th:method="POST" th:object="${userRoleBreeders}">
             <button>Delete Post</button>
         </form>
             </div>
