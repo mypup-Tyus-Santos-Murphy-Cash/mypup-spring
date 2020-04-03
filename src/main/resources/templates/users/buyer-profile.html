@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
+    <header class="container my-5"></header>
+    <div class="jumbotron">
+        <h1 class="text-center display-1">buyer Profile</h1>
+    </div>
+<main class="container">
+    <div class= "card">
+        <form th:action="@{|/breeder-profile/${id}|}" th:method="POST" th:object="${userRoleBuyer}">
+            <button>Delete Post</button>
+        </form>
+    </div>
+</main>
+</div>
+</body>
+</html>

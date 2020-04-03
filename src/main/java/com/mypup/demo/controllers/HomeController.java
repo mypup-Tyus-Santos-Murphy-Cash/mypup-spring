@@ -10,9 +10,8 @@ import javax.validation.constraints.Positive;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    @ResponseBody
     public String landingPage() {
-        return "Welcome to Mypup!";
+        return "landing";
     }
 
     @GetMapping("/index")
@@ -24,7 +23,5 @@ public class HomeController {
     public String homePage(){
         return "breeder-posts/home";
     }
-
-
 
 }

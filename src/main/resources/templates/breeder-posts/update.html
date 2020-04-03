@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header.html :: header('All Post')">
+<head th:replace="fragments/header.html :: header">
     <meta charset="UTF-8">
     <title>Title</title>
 
 </head>
 <body>
-<div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: navbar"></nav>
-    <header class="container my-5">
-        <div class="jumbotron">
-            <h1 class="text-center display-1">Update a Post!</h1>
-        </div>
+<nav th:replace="fragments/navbar.html :: navbar"></nav>
+<header class="container my-5"></header>
+<div class="jumbotron">
+    <h1 class="text-center display-1" id="update">Update a Post</h1>
+</div>
 
-<form th:action="@{|/breeder-posts/${id}/update|}" th:method="POST" th:object="${breederPosts}">
-    <label for="post-id">
-        <h3>Id</h3>
-        <input type="number" name="id" id="post-id" class="field" />
-    </label>
-    <label for="dogBreed"><h3>Breed</h3>
-        <input type="text" th:field="*{dogBreed}" placeholder="Enter a title"  />
-    </label>
-    <label for="dogGroup"><h3>Group</h3>
-        <input type="text" th:field="*{dogGroup}" placeholder="Enter a description" />
-    </label>
-    <label for="dogDescription"><h3>Description</h3>
-        <input type="text" th:field="*{dogDescription}" placeholder="Enter a description" />
-    </label>
-    <label for="dogPrice"><h3>Price</h3>
-        <input type="text" th:field="*{dogPrice}" placeholder="Enter a description" />
-    </label>
-    <button type="submit">submit!</button>
-</form>
+<div class="main-contianer embed-responsive embed-responsive-4by3">
 
+    <div class="wrapper">
+        <form th:action="@{|/breeder-posts/${id}/update|}" th:method="POST" th:object="${breederPosts}">
+            <label for="post-id">
+                <h3>Id</h3>
+                <input type="number" name="id" id="post-id" class="field" />
+            </label>
+            <label for="dogBreed"><h3>Breed</h3>
+                <input type="text" th:field="*{dogBreed}" placeholder="Enter a title"  />
+            </label>
+            <label for="dogGroup"><h3>Group</h3>
+                <input type="text" th:field="*{dogGroup}" placeholder="Enter a description" />
+            </label>
+            <label for="dogDescription"><h3>Description</h3>
+                <input type="text" th:field="*{dogDescription}" placeholder="Enter a description" />
+            </label>
+            <label for="dogPrice"><h3>Price</h3>
+                <input type="text" th:field="*{dogPrice}" placeholder="Enter a description" />
+            </label>
+            <button type="submit">submit!</button>
+        </form>
+    </div>
+</div>
 <th: block th:replace="fragments/scripts.html :: scripts"/>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>

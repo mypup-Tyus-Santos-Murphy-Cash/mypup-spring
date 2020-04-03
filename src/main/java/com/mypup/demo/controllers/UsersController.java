@@ -2,11 +2,13 @@ package com.mypup.demo.controllers;
 
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.UserRepo;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -32,6 +34,37 @@ public class UsersController {
         user.setPassword(hash);
         usersdao.save(user);
         return "redirect:/login";
+    }
+
+    @GetMapping("/buyer-profile/{id}")
+    public String gotToBuyer(@PathVariable long id, Model model) {
+        model.addAttribute("userRoleBuyer", usersdao.getOne(id));
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(loggedIn.getUserRole().equals("buyer"))
+            return "users/buyer-profile";
+        else
+            return "redirect:/login";
+    }
+
+
+    @GetMapping("/breeder-profile/{id}")
+    public String goToBreeder(@PathVariable long id, Model model){
+        model.addAttribute("userRoles", usersdao.getOne(id));
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(loggedIn.getUserRole().equals("breeder"))
+            return "users/breeder-profile";
+        else
+            return "redirect:/login";
+    }
+
+    @GetMapping("/admin-profile/{id}")
+    public String goToAdmin(@PathVariable long id, Model model) {
+        model.addAttribute("userRoleAdmin", usersdao.getOne(id));
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(loggedIn.getUserRole().equals("admin"))
+            return "users/admin-profile";
+        else
+            return "redirect:/login";
     }
 
 
