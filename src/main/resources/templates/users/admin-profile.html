@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header.html :: header('All Post')"></head>
+<body>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
+    <header class="container my-5">
+        <div class="jumbotron"> </div>
+    </header>
+
+    <h1>Welcome admin!</h1>
+<form th:action="@{|/admin-profile/${id}|}" th:method="POST" th:object="${userRoleAdmin}">
+    <button>Delete Post</button>
+</form>
+</div>
+</body>
+</html>

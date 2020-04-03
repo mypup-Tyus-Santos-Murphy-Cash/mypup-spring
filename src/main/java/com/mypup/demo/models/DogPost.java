@@ -14,7 +14,7 @@ public class DogPost {
     private String dogBreed;
     @Column(nullable = false, columnDefinition = "VARCHAR(200)", name = "dog_group")
     private String dogGroup;
-    @Column(columnDefinition = "VARCHAR(200)", name = "dog_description")
+    @Column(columnDefinition = "TEXT", name = "dog_description")
     private String dogDescription;
     @Column(columnDefinition = "VARCHAR(45)", name = "dog_price")
     private String dogPrice;

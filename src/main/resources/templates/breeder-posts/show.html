@@ -7,13 +7,15 @@
 <body>
 <!--<h1>hello from show!</h1>-->
 <div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+
+<!--    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>-->
+    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5">
         <div class="jumbotron">
             <h1 class="text-center display-1">Breeder Posts</h1>
         </div>
-
-<div class="card" style="width: 18rem;">
+    </header>
+<div class="card" style="width: 20rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
     <div th:each="breederPost : ${breederPosts}">
         <h1 th:text="${breederPost.dogBreed}"></h1>
@@ -26,12 +28,12 @@
 </div>
 
 <div sec:authorize="isAuthenticated()">
-    <div th:if="userName == breederPost.user.username">
+    <div th:if="username == breederPost.user.username">
         <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
-        <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
+        <button class="delete-button" th:id="'delete-button-'+${id}">Delete</button>
     </div>
 </div>
-
+</div>
 <th: block th:replace="fragments/scripts.html :: scripts"/>
 
 <footer th:replace="fragments/footer.html :: footer"></footer>

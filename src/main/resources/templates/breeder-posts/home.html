@@ -3,15 +3,15 @@
 <head th:replace="fragments/header.html :: header('All Post')"></head>
 <body>
 <div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: navbar"></nav>
+    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5">
         <div class="jumbotron">
             <h1 class="text-center display-1">Welcome to Mypup!</h1>
         </div>
     </header>
     <main class="container">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="/templates/static/images/mypup2.jpg" alt="Card image cap">
                 <div class="card-body">
                     <th:block th:each="breederPost : ${breederPosts}">
                         <div>
