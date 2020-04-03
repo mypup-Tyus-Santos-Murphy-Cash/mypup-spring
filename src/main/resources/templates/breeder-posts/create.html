@@ -11,22 +11,29 @@
     <h1 class="text-center display-1" id="create">Create a Post</h1>
 </div>
 
-<div class="main-container embed-responsive embed-responsive-4by3">
-    <div class="wrapper">
-        <form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${newDogPost}">
-            <label for="dogBreed">Enter dog breed.</label>
-            <input  type="text" name="dogBreed" th:field="*{dogBreed}" placeholder="Enter breed">
+<div class="card-container">
+    <div class="card mx-auto bg-light text-dark col-md-4">
+        <div class="card-body " id="sign-up">
+            <h5 class="card-title text-center">Create a Post</h5>
+                <div class="wrapper">
+                    <form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${newDogPost}">
+                        <label for="dogBreed">Enter dog breed.</label>
+                        <input  type="text" name="dogBreed" th:field="*{dogBreed}" placeholder="Enter breed">
+                        <br>
+                        <label for="dogGroup">Enter dog group.</label>
+                        <input  type="text" name="dogGroup" th:field="*{dogGroup}" placeholder="Enter group">
+                        <br>
+                        <label for="dogDescription">Enter dog description</label>
+                        <textarea name="dogDescription" th:field="*{dogDescription}" placeholder="Enter description"></textarea>
+                        <br>
+                        <label for="dogPrice">Enter Price.</label>
+                        <input  type="text" name="dogPrice" th:field="*{dogPrice}" placeholder="Enter Price">
+                        <br>
+                        <button id="save">Save Post</button>
+                    </form>
+                </div>
 
-            <label for="dogGroup">Enter dog group.</label>
-            <input  type="text" name="dogGroup" th:field="*{dogGroup}" placeholder="Enter group">
-
-            <label for="dogDescription">Enter dog description</label>
-            <textarea name="dogDescription" th:field="*{dogDescription}" placeholder="Enter description"></textarea>
-
-            <label for="dogPrice">Enter Price.</label>
-            <input  type="text" name="dogPrice" th:field="*{dogPrice}" placeholder="Enter Price">
-            <button id="save">Save Post</button>
-        </form>
+        </div>
     </div>
 </div>
 
