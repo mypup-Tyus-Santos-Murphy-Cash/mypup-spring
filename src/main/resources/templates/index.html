@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header.html :: header(title)">
+<head th:replace="fragments/header.html :: header">
 
     <meta charset="UTF-8">
     <title>MyPup</title>
 </head>
 <body>
-<div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
-    <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center display-1">Welcome to MyPup</h1>
-    </div>
+<nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
+<header class="container my-5"></header>
+<div class="jumbotron">
+    <h1 class="text-center display-1">Welcome to MyPup</h1>
 </div>
-<h1></h1>
+<div class="wrapper">
+<div class="main-container embed-responsive embed-responsive-4by3">
+
+</div>
+</div>
+<div th:replace="fragments/scripts.html :: scripts"></div>
+<div th:replace="fragments/footer.html :: footer"></div>
 </body>
 </html>
 

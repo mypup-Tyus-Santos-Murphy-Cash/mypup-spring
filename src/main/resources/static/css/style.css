@@ -3,25 +3,30 @@
 }
 
 body {
-    border: black 2vw solid;
+    border: lightseagreen 1vw solid;
+    background-image: url("/static/images/mypup2.jpg");
+}
+.navbar-brand {
+   font-family: 'Pacifico', cursive;
 }
 
 .jumbotron {
-    background-image: url("images/mypup2.jpg");
+    background-image: url("/static/images/mypup2.jpg");
     /*background-size: cover;*/
     /*min-height: 75vh;*/
     height: auto;
-    width: 96vw;
-    position: center;
-    z-index: -1;
-}
-
-.trant {
-    font-size: 3em;
-    text-align: center;
-    color: darkorange;
+    width: auto;
+    /*position: center;*/
+    /*z-index: -1;*/
     font-family: 'Pacifico', cursive;
 }
+
+/*.trant {*/
+/*    font-size: 3em;*/
+/*    text-align: center;*/
+/*    color: darkorange;*/
+/*    font-family: 'Pacifico', cursive;*/
+/*}*/
 
 .transparent-black {
     background-color: rgba(0, 0, 0, .5);
