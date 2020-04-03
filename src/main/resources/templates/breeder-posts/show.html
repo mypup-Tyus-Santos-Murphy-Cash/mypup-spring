@@ -14,6 +14,7 @@
         <div class="jumbotron">
             <h1 class="text-center display-1">Breeder Posts</h1>
         </div>
+    </header>
 
 <div class="card" style="width: 20rem;">
     <img class="card-img-top" src="..." alt="Card image cap">
@@ -32,6 +33,7 @@
         <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
         <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
     </div>
+</div>
 </div>
 
 <th: block th:replace="fragments/scripts.html :: scripts"/>

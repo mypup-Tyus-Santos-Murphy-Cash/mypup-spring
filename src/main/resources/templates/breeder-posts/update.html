@@ -12,6 +12,7 @@
         <div class="jumbotron">
             <h1 class="text-center display-1">Update a Post!</h1>
         </div>
+    </header>
 
 <form th:action="@{|/breeder-posts/${id}/update|}" th:method="POST" th:object="${breederPosts}">
     <label for="post-id">
@@ -32,6 +33,7 @@
     </label>
     <button type="submit">submit!</button>
 </form>
+</div>
 
 <th: block th:replace="fragments/scripts.html :: scripts"/>
 <footer th:replace="fragments/footer.html :: footer"></footer>
