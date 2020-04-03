@@ -19,10 +19,10 @@
                 <a th:href="@{|/breeder-profile/${id}|}"><h1 th:text="${userRole.username}"></h1></a>
                 <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span> </a>
                 <br>
-                <a th:href="@{|/breeder-profile/${id}/update|}">
+                <a th:href="@{|/breeder-profile/update|}">
                     <button>Update Post</button>
                 </a>
-        <form th:action="@{|/breeder-profile/${id}|}" th:method="POST" th:object="${userRoleBreeders}">
+        <form th:action="@{|/breeder-profile|}" th:method="POST">
             <button>Delete Post</button>
         </form>
             </div>

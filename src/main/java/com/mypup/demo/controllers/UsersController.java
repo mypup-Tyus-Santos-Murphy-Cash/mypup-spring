@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class UsersController {
     private UserRepo usersdao;
@@ -36,22 +35,20 @@ public class UsersController {
         return "redirect:/login";
     }
 
-    @GetMapping("/buyer-profile/{id}")
-    public String gotToBuyer(@PathVariable long id, Model model) {
-        model.addAttribute("userRoleBuyer", usersdao.getOne(id));
+    @GetMapping("/buyer-profile")
+    public String gotToBuyer(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userRoleBuyer", loggedIn);
         if(loggedIn.getUserRole().equals("buyer"))
             return "users/buyer-profile";
         else
             return "redirect:/login";
     }
 
-
-    @GetMapping("/breeder-profile/{id}")
-    public String goToBreeder(@PathVariable long id, Model model){
-        model.addAttribute("userRoleBreeders", usersdao.getOne(id));
-        model.addAttribute("userRoleBreeders2", usersdao.getOne(id));
+    @GetMapping("/breeder-profile")
+    public String goToBreeder(Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userRoleBreeders", loggedIn);
         if(loggedIn.getUserRole().equals("breeder"))
             return "users/breeder-profile";
         else
@@ -59,10 +56,10 @@ public class UsersController {
     }
 
 
-    @GetMapping("/admin-profile/{id}")
-    public String goToAdmin(@PathVariable long id, Model model) {
-        model.addAttribute("userRoleAdmin", usersdao.getOne(id));
+    @GetMapping("/admin-profile")
+    public String goToAdmin(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userRoleAdmin", loggedIn);
         if(loggedIn.getUserRole().equals("admin"))
             return "users/admin-profile";
         else

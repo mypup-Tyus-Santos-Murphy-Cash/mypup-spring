@@ -5,8 +5,7 @@
     <title>Navbar</title>
 </head>
 <body>
-    <div sec:authorize="isAuthenticated()">
-<nav th:fragment="breeder-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav  th:fragment="breeder-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" th:href="@{/}">My Pup</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,7 +22,7 @@
                 <a class="nav-link" th:href="@{/login}">Login</a>
             </li>
             <li class="nav-item ml-auto">
-                <a class="nav-link" th:href="@{|/breeder-profile/${id}|}" >Profile</a>
+                <a class="nav-link"  th:href="@{|/breeder-profile|}" th:method="POST">Profile</a>
             </li>
             <li>
                 <form th:action="@{/logout}" th:method="post">
@@ -33,7 +32,6 @@
         </ul>
     </div>
 </nav>
-    </div>
 <div>
     <nav th:fragment="buyer-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" th:href="@{/}">My Pup</a>
@@ -50,6 +48,9 @@
                 </li>
                 <li class="nav-item ml-auto">
                     <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link"  th:href="@{|/buyer-profile|}" th:method="POST">Profile</a>
                 </li>
             </ul>
         </div>
@@ -114,6 +115,9 @@
             </li>
             <li class="nav-item ml-auto">
                 <a class="nav-link" th:href="@{/login}">Login</a>
+            </li>
+            <li class="nav-item ml-auto">
+                <a class="nav-link"  th:href="@{|/admin-profile|}" th:method="POST">Profile</a>
             </li>
             <li>
                 <form th:action="@{/logout}" th:method="post">
