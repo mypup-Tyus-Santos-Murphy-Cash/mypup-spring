@@ -7,13 +7,13 @@
 <body>
 <div class="wrapper">
     <block th:switch="${showUserRole.getUserRole()}">
-        <div th:case="breeder">
+        <div th:case="'breeder'">
         <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
         </div>
-        <div th:case="buyer">
+        <div th:case="'buyer'">
         <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
         </div>
-        <div th:case="admin">
+        <div th:case="'admin'">
         <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
         </div>
     </block>
