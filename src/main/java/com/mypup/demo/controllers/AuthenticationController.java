@@ -19,8 +19,12 @@ public class AuthenticationController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm(Long id, Model model) {
-        model.addAttribute("showUserRole", userDao.findUserById(id));
+    public String showLoginForm(Model model) {
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("showUserRole", loggedIn.getUserRole());
+//        model.addAttribute("showBreederRole", userDao.findByUserRole("breeder"));
+//        model.addAttribute("showBuyerProfile", userDao.findByUserRole("buyer"));
+//        model.addAttribute("showAdminProfile", userDao.findByUserRole("admin"));
         return "users/login";
     }
 
