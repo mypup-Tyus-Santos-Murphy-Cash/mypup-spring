@@ -7,7 +7,6 @@
 </head>
 <body>
 <div class="wrapper">
-
     <th:block th:switch="${showUserRoles}">
         <div th:case="${showUserRoles.getUserRole().equals('breeder')}">
             <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
