@@ -7,7 +7,18 @@
 </head>
 <body>
 <div class="wrapper">
-    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
+
+    <th:block th:switch="${showUserRoles}">
+        <div th:case="${showUserRoles.getUserRole().equals('breeder')}">
+            <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+        </div>
+        <div th:case="${showUserRoles.getUserRole().equals('buyer')}">
+            <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
+        </div>
+        <div th:case="${showUserRoles.getUserRole().equals('admin')}">
+            <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
+        </div>
+    </th:block>
     <header class="container my-5"></header>
     <div class="jumbotron">
         <h1 class="text-center display-1">Welcome to MyPup</h1>
