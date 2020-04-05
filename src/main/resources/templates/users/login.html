@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<div class="wrapper">
+<div class="main-container">
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron">
@@ -18,19 +18,18 @@
             <br>
             <form class="card-text" th:action="@{/login}" method="post">
                 <div class="form-body">
-                <label for="username">Username</label>
-                <input id="username" name="username" type="text" />
+                    <label for="username">Username</label>
+                    <input id="username" name="username" type="text" />
                     <br>
-                <label for="password">Password</label>
-                <input id="password" name="password" type="password" />
-                <input type="submit" value="Log In" />
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" />
+                    <input type="submit" value="Log In" />
                 </div>
             </form>
         </div>
     </div>
 </div>
-    </div>
-
+</div>
     <div th:if="${param.error}">
         Invalid Username and Password.
     </div>

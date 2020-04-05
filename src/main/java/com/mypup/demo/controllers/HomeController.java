@@ -24,4 +24,9 @@ public class HomeController {
         return "breeder-posts/home";
     }
 
+    @GetMapping("/about")
+    public String aboutPage(){
+        return "about";
+    }
+
 }
