@@ -6,11 +6,11 @@
 </head>
 <body>
 <div class="wrapper">
-    <th:block th:case="${showUserRole}">
-    <div th:case="'breeder'">
+    <th:block th:case="${showUserRoles}">
+    <div th:case="${showUserRoles.getUserRole().equals('breeder')}">
         <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
     </div>
-        <div th:case="'buyer'">
+        <div th:case="${}">
         <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
         </div>
         <div th:case="'admin'">
