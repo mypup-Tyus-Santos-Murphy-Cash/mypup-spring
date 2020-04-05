@@ -6,18 +6,17 @@
 </head>
 <body>
 <div class="wrapper">
-    <th:block th:case="${showUserRoles}">
+    <th:block th:switch="${showUserRoles}">
     <div th:case="${showUserRoles.getUserRole().equals('breeder')}">
         <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
-    </div>
-        <div th:case="${}">
+     </div>
+        <div th:case="${showUserRoles.getUserRole().equals('buyer')}">
         <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
         </div>
-        <div th:case="'admin'">
+        <div th:case="${showUserRoles.getUserRole().equals('admin')}">
         <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
         </div>
     </th:block>
-
     <header class="container my-5"></header>
     <div class="jumbotron">
         <h1 class="text-center display-1"> Login</h1>

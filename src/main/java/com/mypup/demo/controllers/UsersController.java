@@ -69,10 +69,8 @@ public class UsersController {
     @PostMapping("/login")
     public String showUserRole(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(loggedIn.getUserRole().equals("breeder"));
         model.addAttribute("showUserRoles", loggedIn);
-//        model.addAttribute("showBuyerProfile", usersdao.findByUserRole("buyer"));
-//        model.addAttribute("showBreederRole", usersdao.findByUserRole("breeder"));
-//        model.addAttribute("showAdminProfile", usersdao.findByUserRole("admin"));
         return "users/login";
     }
 
