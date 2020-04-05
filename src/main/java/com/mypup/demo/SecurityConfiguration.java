@@ -59,7 +59,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers(
                             "/breeder-posts/create", // only authenticated users can create posts
                             "/breeder-posts/{id}/update",//, // only authenticated users can edit posts
-                            "/breeder-posts/{id}/delete"//only authenticated users can delete posts
+                            "/breeder-posts/{id}/delete",//only authenticated users can delete posts
+                            "/breeder-profile",
+                            "/buyer-profile",
+                            "/admin-profile",
+                            "/index"
                     )
                     .authenticated()
             ;
