@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header.html :: header(title)">
-
     <meta charset="UTF-8">
     <title>MyPup</title>
 </head>
 <body>
 <div class="wrapper">
-    <th:block th:switch="${showUserRoles}">
-        <div th:case="${showUserRoles.getUserRole().equals('breeder')}">
+        <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
             <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
         </div>
-        <div th:case="${showUserRoles.getUserRole().equals('buyer')}">
+        <div th:if="${showUserRoles.getUserRole().equals('buyer')}">
             <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
         </div>
-        <div th:case="${showUserRoles.getUserRole().equals('admin')}">
+        <div th:if="${showUserRoles.getUserRole().equals('admin')}">
             <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
         </div>
-    </th:block>
     <header class="container my-5"></header>
     <div class="jumbotron">
         <h1 class="text-center display-1">Welcome to MyPup</h1>

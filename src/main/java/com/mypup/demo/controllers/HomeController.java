@@ -21,6 +21,7 @@ public class HomeController {
     public String welcome(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
+        System.out.println(loggedIn.getUserRole());
         return "index";
     }
 
