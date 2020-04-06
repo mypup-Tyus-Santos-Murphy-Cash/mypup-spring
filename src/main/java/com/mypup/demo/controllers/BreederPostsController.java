@@ -30,7 +30,6 @@ public class BreederPostsController {
         return "breeder-posts/show";
     }
 
-
     @GetMapping ("/breeder-posts/{id}")
     public String getBreederPosts(@PathVariable long id, Model model){
         model.addAttribute("breederPosts", dogPostDao.getOne(id));
@@ -41,7 +40,7 @@ public class BreederPostsController {
     public String getCreatedBreederPostForm(Model model){
         model.addAttribute("newDogPost", new DogPost());
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(loggedIn != null)
+        if(loggedIn.getUserRole().equals("breeder")  || loggedIn.getUserRole().equals("admin"))
             return "breeder-posts/create";
         else
         return "redirect:/login";
@@ -85,6 +84,15 @@ public class BreederPostsController {
         return "redirect:/breeder-posts";
     }
 
+    @GetMapping("/companion-search")
+    public String showCompanion(Model model) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("companion", loggedInUser);
+        if(loggedInUser.getUserRole().equals("buyer"))
+            return "companion-search";
+        else
+            return "redirect:/login";
+    }
 
 }
 
