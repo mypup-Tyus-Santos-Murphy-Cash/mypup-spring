@@ -4,14 +4,21 @@
 
 body {
     border: lightseagreen 1vw solid;
-    background-image: url("/static/images/mypup2.jpg");
+    background-image: url("/images/mypup2.jpg");
+    background-position: inherit;
+    background-repeat: no-repeat;
 }
+
+.landing{
+    height: 100vh;
+}
+
 .navbar-brand {
    font-family: 'Pacifico', cursive;
 }
 
 .jumbotron {
-    background-image: url("/static/images/mypup2.jpg");
+    /*background-image: url("/images/mypup2.jpg");*/
     /*background-size: cover;*/
     /*min-height: 75vh;*/
     height: auto;

@@ -86,6 +86,15 @@ public class BreederPostsController {
         return "redirect:/breeder-posts";
     }
 
+    @GetMapping("breeder-posts/favorites")
+    public String favorites(@PathVariable long id, @ModelAttribute DogPost dogPost) {
+        DogPost favoritePost = dogPostDao.findById(id);
+        favoritePost.setUser(favoritePost.getUser());
+        dogPostDao.save(favoritePost);
+        return "redirect:/users/buyer-profile";
+    }
+
+
 
 }
 
