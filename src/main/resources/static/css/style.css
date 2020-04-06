@@ -59,10 +59,16 @@ body {
     height: 100vh;
 }
 
-.btn-success {
-     background-color: darkgreen;
+.btn:hover {
+     background-color: lightseagreen;
+
+
 }
 
 .btn{
     border: black 2px  solid;
+}
+
+.nav-item:hover{
+    color: lightseagreen;
 }
