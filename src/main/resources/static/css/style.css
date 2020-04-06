@@ -4,36 +4,65 @@
 
 body {
     border: lightseagreen 1vw solid;
-    background-image: url("/images/mypup2.jpg");
-    background-position: inherit;
+    background-size: cover;
     background-repeat: no-repeat;
+
 }
 
-.landing{
-    height: 100vh;
+#landing-container{
+    background-image: url("/images/mypup2.jpg");
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
 }
 
 .navbar-brand {
    font-family: 'Pacifico', cursive;
 }
 
+#footer{
+}
+
 .jumbotron {
     /*background-image: url("/images/mypup2.jpg");*/
     /*background-size: cover;*/
+    /*background: none;*/
     /*min-height: 75vh;*/
-    height: auto;
-    width: auto;
+    /*height: auto;*/
+    /*width: auto;*/
     /*position: center;*/
     /*z-index: -1;*/
     font-family: 'Pacifico', cursive;
 }
 
-/*.trant {*/
-/*    font-size: 3em;*/
-/*    text-align: center;*/
-/*    color: darkorange;*/
-/*    font-family: 'Pacifico', cursive;*/
-/*}*/
+.jumbotron-landing {
+    /*background-image: url("/images/mypup2.jpg");*/
+    background-size: cover;
+    background: none;
+    min-height: 75vh;
+    height: auto;
+    width: auto;
+    position: center;
+    z-index: -1;
+    font-family: 'Pacifico', cursive;
+    margin-top: 20vh;
+}
+
+.jumbotron-show {
+    /*background-image: url("/images/mypup2.jpg");*/
+    /*background-size: cover;*/
+    /*background: none;*/
+    /*min-height: 75vh;*/
+    /*height: auto;*/
+    /*width: auto;*/
+    /*position: center;*/
+    /*z-index: -1;*/
+    font-family: 'Pacifico', cursive;
+}
+
+.breeder{
+
+}
 
 .transparent-black {
     background-color: rgba(0, 0, 0, .5);
@@ -46,6 +75,7 @@ body {
 .card {
     background-color: lightgray;
     border: black 5px solid;
+
 }
 
 

@@ -5,12 +5,11 @@
     <title>Landing page</title>
 </head>
 <body>
-<div class="main-container landing">
-
-    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
+<nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
+<div class="main-container" id="landing-container">
     <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center display-1">Welcome to MyPup</h1>
+    <div class="jumbotron-landing" id="transparent-black">
+        <h1 class="text-left text-light display-1">Welcome to MyPup</h1>
     </div>
 
 <!--    <div>-->

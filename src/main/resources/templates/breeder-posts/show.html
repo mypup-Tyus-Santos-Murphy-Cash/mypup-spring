@@ -5,61 +5,30 @@
     <title>Viewing Post</title>
 </head>
 <body>
-<!--    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>-->
 <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
 <header class="container my-5">
-    <div class="jumbotron">
+    <div class="jumbotron-show">
         <h1 class="text-center display-1" id="breeder-posts">Breeder Posts</h1>
     </div>
 </header>
-
-<!--<div class="container">-->
-<!--    <div class="row">-->
-
-<!--        <div class="col-xl-3 col-md-6 mb-4">-->
-
-<!--            <div class="card border-0 shadow">-->
-
-<!--                <img class="card-img-top" src="IMG/pixie_shoot.jpg" alt="...">-->
-<!--                <div class="vh card-body text-center">-->
-<!--                    <h5 class="card-title">About Me!</h5>-->
-<!--                    <a href="#" class=" btn btn-primary">View About Me</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; /.row &ndash;&gt;-->
-<!--    </div>-->
-<!--</div>-->
-
-cards for posts
 <div class="main-container">
-        <div class="row">
-
-<!--            <div class="col-xl-3 col-md-6 mb-4">-->
-
-<!--                <div class="col-xl-4 col-md-6 mb-4">-->
-
-                    <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 20rem;" th:each="breederPost : ${breederPosts}">
-                                <img class="card-img-top" src="/postImages/pixie.jpg" alt="Card image cap">
-                                <h1 th:text="${breederPost.dogBreed}"></h1>
-                                <p th:text="${breederPost.dogGroup}"></p>
-                                <p th:text="${breederPost.dogDescription}"></p>
-                                <p th:text="${breederPost.dogPrice}"></p>
-                                <br>
-                        <!--        <a href="'mailto:'+${breederPost.user.email}"><span th:text="${breederPosts.user.email}"></span></a>-->
-                        <div sec:authorize="isAuthenticated()">
-                            <div th:if="userName == breederPost.user.username">
-                                <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
-                                <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+    <div class="row">
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 20rem;" th:each="breederPost : ${breederPosts}">
+            <img class="card-img-top" src="/postImages/photo_pixie_5.jpg" alt="Card image cap">
+            <h1 th:text="${breederPost.dogBreed}"></h1>
+            <p th:text="${breederPost.dogGroup}"></p>
+            <p th:text="${breederPost.dogDescription}"></p>
+            <p th:text="${breederPost.dogPrice}"></p>
+            <br>
+            <div sec:authorize="isAuthenticated()">
+                <div th:if="userName == breederPost.user.username">
+                    <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
+                    <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <div th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
