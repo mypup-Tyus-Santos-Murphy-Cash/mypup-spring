@@ -36,12 +36,11 @@ public class BreederPostsController {
         model.addAttribute("breederPosts", dogPostDao.getOne(id));
         return "breeder-posts/show";
     }
-//get these to work//
+
     @GetMapping("/breeder-posts/create")
     public String getCreatedBreederPostForm(Model model){
         model.addAttribute("newDogPost", new DogPost());
-        User loggedIn = (User)
-        SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(loggedIn != null)
             return "breeder-posts/create";
         else
