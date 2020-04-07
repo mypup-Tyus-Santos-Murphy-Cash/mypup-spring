@@ -14,7 +14,6 @@
 <div th:if="${showUserRoles.getUserRole().equals('admin')}">
     <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
 </div>
-
 <div th:if="${showUserRoles.getUsername().equals(null)}">
 <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
 </div>

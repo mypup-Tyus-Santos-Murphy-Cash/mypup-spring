@@ -29,6 +29,12 @@ public class BreederPostsController {
         return "breeder-posts/show";
     }
 
+    @GetMapping("/visitor-show")
+    public String getVisitorShow(Model model) {
+        model.addAttribute("breederPosts", dogPostDao.findAll());
+        return "breeder-posts/visitor-show";
+    }
+
     @GetMapping ("/breeder-posts/{id}")
     public String getBreederPosts(@PathVariable long id, Model model){
         model.addAttribute("breederPosts", dogPostDao.getOne(id));
