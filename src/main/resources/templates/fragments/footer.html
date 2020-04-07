@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:fragment = "footer">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
 
     <meta charset="UTF-8">
     <title>Home</title>
@@ -9,9 +9,10 @@
 
 </body>
 
-<footer id="footer">
+<footer  id="footer">
+    <div th:fragment= "footer" >
     <p class="footer text-center text-light">Copyright 2020</p>
     <p class="about text-center text-light"><a  href="/about">About</a></p>
-
+    </div>
 </footer>
 </html>

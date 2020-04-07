@@ -36,31 +36,30 @@ public class UsersController {
         return "redirect:/login";
     }
 
-    @GetMapping("/buyer-profile/{id}")
-    public String gotToBuyer(@PathVariable long id, Model model) {
-        model.addAttribute("userRoleBuyer", usersdao.getOne(id));
+    @GetMapping("/buyer-profile")
+    public String gotToBuyer(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userRoleBuyer", loggedIn);
         if(loggedIn.getUserRole().equals("buyer"))
             return "users/buyer-profile";
         else
             return "redirect:/login";
     }
 
-
-    @GetMapping("/breeder-profile/{id}")
-    public String goToBreeder(@PathVariable long id, Model model){
-        model.addAttribute("userRoles", usersdao.getOne(id));
+    @GetMapping("/breeder-profile")
+    public String goToBreeder(Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userRoleBreeders", loggedIn);
         if(loggedIn.getUserRole().equals("breeder"))
             return "users/breeder-profile";
         else
             return "redirect:/login";
     }
 
-    @GetMapping("/admin-profile/{id}")
-    public String goToAdmin(@PathVariable long id, Model model) {
-        model.addAttribute("userRoleAdmin", usersdao.getOne(id));
+    @GetMapping("/admin-profile")
+    public String goToAdmin(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("userRoleAdmin", loggedIn);
         if(loggedIn.getUserRole().equals("admin"))
             return "users/admin-profile";
         else
