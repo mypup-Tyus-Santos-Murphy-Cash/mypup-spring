@@ -3,6 +3,7 @@ package com.mypup.demo.controllers;
 import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
+import com.mypup.demo.repos.ImageRepo;
 import com.mypup.demo.repos.UserRepo;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,10 +16,12 @@ public class BreederPostsController {
 
     private DogPostRepo dogPostDao;
     private UserRepo userDao;
+    private ImageRepo imageDao;
 
-    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao) {
+    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao, ImageRepo imageDao) {
         this.dogPostDao = dogPostDao;
         this.userDao = userDao;
+        this.imageDao = imageDao;
     }
 
 

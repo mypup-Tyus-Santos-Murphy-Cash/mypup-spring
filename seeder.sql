@@ -45,7 +45,7 @@ INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.
 INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231338/Labrador-Retriever-On-White-08.jpg');
 INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225358/Pug-On-White-01.jpg');
 INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12224133/Silky-Terrier-On-White-01.jpg');
-INSERT INTO image(location) value ('/images/postImages/photo_pixie_5');
+# INSERT INTO image(location) value ('/images/postImages/photo_pixie_5');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('1', '1');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('2', '2');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('3', '3');
@@ -61,4 +61,4 @@ INSERT INTO  pivot_image(image_id, dog_post_id) values('12', '12');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('13', '13');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('14', '14');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('15', '15');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('16', '16');
+# INSERT INTO  pivot_image(image_id, dog_post_id) values('16', '16');
