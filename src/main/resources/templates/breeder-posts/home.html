@@ -4,7 +4,7 @@
 <body>
 <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
 <header class="container my-5"></header>
-<div class="jumbotron">
+<div class="jumbotron-home">
     <h1 class="text-center display-1" id="home">Welcome to MyPup</h1>
 </div>
 <div class="main-container embed-responsive embed-responsive-4by3">
@@ -35,13 +35,10 @@
 <!--                &lt;!&ndash;        Checks to see if person who created the post is also the person logged in&ndash;&gt;-->
 <!--                <button th:if="${breeder-post.getUser().id == #authentication.getPrincipal().id}" type="submit"><a th:href="@{'/breeder-post/{id}/delete/' + ${breeder-post.getId()}}">Delete Post</a></button>-->
 <!--            </div>-->
+</div>
 
 
-<th: block th:replace="fragments/scripts.html :: scripts"/>
-
-
-
-
-<footer th:replace="fragments/footer.html :: footer"></footer>
+    <div><th:block th:replace="fragments/scripts.html :: scripts"/></div>
+    <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

@@ -4,7 +4,7 @@
 
 body {
     border: lightseagreen 1vw solid;
-    background-size: cover;
+    background-size: inherit;
     background-repeat: no-repeat;
 
 }
@@ -25,11 +25,12 @@ body {
 
 .jumbotron {
     /*background-image: url("/images/mypup2.jpg");*/
-    /*background-size: cover;*/
+    background-size: cover;
+    background-repeat: no-repeat;
     /*background: none;*/
-    /*min-height: 75vh;*/
+    min-height: 75vh;
     /*height: auto;*/
-    /*width: auto;*/
+    width: auto;
     /*position: center;*/
     /*z-index: -1;*/
     font-family: 'Pacifico', cursive;
@@ -49,15 +50,62 @@ body {
 }
 
 .jumbotron-show {
-    /*background-image: url("/images/mypup2.jpg");*/
-    /*background-size: cover;*/
+    background-image: url("/images/3pups.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
     /*background: none;*/
-    /*min-height: 75vh;*/
-    /*height: auto;*/
-    /*width: auto;*/
+    min-height: 30vh;
+    height: auto;
+    width: auto;
     /*position: center;*/
     /*z-index: -1;*/
     font-family: 'Pacifico', cursive;
+}
+
+.jumbotron-create{
+    background-image: url("/images/brown-puppy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30vh;
+    font-family: 'Pacifico', cursive;
+
+}
+.jumbotron-sign{
+    /*background-image: url("/images/two-dogs.jpg");*/
+    /*background-size: 100%;*/
+    /*height: auto;*/
+    /*width: auto;*/
+    /*background-repeat: no-repeat;*/
+    font-family: 'Pacifico', cursive;
+
+}
+
+#sign-up{
+    border: black 2px solid;
+}
+
+.jumbotron-home{
+    background-image: url("/images/little-pup.jpg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    min-height: 30vh;
+    font-family: 'Pacifico', cursive;
+}
+
+.login{
+    background-image: url("/images/little-pup.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.jumbotron-login{
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*height: 30vh;*/
+    min-height: 40vh;
+    width: 100%;
+    font-family: 'Pacifico', cursive;
+
 }
 
 .breeder{
@@ -75,7 +123,6 @@ body {
 .card {
     background-color: lightgray;
     border: black 5px solid;
-
 }
 
 
@@ -108,4 +155,14 @@ body {
 
 .nav-item:hover{
     color: lightseagreen;
+}
+
+.sign{
+    background-image: url("/images/3pups.jpg");
+    background-repeat: no-repeat;
+    background-size: 1620px;
+    background-position: center;
+    height: 90%;
+    width: auto;
+
 }

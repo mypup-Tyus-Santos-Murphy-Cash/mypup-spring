@@ -5,14 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-<div class="main-container">
+<div class="main-container login">
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
     <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center display-1" id="login"> Login</h1>
+    <div class="jumbotron-login">
+        <h1 class="text-left mx-5 display-1" id="login"> Login</h1>
     </div>
 <div class="card-container">
-    <div class="card mx-auto bg-light text-dark col-md-4">
+    <div class="card mx-5 bg-light text-dark col-md-4">
         <div class="card-body " id="login-card">
             <h5 class="card-title text-center">Please log in</h5>
             <br>
@@ -29,7 +29,7 @@
         </div>
     </div>
 </div>
-</div>
+
     <div th:if="${param.error}">
         Invalid Username and Password.
     </div>
@@ -37,6 +37,9 @@
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
+
+<div th:block th:replace="fragments/scripts.html :: scripts"></div>
+<footer th:replace="fragments/footer.html :: footer"></footer>
 </div>
 </body>
 </html>
