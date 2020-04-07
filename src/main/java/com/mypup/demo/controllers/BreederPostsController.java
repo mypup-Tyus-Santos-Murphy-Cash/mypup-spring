@@ -21,6 +21,7 @@ public class BreederPostsController {
         this.userDao = userDao;
     }
 
+
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -99,6 +100,16 @@ public class BreederPostsController {
         else
             return "redirect:/home";
     }
+
+    @GetMapping("breeder-posts/favorites")
+    public String favorites(@PathVariable long id, @ModelAttribute DogPost dogPost) {
+        DogPost favoritePost = dogPostDao.findById(id);
+        favoritePost.setUser(favoritePost.getUser());
+        dogPostDao.save(favoritePost);
+        return "redirect:/users/buyer-profile";
+    }
+
+
 
 }
 

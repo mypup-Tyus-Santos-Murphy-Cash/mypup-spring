@@ -4,7 +4,8 @@
     <meta charset="UTF-8"/>
     <title>Create Post</title>
 </head>
-<body>
+<body id="create">
+<div class="main-container">
 <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
 </div>
@@ -12,14 +13,15 @@
     <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
 </div>
 <header class="container my-5"></header>
-<div class="jumbotron">
-    <h1 class="text-center display-1" id="create">Create a Post</h1>
+<div class="jumbotron-create">
+    <h1 class="text-center mx-5 text-light display-1">Create a Post</h1>
 </div>
 <div class="card-container">
-    <div class="card mx-auto bg-light text-dark col-md-4">
-        <div class="card-body " id="sign-up">
+    <div class="card mx-5 bg-light text-dark col-md-4">
+        <div class="card-body" id="sign-up">
             <h5 class="card-title text-center">Create a Post</h5>
-                <div class="wrapper">
+                    <div class="main-container">
+
                     <form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${newDogPost}">
                         <label for="dogBreed">Enter dog breed.</label>
                         <input  type="text" th:field="*{dogBreed}" placeholder="Enter breed"/>
@@ -39,7 +41,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <div th:block th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>

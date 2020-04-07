@@ -16,7 +16,7 @@ public class Breed {
     private List<DogPost> dogPosts;
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name="favorites",
+            name="breed_selection",
             joinColumns={@JoinColumn(name="breed_id")},
             inverseJoinColumns={@JoinColumn(name="user_id")}
     )

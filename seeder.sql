@@ -1,12 +1,7 @@
 USE mypup_db;
-
-
 # insert into users (username, user_role, city, state, zipcode, email, password, phone_number) values ('doglover123', 'breeder', 'San Antonio', 'Texas', '78238', 'doglover@email.com','p123',  '111-111-1111');
-
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price) values ('Labrador Retriever', 'Sporting', 'The sweet-faced, lovable Labrador Retriever is America''s most popular dog breed. Labs are friendly, outgoing, and high-spirited companions who have more than enough affection to go around for a family looking for a medium-to-large dog.', '$1,200.00');
-
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price) values ('Cocker Spaniel', 'Sporting', 'The merry and frolicsome Cocker Spaniel, with his big, dreamy eyes and impish personality, is one of the worlds best-loved breeds. They were developed as hunting dogs, but Cockers gained their wide popularity as all-around companions.', '$1,800.00');
-
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price) values ('Australian Shepherd', 'Herding', 'The Australian Shepherd, a lean, tough ranch dog, is one of those "only in America" stories: a European breed perfected in California by way of Australia. Fixtures on the rodeo circuit, they are closely associated with the cowboy life.
 ', '$1,000.00');
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price) values ('Border Collie', 'Herding', 'A remarkably bright workaholic, the Border Collie is an amazing dog—maybe a bit too amazing for owners without the time, energy, or means to keep it occupied. These energetic dogs will settle down for cuddle time when the workday is done.
@@ -35,35 +30,35 @@ insert into dog_posts (dog_breed, dog_group, dog_description, dog_price) values 
 ', '$1,800.00');
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price) values ('Dogo Argentino', 'Miscellaneous', 'The Dogo Argentino is a pack-hunting dog, bred for the pursuit of big-game such as wild boar and puma, and possesses the strength, intelligence and quick responsiveness of a serious athlete. His short, plain and smooth coat is completely white, but a dark patch near the eye is permitted as long as it doesn''t cover more than 10% of the head.
 ', '$1,000.00');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
-INSERT INTO image(location) value ('/resources/postImages/photo_pixie_5');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/31151939/Afghan-Hound-running-in-the-winter.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001904/Akita-On-White-01.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/07172037/AmStaff.06.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/03173132/Australian-Shepherd.1.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/27114851/barbet.lying_.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13000937/Beagle-On-White-07.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12235957/Border-Collie-On-White-01.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12235344/Bull-Terrier-On-White-03.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/18123713/Cane-Corso-AKC-121516-296.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12213227/Cocker-Spaniel-on-White-10.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12234026/Dalmatian-On-White-01.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/11141747/Dogo-Argentino.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231338/Labrador-Retriever-On-White-08.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12225358/Pug-On-White-01.jpg');
+INSERT INTO image(location) value ('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12224133/Silky-Terrier-On-White-01.jpg');
+INSERT INTO image(location) value ('/images/postImages/photo_pixie_5');
 INSERT INTO  pivot_image(image_id, dog_post_id) values('1', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('2', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('3', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('4', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('5', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('6', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('7', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('8', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('9', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('10', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('11', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('12', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('13', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('14', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('15', '1');
-INSERT INTO  pivot_image(image_id, dog_post_id) values('16', '1');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('2', '2');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('3', '3');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('4', '4');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('5', '5');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('6', '6');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('7', '7');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('8', '8');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('9', '9');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('10', '10');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('11', '11');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('12', '12');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('13', '13');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('14', '14');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('15', '15');
+INSERT INTO  pivot_image(image_id, dog_post_id) values('16', '16');

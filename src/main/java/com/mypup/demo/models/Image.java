@@ -12,11 +12,9 @@ public class Image {
     @Column(nullable = false)
     private String location;
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name="pivot_image",
+    @JoinTable(name="pivot_image",
             joinColumns={@JoinColumn(name="image_id")},
-            inverseJoinColumns={@JoinColumn(name="dog_post_id")}
-    )
+            inverseJoinColumns={@JoinColumn(name="dog_post_id")})
     private List<DogPost> dogPosts;
 
     public Image() {}

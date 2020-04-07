@@ -11,23 +11,28 @@
     <div class="jumbotron">
         <h1 class="text-center display-1">Create a Post</h1>
     </div>
-<h1> hello</h1>
+    <h1> hello</h1>
     <main class="container">
         <h1>Hello from breeder profile</h1>
-            <div>
+        <div>
             <div th:each="userRole : ${userRoles}">
-                <a th:href="@{|/breeder-profile/${id}|}"><h1 th:text="${userRole.username}"></h1></a>
+                <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
                 <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span> </a>
                 <br>
                 <a th:href="@{|/breeder-profile/${id}/update|}">
                     <button>Update Post</button>
                 </a>
-        <form th:action="@{|/breeder-profile/${id}|}" th:method="POST" th:object="${userRoles}">
-            <button>Delete Post</button>
-        </form>
+                <form th:action="@{|/breeder-profile|}" th:method="POST" th:object="${userRoles}">
+                    <button>Delete Post</button>
+                </form>
             </div>
         </div>
     </main>
 </div>
+
+<br>
+<br>
+<br>
+
 </body>
 </html>

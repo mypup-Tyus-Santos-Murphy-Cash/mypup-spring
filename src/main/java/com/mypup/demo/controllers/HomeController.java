@@ -13,7 +13,7 @@ import javax.validation.constraints.Positive;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    public String landingPage() {
+    public String landingPage(Model model) {
         return "landing";
     }
 
