@@ -1,8 +1,5 @@
 package com.mypup.demo.controllers;
 
-//import com.mypup.demo.models;
-//import com.mypup.demo.models.DogPost;
-//import com.mypup.demo.models.User;
 import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;

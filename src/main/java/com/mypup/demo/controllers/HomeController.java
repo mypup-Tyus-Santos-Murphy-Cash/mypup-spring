@@ -13,9 +13,7 @@ import javax.validation.constraints.Positive;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    public String landingPage(Model model) {
-        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("showUserRoles", loggedIn);
+    public String landingPage() {
         return "landing";
     }
 
@@ -27,7 +25,9 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String homePage(){
+    public String homePage(Model model){
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("showUserRoles", loggedIn);
         return "breeder-posts/home";
     }
 

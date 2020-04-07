@@ -5,7 +5,6 @@
     <title>Viewing Post</title>
 </head>
 <body>
-<!--    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>-->
 <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
 </div>
@@ -25,33 +24,9 @@
     </div>
 </header>
 
-<!--<div class="container">-->
-<!--    <div class="row">-->
-
-<!--        <div class="col-xl-3 col-md-6 mb-4">-->
-
-<!--            <div class="card border-0 shadow">-->
-
-<!--                <img class="card-img-top" src="IMG/pixie_shoot.jpg" alt="...">-->
-<!--                <div class="vh card-body text-center">-->
-<!--                    <h5 class="card-title">About Me!</h5>-->
-<!--                    <a href="#" class=" btn btn-primary">View About Me</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        &lt;!&ndash; /.row &ndash;&gt;-->
-<!--    </div>-->
-<!--</div>-->
-
 cards for posts
 <div class="main-container">
         <div class="row">
-
-<!--            <div class="col-xl-3 col-md-6 mb-4">-->
-
-<!--                <div class="col-xl-4 col-md-6 mb-4">-->
-
                     <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 20rem;" th:each="breederPost : ${breederPosts}">
                                 <img class="card-img-top" src="/postImages/photo_pixie_5.jpg" alt="Card image cap">
                                 <h1 th:text="${breederPost.dogBreed}"></h1>
