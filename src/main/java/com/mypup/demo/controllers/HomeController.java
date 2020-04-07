@@ -13,7 +13,9 @@ import javax.validation.constraints.Positive;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    public String landingPage() {
+    public String landingPage(Model model) {
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("showUserRoles", loggedIn);
         return "landing";
     }
 
