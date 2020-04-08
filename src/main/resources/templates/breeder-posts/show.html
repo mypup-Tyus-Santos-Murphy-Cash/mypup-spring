@@ -44,7 +44,7 @@
 <div class="main-container">
     <div class="row">
         <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 20rem;" th:each="breederPost : ${breederPosts}">
-            <img class="card-img-top" th:src="@{breederPost.images}" alt="Card image cap">
+            <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
             <h1 th:text="${breederPost.dogBreed}"></h1>
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
