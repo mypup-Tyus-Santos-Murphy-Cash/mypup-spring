@@ -29,8 +29,9 @@ public class DogPost {
             inverseJoinColumns={@JoinColumn(name="breed_id")}
     )
     private List<Breed> breeds;
-    @ManyToMany(mappedBy = "dogPosts")
-    private List<Image> images;
+//    @ManyToMany(mappedBy = "dogPosts")
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String images;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name="favorites",
@@ -41,7 +42,7 @@ public class DogPost {
 
 
 
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, List<Image> images, List<User> users) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> users) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -52,11 +53,11 @@ public class DogPost {
         this.users = users;
     }
 
-    public List<Image> getImages() {
+    public String getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(String images) {
         this.images = images;
     }
 
