@@ -35,6 +35,9 @@
                         <label for="dogPrice">Enter Price.</label>
                         <input  type="text" th:field="*{dogPrice}" placeholder="Enter Price"/>
                         <br/>
+                        <input name="fileupload" class="" id="fileupload" th:field="*{images}">
+                        <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
+                        <br/>
                         <button id="save">Save Post</button>
                     </form>
                 </div>

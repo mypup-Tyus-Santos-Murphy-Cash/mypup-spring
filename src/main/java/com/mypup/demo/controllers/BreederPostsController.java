@@ -32,7 +32,7 @@ public class BreederPostsController {
 
     @GetMapping("/visitor-show")
     public String getVisitorShow(Model model) {
-        model.addAttribute("breederPosts", dogPostDao.findAll());
+        model.addAttribute("breederPosts2", dogPostDao.findAll());
         return "breeder-posts/visitor-show";
     }
 
@@ -54,23 +54,25 @@ public class BreederPostsController {
     }
 
     @PostMapping("/breeder-posts/create")
-    public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice){
+    public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newDogPost.setDogBreed(dogBreed);
         newDogPost.setDogGroup(dogGroup);
         newDogPost.setDogDescription(dogDescription);
         newDogPost.setDogPrice(dogPrice);
+        newDogPost.setImages(images);
         newDogPost.setUser(loggedInUser);
         dogPostDao.save(newDogPost);
         return "redirect:/breeder-posts";
     }
 
-    @DeleteMapping("/breeder-posts/{id}/delete")
+
+    @PostMapping("/breeder-profile/{id}/delete")
     public String deletePost(@PathVariable long id){
         User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
             dogPostDao.deleteById(id);
-        return "redirect:/breeder-posts/home";
+        return "redirect:/breeder-profile";
     }
 
     @GetMapping("/breeder-posts/{id}/update")
@@ -106,7 +108,7 @@ public class BreederPostsController {
         DogPost favoritePost = dogPostDao.findById(id);
         favoritePost.setUser(favoritePost.getUser());
         dogPostDao.save(favoritePost);
-        return "redirect:/users/buyer-profile";
+        return "users/buyer-profile";
     }
 
 
