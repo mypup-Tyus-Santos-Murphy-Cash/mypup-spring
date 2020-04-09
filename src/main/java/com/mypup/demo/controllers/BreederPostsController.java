@@ -8,6 +8,7 @@ import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
 //import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +36,7 @@ public class BreederPostsController {
 
     @GetMapping("/visitor-show")
     public String getVisitorShow(Model model) {
-        model.addAttribute("breederPosts", dogPostDao.findAll());
+        model.addAttribute("breederPosts2", dogPostDao.findAll());
         return "breeder-posts/visitor-show";
     }
 
@@ -46,9 +47,9 @@ public class BreederPostsController {
         return "breeder-posts/show";
     }
 
-//get these to work//
-@GetMapping("/breeder-posts/create")
-public String getCreatedBreederPostForm(Model model){
+    //get these to work//
+    @GetMapping("/breeder-posts/create")
+    public String getCreatedBreederPostForm(Model model){
     model.addAttribute("newDogPost", new DogPost());
     User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     model.addAttribute("showUserRoles", loggedIn);
@@ -59,18 +60,19 @@ public String getCreatedBreederPostForm(Model model){
 }
 
     @PostMapping("/breeder-posts/create")
-    public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice){
+    public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, String images){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         newDogPost.setDogBreed(dogBreed);
         newDogPost.setDogGroup(dogGroup);
         newDogPost.setDogDescription(dogDescription);
         newDogPost.setDogPrice(dogPrice);
+        newDogPost.setImages(images);
         newDogPost.setUser(loggedInUser);
         dogPostDao.save(newDogPost);
         return "redirect:/breeder-posts";
     }
 
-    @DeleteMapping("/breeder-posts/{id}/delete")
+    @PostMapping("/breeder-posts/{id}/delete")
     public String deletePost(@PathVariable long id){
         User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
@@ -96,16 +98,46 @@ public String getCreatedBreederPostForm(Model model){
         return "redirect:/breeder-posts";
     }
 
-    @GetMapping("breeder-posts/favorites")
-    public String favorites(@PathVariable long id, @ModelAttribute DogPost dogPost) {
-        DogPost favoritePost = dogPostDao.findById(id);
-        favoritePost.setUser(favoritePost.getUser());
-        dogPostDao.save(favoritePost);
-        return "redirect:/users/buyer-profile";
+    @GetMapping("/companion-search")
+    public String showCompanion(Model model){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("companion", loggedInUser);
+        if (loggedInUser.getUserRole().equals("buyer"))
+            return "companion-search";
+        else
+            return "redirect:/home";
+    }
+
+    @GetMapping(value = "/search/{searchTerm}")
+    public String Search (Model model, @PathVariable String searchTerm){
+        if (searchTerm.equals("")){
+            return "redirect:breeder-posts";
+        }else{
+            User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("breederPosts", dogPostDao.findByDogBreed(searchTerm));
+            model.addAttribute("showUserRoles",loggedInUser);
+            return "breeder-posts/show";
+        }
+    }
+
+    @GetMapping(value = "/visitor-search/{searchTerm}")
+    public String visitorSearch (Model model, @PathVariable String searchTerm){
+        if (searchTerm.equals("")){
+            model.addAttribute("breederPosts", dogPostDao.findByDogBreed(searchTerm));
+            return "redirect:breeder-posts/visitor-show";
+        }else{
+            return "breeder-posts/visitor-show";
+        }
+    }
+
+
     }
 
 
 
-}
+
+
+
+
 
 

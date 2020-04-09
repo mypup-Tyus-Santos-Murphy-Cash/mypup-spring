@@ -16,7 +16,7 @@
 
 <header class="container my-5"></header>
 <div class="jumbotron-create">
-    <h1 class="text-center mx-5 text-light display-1">Create a Post</h1>
+    <h1 class="text-center text-light display-1">Create a Post</h1>
 </div>
 
 <div class="card-container">
@@ -37,6 +37,12 @@
                         <br>
                         <label for="dogPrice">Enter Price.</label>
                         <input  type="text" name="dogPrice" th:field="*{dogPrice}" placeholder="Enter Price">
+
+                        <label for="image">Upload Image</label>
+                        <input name="fileupload" class="" id="fileupload" th:field="*{images}">
+                        <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
+                        <br/>
+
                         <br>
                         <br>
                         <div>
@@ -53,6 +59,6 @@
 </div>
 </div>
 <div th:block th:replace="fragments/scripts.html :: scripts"></div>
-<footer th:replace="fragments/footer.html :: footer"></footer>
+<footer th:replace="fragments/footer1.html :: footer1"></footer>
 </body>
 </html>

@@ -13,6 +13,39 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!--    // Custom JS for Buyer CompanionFinder Survey-->
     <script type="text/javascript" src="../js/companionSearch.js"></script>
+
+    <script>
+        function searchFunction() {
+            let url = "/search/";
+            let pram = document.getElementById('search_bar');
+            let final_url = url + pram.value;
+            const search_Button = document.getElementById('search_execute');
+            search_Button.setAttribute("href", final_url);
+        }
+        function searchFunction1() {
+            let url = "/search/";
+            let pram = document.getElementById('search_bar1');
+            let final_url = url + pram.value;
+            const search_Button = document.getElementById('search_execute1');
+            search_Button.setAttribute("href", final_url);
+        }
+        function searchFunction2() {
+            let url = "/visitor-search/";
+            let pram = document.getElementById('search_bar2');
+            let final_url = url + pram.value;
+            const search_Button = document.getElementById('search_execute2');
+            search_Button.setAttribute("href", final_url);
+        }
+
+        function searchFunction3() {
+            let url = "/search/";
+            let pram = document.getElementById('search_bar3');
+            let final_url = url + pram.value;
+            const search_Button = document.getElementById('search_execute3');
+            search_Button.setAttribute("href", final_url);
+        }
+    </script>
+
 <!--    // FileStackapi.com and custom and image fileHandling script-->
     <script type="text/javascript" src="../js/keys.js"></script>
     <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
