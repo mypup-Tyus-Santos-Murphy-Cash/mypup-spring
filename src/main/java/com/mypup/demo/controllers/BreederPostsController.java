@@ -24,10 +24,19 @@ public class BreederPostsController {
         this.userDao = userDao;
     }
 
+
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
         return "breeder-posts/show";
+    }
+
+    @GetMapping("/visitor-show")
+    public String getVisitorShow(Model model) {
+        model.addAttribute("breederPosts", dogPostDao.findAll());
+        return "breeder-posts/visitor-show";
     }
 
 
@@ -36,17 +45,18 @@ public class BreederPostsController {
         model.addAttribute("breederPosts", dogPostDao.getOne(id));
         return "breeder-posts/show";
     }
+
 //get these to work//
-    @GetMapping("/breeder-posts/create")
-    public String getCreatedBreederPostForm(Model model){
-        model.addAttribute("newDogPost", new DogPost());
-        User loggedIn = (User)
-        SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(loggedIn != null)
-            return "breeder-posts/create";
-        else
-        return "redirect:/login";
-    }
+@GetMapping("/breeder-posts/create")
+public String getCreatedBreederPostForm(Model model){
+    model.addAttribute("newDogPost", new DogPost());
+    User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    model.addAttribute("showUserRoles", loggedIn);
+    if(loggedIn.getUserRole().equals("breeder")  || loggedIn.getUserRole().equals("admin"))
+        return "breeder-posts/create";
+    else
+        return "redirect:/home";
+}
 
     @PostMapping("/breeder-posts/create")
     public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice){
@@ -85,6 +95,15 @@ public class BreederPostsController {
         dogPostDao.save(newDogPost);
         return "redirect:/breeder-posts";
     }
+
+    @GetMapping("breeder-posts/favorites")
+    public String favorites(@PathVariable long id, @ModelAttribute DogPost dogPost) {
+        DogPost favoritePost = dogPostDao.findById(id);
+        favoritePost.setUser(favoritePost.getUser());
+        dogPostDao.save(favoritePost);
+        return "redirect:/users/buyer-profile";
+    }
+
 
 
 }

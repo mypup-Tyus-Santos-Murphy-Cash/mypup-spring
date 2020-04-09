@@ -2,11 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header.html :: header"></head>
 <body>
-<nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
+
+<div th:if="${showUserRoles.getUserRole().equals('breeder')}">
+    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+</div>
+<div th:if="${showUserRoles.getUserRole().equals('buyer')}">
+    <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
+</div>
+<div th:if="${showUserRoles.getUserRole().equals('admin')}">
+    <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
+</div>
+<div th:if="${showUserRoles.getUsername().equals(null)}">
+    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
+</div>
+
 <header class="container my-5"></header>
-<div class="jumbotron">
+
+
+<div class="jumbotron-home">
     <h1 class="text-center display-1" id="home">Welcome to MyPup</h1>
 </div>
+
+
 <div class="main-container embed-responsive embed-responsive-4by3">
     <div class="wrapper">
     <main class="container">
@@ -27,7 +44,7 @@
                 </div>
         </div>
     </main>
-        </div>
+</div>
 
 
 <!--    Checks to see if user is logged in-->
@@ -35,13 +52,10 @@
 <!--                &lt;!&ndash;        Checks to see if person who created the post is also the person logged in&ndash;&gt;-->
 <!--                <button th:if="${breeder-post.getUser().id == #authentication.getPrincipal().id}" type="submit"><a th:href="@{'/breeder-post/{id}/delete/' + ${breeder-post.getId()}}">Delete Post</a></button>-->
 <!--            </div>-->
+</div>
 
 
-<th: block th:replace="fragments/scripts.html :: scripts"/>
-
-
-
-
-<footer th:replace="fragments/footer.html :: footer"></footer>
+    <div><th:block th:replace="fragments/scripts.html :: scripts"/></div>
+    <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

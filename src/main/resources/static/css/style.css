@@ -4,16 +4,59 @@
 
 body {
     border: lightseagreen 1vw solid;
-    background-image: url("/static/images/mypup2.jpg");
+    background-size: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+
 }
+
+#landing-container{
+    background-image: url("/images/mypup2.jpg");
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
 .navbar-brand {
    font-family: 'Pacifico', cursive;
 }
 
+#footer{
+}
+
 .jumbotron {
-    background-image: url("/static/images/mypup2.jpg");
-    /*background-size: cover;*/
-    /*min-height: 75vh;*/
+    background-image: url("/images/postImages/pixie.jpg");
+    background-size: 1620px;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background: none;*/
+    min-height: 35vh;
+    /*height: auto;*/
+    width: 100%;
+    /*position: center;*/
+    /*z-index: -1;*/
+    font-family: 'Pacifico', cursive;
+}
+
+.jumbotron-landing {
+    /*background-image: url("/images/mypup2.jpg");*/
+    background-size: cover;
+    background: none;
+    min-height: 75vh;
+    height: auto;
+    width: auto;
+    position: center;
+    z-index: -1;
+    font-family: 'Pacifico', cursive;
+    margin-top: 20vh;
+}
+
+.jumbotron-show {
+    background-image: url("/images/3pups.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /*background: none;*/
+    min-height: 30vh;
     height: auto;
     width: auto;
     /*position: center;*/
@@ -21,12 +64,70 @@ body {
     font-family: 'Pacifico', cursive;
 }
 
-/*.trant {*/
-/*    font-size: 3em;*/
-/*    text-align: center;*/
-/*    color: darkorange;*/
-/*    font-family: 'Pacifico', cursive;*/
-/*}*/
+#create{
+    background-image: url("/images/brown-puppy.jpg");
+    background-repeat: no-repeat;
+    background-size: 1620px;
+    background-position: center;
+    /*background: none;*/
+    min-height: 33vh;
+    /*height: auto;*/
+    width: 100%;
+}
+
+.jumbotron-create{
+    /*background-size: 1620px;*/
+    background-position: center;
+    /*background: none;*/
+    min-height: 35vh;
+    /*height: auto;*/
+    width: 100%;
+    /*position: center;*/
+    /*z-index: -1;*/
+    font-family: 'Pacifico', cursive;
+
+}
+.jumbotron-sign{
+    /*background-image: url("/images/two-dogs.jpg");*/
+    /*background-size: 100%;*/
+    /*height: auto;*/
+    /*width: auto;*/
+    /*background-repeat: no-repeat;*/
+    font-family: 'Pacifico', cursive;
+
+}
+
+#sign-up{
+    border: black 2px solid;
+}
+
+.jumbotron-home{
+    background-image: url("/images/little-pup.jpg");
+    background-size: 50%;
+    background-repeat: no-repeat;
+    min-height: 30vh;
+    font-family: 'Pacifico', cursive;
+}
+
+.login{
+    background-image: url("/images/little-pup.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.jumbotron-login{
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*height: 30vh;*/
+    min-height: 40vh;
+    width: 100%;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.breeder{
+
+}
 
 .transparent-black {
     background-color: rgba(0, 0, 0, .5);
@@ -71,4 +172,14 @@ body {
 
 .nav-item:hover{
     color: lightseagreen;
+}
+
+.sign{
+    background-image: url("/images/3pups.jpg");
+    background-repeat: no-repeat;
+    background-size: 1620px;
+    background-position: center;
+    height: 90%;
+    width: auto;
+
 }

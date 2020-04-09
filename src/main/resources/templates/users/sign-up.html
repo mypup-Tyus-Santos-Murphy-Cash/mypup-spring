@@ -4,16 +4,16 @@
 
 
 <body>
-<div class="main-container">
+<div class="main-container sign">
     <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center display-1">Sign Up</h1>
+    <div class="jumbotron-sign">
+        <h1 class="text-left text-light mx-5 display-1" id="sign-up">Sign Up</h1>
     </div>
 
     <div class="card-container">
-        <div class="card mx-auto bg-light text-dark col-md-4">
-            <div class="card-body " id="sign-up">
+        <div class="card mx-5 my-5 bg-light text-dark col-md-4">
+            <div class="card-body" >
                 <h5 class="card-title text-center">Please Sign Up</h5>
                 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                     <label for="userRole">Select User Role</label>
@@ -51,11 +51,13 @@
             </div>
         </div>
     </div>
-
-<div class="sign-up">
-
-
 </div>
-</div>
+<br>
+<br>
+<br>
+<br>
+<div th:replace="fragments/scripts.html :: scripts"></div>
+<div th:replace="fragments/footer.html :: footer"></div>
+
 </body>
 </html>
