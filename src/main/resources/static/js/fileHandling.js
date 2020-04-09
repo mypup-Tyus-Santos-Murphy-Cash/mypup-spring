@@ -29,11 +29,12 @@ function updateForm (result) {
 // Set up the picker
 const client2 = filestack.init(FILESTACK_API_KEY);
 const options2 = {
-    onUploadDone: updateForm,
+    onUploadDone: updateForm2,
     maxSize: 10 * 1024 * 1024,
     accept: 'image/*',
     uploadInBackground: false,
 };
+
 const picker2 = client2.picker(options2);
 const form2 = document.getElementById('pick-form2');
 const fileInput2 = document.getElementById('fileupload2');
@@ -46,8 +47,8 @@ btn2.addEventListener('click', function (e) {
     picker2.open();
 });
 
-function updateForm2 (result2) {
-    const fileData2 = result2.filesUploaded2[0];
+function updateForm2 (result) {
+    const fileData2 = result.filesUploaded[0];
     fileInput2.value = fileData2.url; //this is the good part
     console.log(fileData2.url);
     console.log(fileInput2.value);

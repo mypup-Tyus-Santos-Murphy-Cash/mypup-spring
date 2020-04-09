@@ -29,13 +29,13 @@
                 <input type="text" th:field="*{dogPrice}" placeholder="Enter a description" />
             </label>
             <br/>
-                <input name="fileupload2" class="" id="fileupload2">
-                <button class="button photo-upload2" type="button" id="picker2">Upload Profile Image</button>
+            <input name="fileupload2" id="fileupload2" th:field="*{images}">
+            <button class="button photo-upload2" type="button" id="picker2">Upload Profile Image</button>
             <button type="submit">submit!</button>
         </form>
     </div>
-</div>
-<th: block th:replace="fragments/scripts.html :: scripts"/>
+    </div>
+<div th:block th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>
