@@ -120,15 +120,15 @@ public class BreederPostsController {
         }
     }
 
-    @GetMapping(value = "/visitor-search/{searchTerm}")
-    public String visitorSearch (Model model, @PathVariable String searchTerm){
-        if (searchTerm.equals("")){
-            model.addAttribute("breederPosts", dogPostDao.findByDogBreed(searchTerm));
-            return "redirect:breeder-posts/visitor-show";
-        }else{
-            return "breeder-posts/visitor-show";
-        }
-    }
+//    @GetMapping(value = "/visitor-search/{searchTerm}")
+//    public String visitorSearch (Model model, @PathVariable String searchTerm){
+//        if (searchTerm.equals("")){
+//            model.addAttribute("breederPosts", dogPostDao.findByDogBreed(searchTerm));
+//            return "redirect:breeder-posts/visitor-show";
+//        }else{
+//            return "breeder-posts/visitor-show";
+//        }
+//    }
 
 
     }
