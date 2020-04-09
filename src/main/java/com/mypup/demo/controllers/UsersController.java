@@ -1,6 +1,8 @@
 package com.mypup.demo.controllers;
 
+import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
+import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,15 +13,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 
 @Controller
 public class UsersController {
     private UserRepo usersdao;
     private PasswordEncoder passwordEncoder;
+    private DogPostRepo dogPostDao;
 
-    public UsersController(UserRepo users, PasswordEncoder passwordEncoder) {
+    public UsersController(UserRepo users, PasswordEncoder passwordEncoder, DogPostRepo dogPostDao) {
         this.usersdao = users;
         this.passwordEncoder = passwordEncoder;
+        this.dogPostDao = dogPostDao;
     }
 
     @GetMapping("/sign-up")
@@ -47,9 +53,10 @@ public class UsersController {
     }
 
     @GetMapping("/breeder-profile")
-    public String goToBreeder(Model model){
+    public String goToBreeder(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userRoleBreeders", loggedIn);
+        model.addAttribute("breederPosts", usersdao.findUserById(loggedIn.getId()).getDogPost());
         if(loggedIn.getUserRole().equals("breeder"))
             return "users/breeder-profile";
         else

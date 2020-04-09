@@ -6,7 +6,7 @@
 
 </head>
 <body>
-<nav th:replace="fragments/navbar.html :: navbar"></nav>
+<nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
 <header class="container my-5"></header>
 <div class="jumbotron">
     <h1 class="text-center display-1" id="update">Update a Post</h1>
@@ -15,11 +15,7 @@
 <div class="main-contianer embed-responsive embed-responsive-4by3">
 
     <div class="wrapper">
-        <form th:action="@{|/breeder-posts/${id}/update|}" th:method="POST" th:object="${breederPosts}">
-            <label for="post-id">
-                <h3>Id</h3>
-                <input type="number" name="id" id="post-id" class="field" />
-            </label>
+        <form th:action="@{|/breeder-profile/${id}/update|}" th:method="POST" th:object="${breederPosts}">
             <label for="dogBreed"><h3>Breed</h3>
                 <input type="text" th:field="*{dogBreed}" placeholder="Enter a title"  />
             </label>
@@ -32,6 +28,8 @@
             <label for="dogPrice"><h3>Price</h3>
                 <input type="text" th:field="*{dogPrice}" placeholder="Enter a description" />
             </label>
+            <input name="fileupload" class="" id="fileupload" th:field="*{images}">
+            <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
             <button type="submit">submit!</button>
         </form>
     </div>

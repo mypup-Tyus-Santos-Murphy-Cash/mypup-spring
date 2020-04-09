@@ -1,5 +1,6 @@
 package com.mypup.demo.controllers;
 
+import com.mypup.demo.models.Breed;
 import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
@@ -9,6 +10,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class BreederPostsController {
@@ -69,28 +72,26 @@ public class BreederPostsController {
 
     @PostMapping("/breeder-profile/{id}/delete")
     public String deletePost(@PathVariable long id){
-        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
             dogPostDao.deleteById(id);
         return "redirect:/breeder-profile";
     }
 
-    @GetMapping("/breeder-posts/{id}/update")
+    @GetMapping("/breeder-profile/{id}/update")
     public String updateDogPostForm(@PathVariable long id, Model model) {
-        model.addAttribute("breederPosts", updateDogPostForm(id, model));
+        model.addAttribute("breederPosts", dogPostDao.getOne(id));
         return "breeder-posts/update";
     }
 
-
-    @PostMapping("/breeder-posts/{id}/update")
-    public String updateBreederPost(@PathVariable long id, @ModelAttribute DogPost dogPost) {
+    @PostMapping("/breeder-profile/{id}/update")
+    public String updateBreederPost(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
         DogPost newDogPost = dogPostDao.getOne(id);
-        newDogPost.setBreeds(newDogPost.getBreeds());
-        newDogPost.setDogDescription(newDogPost.getDogDescription());
-        newDogPost.setDogGroup(newDogPost.getDogGroup());
-        newDogPost.setDogPrice(newDogPost.getDogPrice());
+        newDogPost.setDogBreed(dogBreed);
+        newDogPost.setDogGroup(dogGroup);
+        newDogPost.setDogDescription(dogDescription);
+        newDogPost.setDogPrice(dogPrice);
+        newDogPost.setImages(images);
         dogPostDao.save(newDogPost);
-        return "redirect:/breeder-posts";
+        return "redirect:/breeder-profile";
     }
 
     @GetMapping("/companion-search")

@@ -40,7 +40,14 @@ public class DogPost {
     )
     private List<User> users;
 
-
+//    public DogPost(DogPost copy) {
+//        id = copy.id;
+//        dogBreed = copy.dogBreed;
+//        dogGroup = copy.dogGroup;
+//        dogDescription = copy.dogDescription;
+//        dogPrice = copy.dogPrice;
+//        images = copy.images;
+//    }
 
     public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> users) {
         this.dogBreed = dogBreed;
@@ -53,6 +60,8 @@ public class DogPost {
         this.users = users;
     }
 
+    public DogPost() {}
+
     public String getImages() {
         return images;
     }
@@ -61,7 +70,6 @@ public class DogPost {
         this.images = images;
     }
 
-    public DogPost() {}
 
     public List<Breed> getBreeds() {
         return breeds;
