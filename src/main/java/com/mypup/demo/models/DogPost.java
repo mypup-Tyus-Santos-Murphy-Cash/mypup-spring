@@ -1,8 +1,10 @@
 package com.mypup.demo.models;
 
+import org.springframework.stereotype.Indexed;
+
 import javax.persistence.*;
 import java.util.List;
-
+@Indexed
 @Entity
 @Table(name = "dog_posts")
 public class DogPost {
@@ -29,12 +31,20 @@ public class DogPost {
             inverseJoinColumns={@JoinColumn(name="breed_id")}
     )
     private List<Breed> breeds;
-    @ManyToMany(mappedBy = "dogPosts")
-    private List<Image> images;
+    //    @ManyToMany(mappedBy = "dogPosts")
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String images;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="favorites",
+            joinColumns={@JoinColumn(name="dog_post_id")},
+            inverseJoinColumns={@JoinColumn(name="user_id")}
+    )
+    private List<User> users;
 
 
 
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, List<Image> images) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> users) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -42,13 +52,14 @@ public class DogPost {
         this.breeds = breeds;
         this.user = user;
         this.images = images;
+        this.users = users;
     }
 
-    public List<Image> getImages() {
+    public String getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(String images) {
         this.images = images;
     }
 
@@ -110,5 +121,13 @@ public class DogPost {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

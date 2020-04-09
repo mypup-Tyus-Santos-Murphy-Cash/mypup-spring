@@ -32,8 +32,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+            <input onkeyup="searchFunction()" id="search_bar" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light my-2 my-sm-0"><a id="search_execute" href="/search/">Search</a></button>
         </form>
     </div>
 </nav>
@@ -71,43 +71,43 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+                <input onkeyup="searchFunction1()" id="search_bar1" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-light my-2 my-sm-0"><a id="search_execute1" href="/search/">Search</a></button>
             </form>
         </div>
     </nav>
 </div>
 
-<div>
-    <nav th:fragment="visitor-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" th:href="@{/}">My Pup</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="visitor-navbar">
-            <ul class="navbar-nav">
-<!--                <li class="nav-item ml-auto">-->
-<!--                    <a class="nav-link" th:href="@{/companion}">Find your perfect companion</a>-->
+<!--<div>-->
+<!--    <nav th:fragment="visitor-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--        <a class="navbar-brand" th:href="@{/}">My Pup</a>-->
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="visitor-navbar">-->
+<!--            <ul class="navbar-nav">-->
+<!--&lt;!&ndash;                <li class="nav-item ml-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link" th:href="@{/companion}">Find your perfect companion</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" th:href="@{/visitor-show}">All Posts</a>-->
 <!--                </li>-->
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/visitor-show}">All Posts</a>
-                </li>
-                <li class="nav-item ml-auto">
-                    <a class="nav-link" th:href="@{/login}">Login</a>
-                </li>
 <!--                <li class="nav-item ml-auto">-->
-<!--                    <a class="nav-link" th:href="@{/profile}">Profile</a>-->
+<!--                    <a class="nav-link" th:href="@{/login}">Login</a>-->
 <!--                </li>-->
-                <li class="nav-item ml-auto">
-                    <a class="nav-link" th:href="@{/sign-up}">Sign-up</a>
-                </li>
-            </ul>
+<!--&lt;!&ndash;                <li class="nav-item ml-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <a class="nav-link" th:href="@{/profile}">Profile</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                </li>&ndash;&gt;-->
+<!--                <li class="nav-item ml-auto">-->
+<!--                    <a class="nav-link" th:href="@{/sign-up}">Sign-up</a>-->
+<!--                </li>-->
+<!--            </ul>-->
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
+<!--            <form class="form-inline my-2 my-lg-0">-->
+<!--                <input onkeyup="searchfunction2()" id="search_bar2" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-light my-2 my-sm-0"><a id="search_execute2" href="/visitor-search/">Search</a></button>-->
+<!--            </form>-->
+<!--        </div>-->
 <!--        <div>-->
 <!--            <ul>-->
 <!--                <li>-->
@@ -117,8 +117,8 @@
 <!--                </li>-->
 <!--            </ul>-->
 <!--        </div>-->
-    </nav>
-</div>
+<!--    </nav>-->
+<!--</div>-->
 
 <div>
 <nav th:fragment="admin-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -145,10 +145,9 @@
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
+            <input onkeyup="searchFunction3()" id="search_bar3" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light my-2 my-sm-0"><a id="search_execute3" href="/search/">Search</a></button>
+        </form>    </div>
 </nav>
 </div>
 </body>

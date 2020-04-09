@@ -27,16 +27,17 @@
 
 <div class="main-container">
     <div class="row">
-        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 20rem;" th:each="breederPost : ${breederPosts}">
-            <img class="card-img-top" src="/postImages/photo_pixie_5.jpg" alt="Card image cap">
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="breederPost : ${breederPosts}">
+            <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
             <h1 th:text="${breederPost.dogBreed}"></h1>
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
+            <button th:action="@{breeder-profile.id}" class="btn button-primary info">More info</button>
             <br>
             <div sec:authorize="isAuthenticated()">
                 <div th:if="userName == breederPost.user.username">
-                    <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
+                    <a th:href="@{|/breeder-posts/${breederPosts}/update|}"><button>Update Post</button></a>
                     <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
                 </div>
             </div>
@@ -44,6 +45,6 @@
     </div>
 </div>
 <div th:replace="fragments/scripts.html :: scripts"></div>
-<footer th:replace="fragments/footer.html :: footer"></footer>
+<footer th:replace="fragments/footer1.html :: footer1"></footer>
 </body>
 </html>

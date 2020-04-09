@@ -12,7 +12,7 @@
     <h1 class="text-center display-1" id="update">Update a Post</h1>
 </div>
 
-<div class="main-contianer embed-responsive embed-responsive-4by3">
+<div class="main-contianer">
 
     <div class="wrapper">
         <form th:action="@{|/breeder-posts/${id}/update|}" th:method="POST" th:object="${breederPosts}">
@@ -37,6 +37,6 @@
     </div>
 </div>
 <th: block th:replace="fragments/scripts.html :: scripts"/>
-<footer th:replace="fragments/footer.html :: footer"></footer>
+<footer th:replace="fragments/footer1.html :: footer1"></footer>
 </body>
 </html>
