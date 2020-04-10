@@ -9,7 +9,6 @@ const options = {
 };
 const picker = client.picker(options);
 // Get references to the DOM elements
-const form = document.getElementById('pick-form');
 const fileInput = document.getElementById('fileupload');
 const btn = document.getElementById('picker');
 const nameBox = document.getElementById('nameBox');
@@ -36,7 +35,6 @@ const options2 = {
 };
 
 const picker2 = client2.picker(options2);
-const form2 = document.getElementById('pick-form2');
 const fileInput2 = document.getElementById('fileupload2');
 const btn2 = document.getElementById('picker2');
 const nameBox2 = document.getElementById('nameBox2');

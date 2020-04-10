@@ -94,6 +94,30 @@ public class BreederPostsController {
         return "redirect:/breeder-profile";
     }
 
+    @PostMapping("/admin-profile/{id}/delete")
+    public String deletePostAdmin(@PathVariable long id){
+        dogPostDao.deleteById(id);
+        return "redirect:/admin-profile";
+    }
+
+    @GetMapping("/admin-profile/{id}/update2")
+    public String updateDogPostFormAdmin(@PathVariable long id, Model model) {
+        model.addAttribute("allPosts", dogPostDao.getOne(id));
+        return "breeder-posts/update2";
+    }
+
+    @PostMapping("/admin-profile/{id}/update2")
+    public String updateBreederPostAdmin(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
+        DogPost newDogPost = dogPostDao.getOne(id);
+        newDogPost.setDogBreed(dogBreed);
+        newDogPost.setDogGroup(dogGroup);
+        newDogPost.setDogDescription(dogDescription);
+        newDogPost.setDogPrice(dogPrice);
+        newDogPost.setImages(images);
+        dogPostDao.save(newDogPost);
+        return "redirect:/admin-profile";
+    }
+
     @GetMapping("/companion-search")
     public String showCompanion(Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
