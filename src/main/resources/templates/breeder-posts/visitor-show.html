@@ -21,12 +21,6 @@
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
             <br>
-            <div sec:authorize="isAuthenticated()">
-                <div th:if="userName == breederPost.user.username">
-                    <a th:href="@{|/breeder-posts/${breederPosts.id}/update|}"><button>Update Post</button></a>
-                    <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
-                </div>
-            </div>
         </div>
     </div>
 </div>
