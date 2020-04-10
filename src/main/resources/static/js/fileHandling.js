@@ -7,6 +7,7 @@ const options = {
     accept: 'image/*',
     uploadInBackground: false,
 };
+
 const picker = client.picker(options);
 // Get references to the DOM elements
 const fileInput = document.getElementById('fileupload');
@@ -18,12 +19,14 @@ btn.addEventListener('click', function (e) {
     e.preventDefault();
     picker.open();
 });
+
 function updateForm (result) {
     const fileData = result.filesUploaded[0];
     fileInput.value = fileData.url; //this is the good part
     console.log(fileData.url);
     console.log(fileInput.value);
 }
+
 //==========Update Post FileStack Script ======================
 // Set up the picker
 const client2 = filestack.init(FILESTACK_API_KEY);
