@@ -72,30 +72,54 @@ public class BreederPostsController {
         return "redirect:/breeder-posts";
     }
 
-    @PostMapping("/breeder-posts/{id}/delete")
+    @PostMapping("/breeder-profile/{id}/delete")
     public String deletePost(@PathVariable long id){
-        User loggedinUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (loggedinUser.getId() == dogPostDao.getOne(id).getUser().getId())
-            dogPostDao.deleteById(id);
-        return "redirect:/breeder-posts/home";
+        dogPostDao.deleteById(id);
+        return "redirect:/breeder-profile";
     }
 
-    @GetMapping("/breeder-posts/{id}/update")
+
+    @GetMapping("/breeder-profile/{id}/update")
     public String updateDogPostForm(@PathVariable long id, Model model) {
-        model.addAttribute("breederPosts", updateDogPostForm(id, model));
+        model.addAttribute("breederPosts", dogPostDao.getOne(id));
         return "breeder-posts/update";
     }
 
 
-    @PostMapping("/breeder-posts/{id}/update")
-    public String updateBreederPost(@PathVariable long id, @ModelAttribute DogPost dogPost) {
+    @PostMapping("/breeder-profile/{id}/update")
+    public String updateBreederPost(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
         DogPost newDogPost = dogPostDao.getOne(id);
-        newDogPost.setBreeds(newDogPost.getBreeds());
-        newDogPost.setDogDescription(newDogPost.getDogDescription());
-        newDogPost.setDogGroup(newDogPost.getDogGroup());
-        newDogPost.setDogPrice(newDogPost.getDogPrice());
+        newDogPost.setDogBreed(dogBreed);
+        newDogPost.setDogGroup(dogGroup);
+        newDogPost.setDogDescription(dogDescription);
+        newDogPost.setDogPrice(dogPrice);
+        newDogPost.setImages(images);
         dogPostDao.save(newDogPost);
-        return "redirect:/breeder-posts";
+        return "redirect:/breeder-profile";
+    }
+
+    @PostMapping("/admin-profile/{id}/delete")
+    public String deletePostAdmin(@PathVariable long id){
+        dogPostDao.deleteById(id);
+        return "redirect:/admin-profile";
+    }
+
+    @GetMapping("/admin-profile/{id}/update2")
+    public String updateDogPostFormAdmin(@PathVariable long id, Model model) {
+        model.addAttribute("allPosts", dogPostDao.getOne(id));
+        return "breeder-posts/update2";
+    }
+
+    @PostMapping("/admin-profile/{id}/update2")
+    public String updateBreederPostAdmin(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
+        DogPost newDogPost = dogPostDao.getOne(id);
+        newDogPost.setDogBreed(dogBreed);
+        newDogPost.setDogGroup(dogGroup);
+        newDogPost.setDogDescription(dogDescription);
+        newDogPost.setDogPrice(dogPrice);
+        newDogPost.setImages(images);
+        dogPostDao.save(newDogPost);
+        return "redirect:/admin-profile";
     }
 
     @GetMapping("/companion-search")
@@ -120,15 +144,15 @@ public class BreederPostsController {
         }
     }
 
-//    @GetMapping(value = "/visitor-search/{searchTerm}")
-//    public String visitorSearch (Model model, @PathVariable String searchTerm){
-//        if (searchTerm.equals("")){
-//            model.addAttribute("breederPosts", dogPostDao.findByDogBreed(searchTerm));
-//            return "redirect:breeder-posts/visitor-show";
-//        }else{
-//            return "breeder-posts/visitor-show";
-//        }
-//    }
+    @GetMapping(value = "/visitor-search/{searchTerm}")
+    public String visitorSearch (Model model, @PathVariable String searchTerm){
+        if (searchTerm.equals("")){
+            return "redirect:/visitor-show";
+        }else{
+            model.addAttribute("breederPosts2", dogPostDao.findByDogBreed(searchTerm));
+            return "breeder-posts/visitor-show";
+        }
+    }
 
 
     }

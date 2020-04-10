@@ -24,7 +24,6 @@ function handleClick(input) {
             totalRange = 2;
         }
 
-        
         let breed = [
             "Affenpinscher,Airedale Terrier,Akbash,Akita,Alapaha Blue Blood Buildog,Alaskan husky,Alaskan Klee Kai,American Bulldog,American Bully,American Eskimo Dog,American Foxhound,American Pit Bull Terrier,American Staffordshire Terrier,Anatolian Shepherd Dog ,American Water Spaniel,Australian Cattle Dog,Australian Kelpie,Australian Shepherd,Australian Terrier,Azawakh,Barbet,Basenji,Basset Bleu de Gascogne,Basset Hound,Bavarian Mountain Hound,Beagle,Bearded Collie,Beauceron,Bedlington Terrier,Belgian Malinois ,Belgian Tervuren,Bernese Mountain Dog,Bichon Frisé,Black and Tan Coonhound,Bloodhound,Bluetick Coonhound,Boerboel,Border Collie,Border Terrier,Boston Terrier,Bouvier des Flandres,Boxer,Boykin Spaniel,Bracco Italiano,Briard,Bull Terrier,Bulldog,Bullmastiff,Cairn Terrier,Cane Corso,Cardigan Welsh Corgi,Catahoula Leopard Dog,Catalan Sheepdog,Caucasian Shepherd Dog,Cavalier King Charles Spaniel,Chesapeake Bay Retriever,Chinese Crested Dog,Chinese Shar-Pei,Chow Chow,Clumber Spaniel,Cocker Spaniel,Coton de Tulear,Dalmatian,Doberman Pinscher,Dogo Argentino,Dutch Shepherd,English Setter,English Shepherd,English Springer Spaniel,Enlish Toy Terrier,Eurasier,Field Spaniel,Finnish Lapphund,Finnish Spitz,Flat-coated Retriever,French Bulldog,French Spaniel,Galgo Español,Galician Shepherd Dog,Garafian Shepherd,Gascon Saintongeois,Georgian Shepherd,German Hound,German Longhaired Pointer,German Pinscher,German Roughhaired Pointer,German Shepherd Dog,German Shorthaired Pointer,German Spaniel,German Spitz,German Wirehaired Pointer,Giant Schnauzer,Glen of Imaal Terrier,Golden Retriever,Gończy Polski,Gordon Setter,Gran Mastín de Borínquen,Grand Anglo-Français Blanc et Noir,Grand Anglo-Français Blanc et Orange,Grand Anglo-Français Tricolore,Grand Basset Griffon Vendéen,Grand Bleu de Gascogne,Grand Griffon Vendéen,Great Dane,Great Pyrenees,Greater Swiss Mountain Dog,Greek Harehound,Greek Shepherd,Greenland Dog,Greyhound,Griffon Bleu de Gascogne,Griffon Fauve de Bretagne",
             "Griffon Nivernais,Groenendael,Guatemalan Dogo,Gull Terrier,Hamiltonstövare,Hanover Hound,Harrier,Havanese,Himalayan Sheepdog,Hokkaido,Hortaya borzaya,Hovawart,Huntaway,Hygen Hound,Ibizan Hound,Icelandic Sheepdog,Indian pariah dog,Indian Spitz,Irish Red and White Setter,Irish Setter,Irish Terrier,Irish Water Spaniel,Irish Wolfhound,Istrian Coarse-haired Hound,Istrian Shorthaired Hound,Italian Greyhound,Jack Russell Terrier,Jagdterrier,Jämthund,Japanese Chin,Japanese Spitz,Japanese Terrier,Jindo,Jonangi,Kai Ken,Kangal Shepherd Dog,Kanni,Karakachan dog,Karelian Bear Dog,Karst Shepherd,Keeshond,Kerry Beagle,Kerry Blue Terrier,King Charles Spaniel,King Shepherd,Kintamani,Kishu,Komondor,Kooikerhondje,Koolie,Koyun dog,Kromfohrländer,Kuchi,Kumaon Mastiff,Kunming wolfdog,Kuvasz,Labrador Retriever,Laekenois,Lagotto Romagnolo,Lakeland Terrier,Lancashire Heeler,Landseer,Lapponian Herder,Lapponian Shepherd,Large Münsterländer,Leonberger,Lhasa Apso,Lithuanian Hound,Löwchen,Mackenzie River husky,Magyar agár,Majorca Ratter,Majorca Shepherd Dog,Mahratta Greyhound,Malinois,Maltese,Manchester Terrier,Maremma Sheepdog,McNab dog,Miniature American Shepherd,Miniature Bull Terrier,Miniature Fox Terrier,Miniature Pinscher,Miniature Schnauzer,Miniature Shar Pei,Montenegrin Mountain Hound,Moscow Water Dog,Mountain Cur,Mucuchies,Mudhol Hound,Mudi,Neapolitan Mastiff,Newfoundland,New Zealand Heading Dog,Norfolk Terrier,Norrbottenspets,Northern Inuit Dog,Norwegian Buhund,Norwegian Elkhound,Norwegian Lundehund,Norwich Terrier,Nova Scotia Duck Tolling Retriever,Old Croatian Sighthound,Old Danish Pointer,Old English Sheepdog,Old English Terrier,Olde English Bulldogge,Otterhound,Pachon Navarro,Pandikona,Paisley Terrier,Papillon",
@@ -39,17 +38,16 @@ function handleClick(input) {
 
 
     }
-    }
+}
 
 // ==========================================================
 // // DOGAPI search
 // ==========================================================
-
 // Use JQuery and TheDogAPI to load breed list, and show a breed image and data on selection.
 // Setup the Controls
-let $breed_select = $('select.breed_select');
+const $breed_select = $('select.breed_select');
 $breed_select.change(function() {
-    let id = $(this).children(":selected").attr("id");
+    const id = $(this).children(":selected").attr("id");
     getDogByBreed(id)
 });
 // Load all the Breeds
@@ -72,7 +70,6 @@ function populateBreedsSelect(breeds) {
 function getDogByBreed(breed_id) {
     // search for images that contain the breed (breed_id=) and attach the breed object (include_breed=1)
     ajax_get('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breed_id, function(data) {
-
         if (data.length == 0) {
             // if there are no images returned
             clearBreed();
@@ -83,16 +80,10 @@ function getDogByBreed(breed_id) {
         }
     });
 }
-// clear the image and table
-function clearBreed() {
-    $('#breed_image').attr('src', "");
-    $("#breed_data_table tr").remove();
-}
 // display the breed image and data
 function displayBreed(image) {
     $('#breed_image').attr('src', image.url);
     $("#breed_data_table tr").remove();
-
     const breed_data = image.breeds[0]
     $.each(breed_data, function(key, value) {
         // as 'weight' and 'height' are objects that contain 'metric' and 'imperial' properties, just use the metric string
@@ -101,7 +92,6 @@ function displayBreed(image) {
         $("#breed_data_table").append("<tr><td>" + key + "</td><td>" + value + "</td></tr>");
     });
 }
-
 // make an Ajax request
 function ajax_get(url, callback) {
     const xmlhttp = new XMLHttpRequest();
@@ -109,7 +99,7 @@ function ajax_get(url, callback) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             // console.log('responseText:' + xmlhttp.responseText);
             try {
-                const data = JSON.parse(xmlhttp.responseText);
+                var data = JSON.parse(xmlhttp.responseText);
             } catch (err) {
                 // console.log(err.message + " in " + xmlhttp.responseText);
                 return;
@@ -117,7 +107,6 @@ function ajax_get(url, callback) {
             callback(data);
         }
     };
-
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html :: header">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="wrapper">
+    <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
+    <header class="container my-5"></header>
+    <div class="jumbotron">
+        <h1 class="text-center display-1">Breeder Contact information</h1>
+    </div>
+    <h1> hello</h1>
+    <main class="container">
+        <h1>Breeder Contact information</h1>
+        <div>
+            <div>
+                <p th:action="@{|/breeder-contact/${breeder.id}|}">
+                <h1 th:text="${breeder.username}"></h1>
+                <p th:href="${breeder.email}"><span th:text="${breeder.email}"></span> </p>
+                <p th:text="${breeder.phoneNumber}"><span th:text="${breeder.phoneNumber}"></span> </p>
+                <p th:text="${breeder.city}"><span th:text="${breeder.city}"></span> </p>
+                <p th:text="${breeder.state}"><span th:text="${breeder.state}"></span> </p>
+                <p th:text="${breeder.zipcode}"><span th:text="${breeder.zipcode}"></span> </p>
+                <br>
+            </div>
+        </div>
+    </main>
+</div>
+
+<br>
+<br>
+<br>
+<div th:replace="fragments/scripts.html :: scripts"></div>
+<footer th:replace="fragments/footer1.html :: footer1"></footer>
