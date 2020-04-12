@@ -20,7 +20,6 @@
                         <select th:field="*{userRole}">
                             <option value="breeder">Breeder</option>
                             <option value="buyer">Buyer</option>
-<!--                            <option value="admin">Admin</option>-->
                         </select>
                         <br>
                         <label for="username">Username</label>
@@ -44,6 +43,9 @@
                         <label for="zipcode">zipcode</label>
                         <input th:field="*{zipcode}" />
                         <br>
+                    <input name="fileupload" id="fileupload" th:field="*{profileImage}">
+                    <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
+                    <br/>
                         <div class= "d-flex justify-content-center text-center">
                         <input value="Sign me up!" type="submit" />
                         </div>
