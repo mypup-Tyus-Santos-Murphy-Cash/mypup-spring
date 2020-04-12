@@ -160,7 +160,7 @@ public class BreederPostsController {
 
     @GetMapping("/show/{id}")
     public String grabFromList(@PathVariable long id, Model model) {
-        model.addAttribute("breederPosts", dogPostDao.getOne(id));
+        model.addAttribute("grabFromPosts", dogPostDao.getOne(id));
         return "breeder-posts/show";
     }
 
