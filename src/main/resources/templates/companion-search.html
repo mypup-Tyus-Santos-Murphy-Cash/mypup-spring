@@ -61,59 +61,58 @@
 
             <br>
             <input type="button" name="resultButton" id="totalSum" onclick="handleClick();" value="Get Result">
+            <input type="button" onclick="resetForm()" value="Reset form">
             <br>
             <br>
 
         </form>
 
-        <div id="after_submit-0">
-            <div id="survey-out">
-                <h3 id="after_submit-1" style="visibility: hidden">Suggested Dog Breed and Group</h3>
-                <hr id="after_submit-2" style="visibility: hidden"/>
-                <p id="dog-breed"></p>
-                <hr id="after_submit-3" style="visibility: hidden"/>
+        <div class="container">
+            <!-- =========================================-->
+            <!--   Survey Output Area - Recommended Breeds  -->
+            <!-- =========================================   -->
+            <div id="after_submit-0">
+                <div id="survey-out">
 
+                    <div id="dogInfo">
+                        <h3 id="after_submit-4" style="visibility: hidden">Advice</h3>
+                        <p id="info"></p>
+                    </div>
+
+                    <div id="dogList">
+                        <h3 id="after_submit-1" style="visibility: hidden">Suggested Dog Breed</h3>
+                        <ul class="dogUl">
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-
-</div>
-
-<div class="container">
-    <div class="row">
-
-
-        <!-- =========================================-->
-        <!--    Dog API Search-->
-        <!-- =========================================   -->
-        <div class="row" id="dogSearchForm">
-
-            <div id="banner-message">
+            <!-- =========================================-->
+            <!--    Dog API Search-->
+            <!-- =========================================   -->
+            <div class="container" id="hidden-container" style="visibility: hidden">
+                <h3>Research Breed</h3>
                 <p>Select a Breed</p>
                 <select class="breed_select">
                     <option></option>
                 </select>
 
+                <div id="breed_data">
+                    <img id="breed_image" src=""/>
+                    <p id="after_submit-5" style="visibility: hidden;">
+                        Breed Data
+                    </p>
+                    <table id="breed_data_table">
+                    </table>
+                </div>
             </div>
-            <div id="breed_data">
-                <img id="breed_image" src=""/>
-                <p>
-                    Breed Data
-                </p>
-                <table id="breed_data_table">
-
-                </table>
-            </div>
-
         </div>
     </div>
-</div>
 
 
-<!--Custom Javascript -->
-<!--<script type="text/javascript" src="../js/companionSearch.js"></script>-->
-<div th:replace="fragments/scripts.html :: scripts"></div>
+    <!--Custom Javascript -->
+    <!--<script type="text/javascript" src="../js/companionSearch.js"></script>-->
+    <div th:replace="fragments/scripts.html :: scripts"></div>
 
 </body>
 </html>
