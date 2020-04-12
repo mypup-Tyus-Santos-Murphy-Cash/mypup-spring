@@ -4,8 +4,10 @@ package com.mypup.demo.controllers;
 //import com.mypup.demo.models.DogPost;
 //import com.mypup.demo.models.User;
 import com.mypup.demo.models.DogPost;
+import com.mypup.demo.models.Favorites;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
+import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,12 @@ public class BreederPostsController {
 
     private DogPostRepo dogPostDao;
     private UserRepo userDao;
+    private FavoritesRepo favoritesDao;
 
-    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao) {
+    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao, FavoritesRepo favoritesDao) {
         this.dogPostDao = dogPostDao;
         this.userDao = userDao;
+        this.favoritesDao = favoritesDao;
     }
 
 
@@ -152,6 +156,25 @@ public class BreederPostsController {
             model.addAttribute("breederPosts2", dogPostDao.findByDogBreed(searchTerm));
             return "breeder-posts/visitor-show";
         }
+    }
+
+    @GetMapping("/show/{id}")
+    public String grabFromList(@PathVariable long id, Model model) {
+        model.addAttribute("breederPosts", dogPostDao.getOne(id));
+        return "breeder-posts/show";
+    }
+
+
+    @PostMapping("/buyer-profile/{id}/addToFavorites")
+    public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
+        DogPost addToFavorites = favoritesDao.getOne(id);
+        addToFavorites.setDogBreed(dogBreed);
+        addToFavorites.setDogGroup(dogGroup);
+        addToFavorites.setDogDescription(dogDescription);
+        addToFavorites.setDogPrice(dogPrice);
+        addToFavorites.setImages(images);
+        favoritesDao.save(addToFavorites);
+        return "redirect:/buyer-profile";
     }
 
 
