@@ -1,5 +1,4 @@
-//fileHandling.js - uploads image to filestack via breeder-post create form.
-
+//==========Create Post FileStack Script ======================
 // Set up the picker
 const client = filestack.init(FILESTACK_API_KEY);
 const options = {
@@ -8,9 +7,9 @@ const options = {
     accept: 'image/*',
     uploadInBackground: false,
 };
+
 const picker = client.picker(options);
 // Get references to the DOM elements
-const form = document.getElementById('pick-form');
 const fileInput = document.getElementById('fileupload');
 const btn = document.getElementById('picker');
 const nameBox = document.getElementById('nameBox');
@@ -21,11 +20,9 @@ btn.addEventListener('click', function (e) {
     picker.open();
 });
 
-
 function updateForm (result) {
     const fileData = result.filesUploaded[0];
     fileInput.value = fileData.url; //this is the good part
     console.log(fileData.url);
     console.log(fileInput.value);
 }
-

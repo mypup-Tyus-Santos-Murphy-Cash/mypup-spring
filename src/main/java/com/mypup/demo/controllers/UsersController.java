@@ -1,6 +1,7 @@
 package com.mypup.demo.controllers;
 
 import com.mypup.demo.models.User;
+import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UsersController {
     private UserRepo usersdao;
     private PasswordEncoder passwordEncoder;
+    private DogPostRepo dogPostDao;
 
-    public UsersController(UserRepo users, PasswordEncoder passwordEncoder) {
+    public UsersController(UserRepo users, PasswordEncoder passwordEncoder, DogPostRepo dogPostDao) {
         this.usersdao = users;
         this.passwordEncoder = passwordEncoder;
+        this.dogPostDao = dogPostDao;
     }
 
     @GetMapping("/sign-up")
@@ -47,10 +50,11 @@ public class UsersController {
     }
 
     @GetMapping("/breeder-profile")
-    public String goToBreeder(Model model){
+    public String goToBreeder(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userRoleBreeders", loggedIn);
-        if(loggedIn.getUserRole().equals("breeder"))
+        model.addAttribute("breederPosts", usersdao.findUserById(loggedIn.getId()).getDogPost());
+        if (loggedIn.getUserRole().equals("breeder"))
             return "users/breeder-profile";
         else
             return "redirect:/login";
@@ -60,11 +64,21 @@ public class UsersController {
     public String goToAdmin(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userRoleAdmin", loggedIn);
+        model.addAttribute("allPosts",  dogPostDao.findAll());
         if(loggedIn.getUserRole().equals("admin"))
             return "users/admin-profile";
         else
             return "redirect:/login";
     }
+
+
+    @GetMapping("/breeder-contact/{id}")
+    public String goToBreederContactInfo(@PathVariable long id, Model model){
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("breeder",usersdao.findUserByDogPost(dogPostDao.findById(id)));
+        return "users/breeder-contact";
+    }
+
 
 
 }

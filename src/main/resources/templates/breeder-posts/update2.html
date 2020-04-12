@@ -6,16 +6,16 @@
 
 </head>
 <body>
-<nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+<nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
 <header class="container my-5"></header>
 <div class="jumbotron">
-    <h1 class="text-center text-light display-1" id="update">Update a Post</h1>
+    <h1 class="text-center display-1" id="update">Update a Post</h1>
 </div>
 
-<div class="main-container">
+<div class="main-contianer embed-responsive embed-responsive-4by3">
 
     <div class="wrapper">
-        <form th:action="@{|/breeder-profile/${id}/update|}" th:method="POST" th:object="${breederPosts}">
+        <form th:action="@{|/admin-profile/${id}/update2|}" th:method="POST" th:object="${allPosts}">
             <label for="dogBreed"><h3>Breed</h3>
                 <input type="text" th:field="*{dogBreed}" placeholder="Enter a title"  />
             </label>
@@ -35,7 +35,8 @@
         </form>
     </div>
 </div>
+
 <div th:block th:replace="fragments/scripts.html :: scripts"></div>
-<footer th:replace="fragments/footer1.html :: footer1"></footer>
+<footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>

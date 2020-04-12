@@ -68,6 +68,10 @@ public class User {
         username = copy.username;
         password = copy.password;
         email = copy.email;
+        phoneNumber = copy.phoneNumber;
+        city = copy.city;
+        state = copy.state;
+        zipcode = copy.zipcode;
         userRole = copy.userRole;
 
     }

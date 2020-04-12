@@ -25,33 +25,24 @@
             <h5 class="card-title text-center">Create a Post</h5>
                     <div class="main-container">
 
-                    <form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${newDogPost}">
-                        <label for="dogBreed">Enter dog breed.</label>
-                        <input  type="text" name="dogBreed" th:field="*{dogBreed}" placeholder="Enter breed">
-                        <br>
-                        <label for="dogGroup">Enter dog group.</label>
-                        <input  type="text" name="dogGroup" th:field="*{dogGroup}" placeholder="Enter group">
-                        <br>
-                        <label for="dogDescription">Enter dog description</label>
-                        <textarea name="dogDescription" th:field="*{dogDescription}" placeholder="Enter description"></textarea>
-                        <br>
-                        <label for="dogPrice">Enter Price.</label>
-                        <input  type="text" name="dogPrice" th:field="*{dogPrice}" placeholder="Enter Price">
-
-                        <label for="image">Upload Image</label>
-                        <input name="fileupload" class="" id="fileupload" th:field="*{images}">
-                        <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
-                        <br/>
-
-                        <br>
-                        <br>
-                        <div>
-                            <input name="fileupload" class="" id="fileupload">
-
+                        <form th:action="@{|/breeder-posts/create|}" th:method="POST" th:object="${newDogPost}">
+                            <label for="dogBreed">Enter dog breed.</label>
+                            <input  type="text" th:field="*{dogBreed}" placeholder="Enter breed"/>
+                            <br/>
+                            <label for="dogGroup">Enter dog group.</label>
+                            <input  type="text" th:field="*{dogGroup}" placeholder="Enter group"/>
+                            <br/>
+                            <label for="dogDescription">Enter dog description</label>
+                            <textarea th:field="*{dogDescription}" placeholder="Enter description"></textarea>
+                            <br/>
+                            <label for="dogPrice">Enter Price.</label>
+                            <input  type="text" th:field="*{dogPrice}" placeholder="Enter Price"/>
+                            <br/>
+                            <input name="fileupload" id="fileupload" th:field="*{images}">
                             <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
-                        </div>
-                        <button id="save">Save Post</button>
-                    </form>
+                            <br/>
+                            <button id="save">Save Post</button>
+                        </form>
                 </div>
 
         </div>

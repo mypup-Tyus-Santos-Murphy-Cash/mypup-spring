@@ -9,23 +9,33 @@
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron">
-        <h1 class="text-center display-1">Breeder Profile</h1>
+        <h1 class="text-center text-light display-1">Breeder Profile</h1>
     </div>
     <h1> hello</h1>
     <main class="container">
         <h1>Hello from breeder profile</h1>
         <div>
-            <div th:each="userRole : ${userRoles}">
+            <div th:each="userRole : ${userRoleBreeders}">
                 <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
                 <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span> </a>
-                <br>
-                <a th:href="@{|/breeder-profile/${id}/update|}">
-                    <button>Update Post</button>
-                </a>
-                <form th:action="@{|/breeder-profile|}" th:method="POST" th:object="${userRoles}">
-                    <button>Delete Post</button>
-                </form>
+                <br/>
+                <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="breederPost : ${breederPosts}">
+                    <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
+                    <h1 th:text="${breederPost.dogBreed}"></h1>
+                    <p th:text="${breederPost.dogGroup}"></p>
+                    <p th:text="${breederPost.dogDescription}"></p>
+                    <p th:text="${breederPost.dogPrice}"></p>
+                    <br>
+                    <form th:action="@{|/breeder-profile/${breederPost.id}/delete|}"  th:method="POST" style="display:inline">
+                        <button>Delete</button>
+                    </form>
+                    <a th:href="@{|/breeder-profile/${breederPost.id}/update|}">
+                        <button>Update Post</button>
+                    </a>
+                </div>
+                <br/>
             </div>
+
         </div>
     </main>
 </div>
@@ -33,6 +43,8 @@
 <br>
 <br>
 <br>
+<div th:replace="fragments/scripts.html :: scripts"></div>
+<footer th:replace="fragments/footer1.html :: footer1"></footer>
 
 </body>
 </html>

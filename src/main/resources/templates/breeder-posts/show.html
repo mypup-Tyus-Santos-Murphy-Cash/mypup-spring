@@ -33,14 +33,20 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-            <button th:action="@{breeder-profile.id}" class="btn button-primary info">More info</button>
+            <form th:action="@{|/breeder-contact/${breederPost.id}|}"><button class="btn button-primary info">More info</button></form>
             <br>
-            <div sec:authorize="isAuthenticated()">
-                <div th:if="userName == breederPost.user.username">
-                    <a th:href="@{|/breeder-posts/${breederPosts}/update|}"><button>Update Post</button></a>
-                    <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>
-                </div>
+
+            <div th:if="${showUserRoles.getUserRole().equals('admin')}">
+                <form th:action="@{|/breeder-posts/${breederPost.id}/delete|}" th:method="POST" style="display:inline">
+                    <button>Delete</button>
+                </form>
             </div>
+<!--            <div sec:authorize="isAuthenticated()">-->
+<!--                <div th:if="userName == breederPost.user.username">-->
+<!--                    <a th:href="@{|/breeder-posts/${breederPosts}/update|}"><button>Update Post</button></a>-->
+<!--                    <button class="delete-button" th:id="'delete-button-'+${breederPost.id}">Delete</button>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>

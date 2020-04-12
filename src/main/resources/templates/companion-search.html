@@ -7,6 +7,7 @@
 </head>
 
 <body>
+<nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
 <h1>What Breed Is Best For Me!</h1>
 <hr/>
 
@@ -16,7 +17,7 @@
         <!--        =======================================-->
         <!--        Customer Survey Form-->
         <!--        =======================================-->
-        <form id="survey" name="survey">
+        <form id="survey" name="survey" th:method="POST" th:action="@{/companion-search}">
 
             <p class="questions">How many dogs have you currently or have previously owned?</p>
             <input type="radio" class="check" name="question1" value=0> None<br>
@@ -113,8 +114,6 @@
 <!--Custom Javascript -->
 <!--<script type="text/javascript" src="../js/companionSearch.js"></script>-->
 <div th:replace="fragments/scripts.html :: scripts"></div>
-<div th:replace="fragments/scripts.html :: scripts"></div>
-<div th:replace="fragments/footer.html :: footer"></div>
+
 </body>
 </html>
-

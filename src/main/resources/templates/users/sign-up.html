@@ -13,14 +13,14 @@
 
     <div class="card-container">
         <div class="card mx-5 my-5 bg-light text-dark col-md-4">
-            <div class="card-body" >
+            <div class="card-body">
                 <h5 class="card-title text-center">Please Sign Up</h5>
                 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                     <label for="userRole">Select User Role</label>
                         <select th:field="*{userRole}">
                             <option value="breeder">Breeder</option>
                             <option value="buyer">Buyer</option>
-                            <option value="admin">Admin</option>
+<!--                            <option value="admin">Admin</option>-->
                         </select>
                         <br>
                         <label for="username">Username</label>
