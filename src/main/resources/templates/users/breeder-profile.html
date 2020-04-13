@@ -15,9 +15,10 @@
     <main class="container">
         <h1>Hello from breeder profile</h1>
         <div>
-            <div th:each="userRole : ${userRoleBreeders}">
+            <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="userRole : ${userRoleBreeders}">
+                <img class="card-img-top" th:src="${userRole.profileImage}" alt="Card image cap">
                 <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
-                <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span> </a>
+                <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span></a>
                 <br/>
                 <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="breederPost : ${breederPosts}">
                     <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">

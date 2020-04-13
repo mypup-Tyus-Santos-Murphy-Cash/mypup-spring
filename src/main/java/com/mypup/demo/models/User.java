@@ -34,7 +34,8 @@ public class User {
     private List<DogPost> dogPost;
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;
-
+    @Column(nullable = false, columnDefinition = "TEXT", name = "profile_image")
+    private String profileImage;
 
 
     public List<Breed> getBreeds() {
@@ -45,7 +46,14 @@ public class User {
         this.breeds = breeds;
     }
 
-    public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds) {
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
+    }
+    public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage) {
         this.userRole = userRole;
         this.username = username;
         this.password = password;
@@ -56,6 +64,7 @@ public class User {
         this.zipcode = zipcode;
         this.dogPost = dogPost;
         this.breeds = breeds;
+        this.profileImage = profileImage;
     }
     public List<DogPost> getDogPost() {
         return dogPost;
@@ -73,6 +82,7 @@ public class User {
         state = copy.state;
         zipcode = copy.zipcode;
         userRole = copy.userRole;
+        profileImage = copy.profileImage;
 
     }
     public void setDogPost(List<DogPost> dogPost) {

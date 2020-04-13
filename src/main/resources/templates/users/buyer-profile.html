@@ -9,22 +9,23 @@
     <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron">
-        <h1 class="text-center display-1">Buyer Profile</h1>
+        <h1 class="text-center text-light display-1">Buyer Profile</h1>
     </div>
-<main class="container">
-    <div class= "card">
-        <form th:action="@{|/buyer-profile|}" th:method="POST" th:object="${userRoleBuyer}"></form>
-    </div>
-</main>
+
+
+    <main class="container">
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="userRole : ${userRoleBuyer}">
+            <img class="card-img-top" th:src="${userRole.profileImage}" alt="Card image cap">
+            <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
+            <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span></a>
+            <br/>
+        </div>
+
+    </main>
 
 </div>
 
-<script>
-    
 
-
-</script>
-<br>
 <br>
 <br>
 
