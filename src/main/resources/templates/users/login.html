@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<div class="main-container login">
+<body class="body login" style="background-image: url('/images/little-pup.jpg');">
+<div class="main-container embed-responsive">
     <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron-login">
-        <h1 class="text-left mx-5 display-1" id="login"> Login</h1>
+        <h1 class="text-left mx-4.5 display-1" id="login"> Login</h1>
     </div>
-<div class="card-container">
-    <div class="card mx-5 bg-light text-dark col-md-4">
-        <div class="card-body " id="login-card">
+
+
+    <div class="card mx-5 bg-light text-dark col-md-4 loginCard">
+        <div class="card-body embed-responsive" id="login-card1">
             <h5 class="card-title text-center">Please log in</h5>
             <br>
             <form class="card-text" th:action="@{/login}" method="post">
@@ -23,12 +24,14 @@
                     <br>
                     <label for="password">Password</label>
                     <input id="password" name="password" type="password" />
-                    <input type="submit" value="Log In" />
+                    <div class= "d-flex justify-content-center text-center" >
+                    <input id="loginbtn" type="submit" value="Log In" />
+                    </div>
                 </div>
             </form>
         </div>
+
     </div>
-</div>
 
     <div th:if="${param.error}">
         Invalid Username and Password.
@@ -37,9 +40,14 @@
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
+
     <br>
     <br>
     <br>
+
+
+
+
 <div th:block th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer.html :: footer"></footer>
 </div>
