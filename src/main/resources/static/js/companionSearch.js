@@ -2,8 +2,8 @@
 // // Customer survey form validation check and sum script
 // ==========================================================
 function handleClick(input) {
-    let chk = document.querySelectorAll(".check:checked");
-    let total = 0;
+    var chk = document.querySelectorAll(".check:checked");
+    var total = 0;
 
     if (!chk.length) {
         alert("You didn't select an answer for all questions")
@@ -11,33 +11,67 @@ function handleClick(input) {
         chk.forEach(function (el) {
             total += parseInt(el.getAttribute('value'));
         });
-        // console.log(total);
+        console.log(total);
 
         var totalRange;
 
-        if (total <= 25) {
+        if (total <= 27) {
             totalRange = 0;
         }
-        if (total >= 26 && total <= 44) {
+        if (total >= 28 && total <= 40) {
             totalRange = 1;
-        } else if (total >= 45 && total <= 70) {
+        }
+        if (total >= 41 && total <= 65) {
             totalRange = 2;
+        } else if (total >= 70) {
+            totalRange = 3;
         }
 
-        let breed = [
-            "Affenpinscher,Airedale Terrier,Akbash,Akita,Alapaha Blue Blood Buildog,Alaskan husky,Alaskan Klee Kai,American Bulldog,American Bully,American Eskimo Dog,American Foxhound,American Pit Bull Terrier,American Staffordshire Terrier,Anatolian Shepherd Dog ,American Water Spaniel,Australian Cattle Dog,Australian Kelpie,Australian Shepherd,Australian Terrier,Azawakh,Barbet,Basenji,Basset Bleu de Gascogne,Basset Hound,Bavarian Mountain Hound,Beagle,Bearded Collie,Beauceron,Bedlington Terrier,Belgian Malinois ,Belgian Tervuren,Bernese Mountain Dog,Bichon Frisé,Black and Tan Coonhound,Bloodhound,Bluetick Coonhound,Boerboel,Border Collie,Border Terrier,Boston Terrier,Bouvier des Flandres,Boxer,Boykin Spaniel,Bracco Italiano,Briard,Bull Terrier,Bulldog,Bullmastiff,Cairn Terrier,Cane Corso,Cardigan Welsh Corgi,Catahoula Leopard Dog,Catalan Sheepdog,Caucasian Shepherd Dog,Cavalier King Charles Spaniel,Chesapeake Bay Retriever,Chinese Crested Dog,Chinese Shar-Pei,Chow Chow,Clumber Spaniel,Cocker Spaniel,Coton de Tulear,Dalmatian,Doberman Pinscher,Dogo Argentino,Dutch Shepherd,English Setter,English Shepherd,English Springer Spaniel,Enlish Toy Terrier,Eurasier,Field Spaniel,Finnish Lapphund,Finnish Spitz,Flat-coated Retriever,French Bulldog,French Spaniel,Galgo Español,Galician Shepherd Dog,Garafian Shepherd,Gascon Saintongeois,Georgian Shepherd,German Hound,German Longhaired Pointer,German Pinscher,German Roughhaired Pointer,German Shepherd Dog,German Shorthaired Pointer,German Spaniel,German Spitz,German Wirehaired Pointer,Giant Schnauzer,Glen of Imaal Terrier,Golden Retriever,Gończy Polski,Gordon Setter,Gran Mastín de Borínquen,Grand Anglo-Français Blanc et Noir,Grand Anglo-Français Blanc et Orange,Grand Anglo-Français Tricolore,Grand Basset Griffon Vendéen,Grand Bleu de Gascogne,Grand Griffon Vendéen,Great Dane,Great Pyrenees,Greater Swiss Mountain Dog,Greek Harehound,Greek Shepherd,Greenland Dog,Greyhound,Griffon Bleu de Gascogne,Griffon Fauve de Bretagne",
-            "Griffon Nivernais,Groenendael,Guatemalan Dogo,Gull Terrier,Hamiltonstövare,Hanover Hound,Harrier,Havanese,Himalayan Sheepdog,Hokkaido,Hortaya borzaya,Hovawart,Huntaway,Hygen Hound,Ibizan Hound,Icelandic Sheepdog,Indian pariah dog,Indian Spitz,Irish Red and White Setter,Irish Setter,Irish Terrier,Irish Water Spaniel,Irish Wolfhound,Istrian Coarse-haired Hound,Istrian Shorthaired Hound,Italian Greyhound,Jack Russell Terrier,Jagdterrier,Jämthund,Japanese Chin,Japanese Spitz,Japanese Terrier,Jindo,Jonangi,Kai Ken,Kangal Shepherd Dog,Kanni,Karakachan dog,Karelian Bear Dog,Karst Shepherd,Keeshond,Kerry Beagle,Kerry Blue Terrier,King Charles Spaniel,King Shepherd,Kintamani,Kishu,Komondor,Kooikerhondje,Koolie,Koyun dog,Kromfohrländer,Kuchi,Kumaon Mastiff,Kunming wolfdog,Kuvasz,Labrador Retriever,Laekenois,Lagotto Romagnolo,Lakeland Terrier,Lancashire Heeler,Landseer,Lapponian Herder,Lapponian Shepherd,Large Münsterländer,Leonberger,Lhasa Apso,Lithuanian Hound,Löwchen,Mackenzie River husky,Magyar agár,Majorca Ratter,Majorca Shepherd Dog,Mahratta Greyhound,Malinois,Maltese,Manchester Terrier,Maremma Sheepdog,McNab dog,Miniature American Shepherd,Miniature Bull Terrier,Miniature Fox Terrier,Miniature Pinscher,Miniature Schnauzer,Miniature Shar Pei,Montenegrin Mountain Hound,Moscow Water Dog,Mountain Cur,Mucuchies,Mudhol Hound,Mudi,Neapolitan Mastiff,Newfoundland,New Zealand Heading Dog,Norfolk Terrier,Norrbottenspets,Northern Inuit Dog,Norwegian Buhund,Norwegian Elkhound,Norwegian Lundehund,Norwich Terrier,Nova Scotia Duck Tolling Retriever,Old Croatian Sighthound,Old Danish Pointer,Old English Sheepdog,Old English Terrier,Olde English Bulldogge,Otterhound,Pachon Navarro,Pandikona,Paisley Terrier,Papillon",
-            "Parson Russell Terrier, Patagonian Sheepdog,Patterdale Terrier,Pekingese,Pembroke Welsh Corgi,Perro de Presa Canario,Peruvian Hairless Dog,Petit Basset Griffon Vendéen,Petit Bleu de Gascogne,Phalène,Pharaoh Hound,Phu Quoc Ridgeback,Picardy Spaniel,Plummer Terrier,Plott Hound,Podenco Canario,Pointer,Poitevin,Polish Greyhound,Polish Hound,Polish Lowland Sheepdog,Polish Tatra Sheepdog,Pomeranian,Pont-Audemer Spaniel,Poodle,Porcelaine,Portuguese Podengo,Portuguese Pointer,Portuguese Water Dog,Posavac Hound,Potsdam Greyhound,Pražský Krysařík,Pudelpointer,Pug,Puli,Pumi,Pungsan dog,Pyrenean Mastiff,Pyrenean Shepherd,Rafeiro do Alentejo,Rajapalayam,Rampur Greyhound,Rastreador Brasileiro,Rat Terrier,Ratonero Bodeguero Andaluz,Ratonero Murciano de Huerta,Ratonero Valenciano,Redbone Coonhound,Rhodesian Ridgeback,Romanian Mioritic Shepherd Dog,Romanian Raven Shepherd Dog,Rottweiler,Rough Collie,Russian Spaniel,Russian Toy,Russian Tracker,Russo-European Laika,Russell Terrier,Saarloos wolfdog,Sabueso Español,Saint Bernard,Saint-Usuge Spaniel,Sakhalin Husky,Saluki,Samoyed,Sapsali,Šarplaninac,Schapendoes,Schillerstövare,Schipperke,Schweizer Laufhund,Schweizerischer Niederlaufhund,Scotch Collie,Scottish Deerhound,Scottish Terrier,Sealyham Terrier,Segugio Italiano,Seppala Siberian Sleddog,Serbian Hound,Serbian Tricolour Hound,Serrano Bulldog,Shar Pei,Shetland Sheepdog,Shiba Inu,Shih Tzu,Shikoku,Shiloh Shepherd,Siberian Husky,Sily Terrier,Soft-Coated Wheaten Terrier,Spanish Water Dog,Spinone Italiano,Staffordshire Bull Terrier,Standard Schnauzer,Swedish Vallhund,Thai Ridgeback,Tibetan Mastiff,Tibetan Spaniel,Tibetan Terrier,Toy Fox Terrier,Treeing Walker Coonhound,Vizsla,Weimaraner,Welsh Springer Spaniel,West Highland White Terrier,Whippet,White Shepherd,Wire Fox Terrier,Wirehaired Pointing Griffon,Wirehaired Vizsla,Xoloitzcuintli"
+        // console.log(totalRange);
+
+
+        var breed = [
+            "Bichon Frise, French Bulldog, Havanese, Lhasa Apso , Miniature Poodle, Pug, Scottish Terrier, Shih Taus, Tibetan Terrier, Whippet, Yorkshire Terrier",
+            "Basset Hound, Bernese Mountain Dog, Boxer, Collie, Dogue de Bordeaux, English Springer Spaniel, Golden Retriever, Great Dane, Irish Wolfhound, Labrador Retriever, Leonberger, Neopolitan Mastiff, Newfoundland, Poodle, Shetland Sheepdog, Wheaten Terrier",
+            "Australian Shepherd, Australian Terrier, Azawakh, Barbet, Basenji, Basset Bleu de Gascogne, Basset Hound, Bavarian Mountain Hound, Beagle, Bearded Collie, Beauceron, Bedlington Terrier",
+            "Afghan Hound, Akita, American Pit Bull Terrier, Australian Cattle Dog, Bernese Mountain Dog, Cane Corso, Caucasian Sheepdog (Ovcharka), Chow Chow, Dalmations, Doberman Pinscher, English Bulldog, German Shepherd, Great Pyrenees, Newfoundland, Shar-Pei, Shiba Inu, Siberian Husky, Tibetan Mastiff, Weimaraner"
         ];
+
+        var  info  = [
+            "First time dog owners and apartment dwellers should consider the following breeds as they are fun loving and do well in small spaces.",
+            "Those looking for a medium to large breed that is easy to train should consider the following breeds.",
+            "You'll need to take grooming requirements, activity level, size and common health ailments in mind when choosing one of these breeds for your family.",
+            "Experienced owners or active bodies with the patience to train a energetic, enthusiastic, large dog should consider the following breeds."
+        ];
+
+        var list = breed[totalRange];
+        var dogs = list.split(',');
+        console.log(dogs);
+
+        var ul = document.createElement('ul');
+        document.getElementById('dogList').appendChild(ul);
+
+        dogs.forEach(function(dog){
+            var li = document.createElement('li');
+            ul.appendChild(li);
+            li.innerHTML += dog;
+        });
+
+        // Hidden elements (RESULTS)  made visible after form submit
         document.getElementById("after_submit-0").style.visibility = "visible";
         document.getElementById("after_submit-1").style.visibility = "visible";
-        document.getElementById("after_submit-2").style.visibility = "visible";
-
-        document.getElementById("dog-breed").innerHTML = "Dog Breeds" + breed[totalRange];
-        document.getElementById("after_submit-3").style.visibility = "visible";
-
-
+        document.getElementById("after_submit-4").style.visibility = "visible";
+        document.getElementById("info").innerHTML = info[totalRange];
+        document.getElementById("hidden-container").style.visibility = "visible";
+        document.getElementById("totalSum").disabled = true;
     }
+}
+
+// ==========================================================
+// // Refresh page to remove survey results;
+// ==========================================================
+function resetForm() {
+    location.reload();
 }
 
 // ==========================================================
