@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>Viewing Post</title>
 </head>
-<body>
+<body class="visitor-show">
 <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
-<header class="container my-5">
-    <div class="jumbotron">
-        <h1 class="text-center text-light display-1" id="breeder-posts">Breeder Posts</h1>
+<header class="container my-5"></header>
+    <div class="jumbotron-visitor">
+        <div class="container">
+        <h1 class="text-center text-light display-1" id="visitor-posts">Breeder Posts</h1>
+        </div>
     </div>
-</header>
 
-<div class="main-container">
+
+<div class="main-container embed-responsive">
     <div class="row">
         <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="breederPost : ${breederPosts2}">
             <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
@@ -20,7 +22,9 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-            <button th:action="@{breeder-profile.id}" class="btn button-primary info">More info</button>
+            <button th:action="@{breeder-profile.id}" type="button" class="btn"
+            data-toggle="popover" data-content="Please Sign up or Login for more information">More Info</button>
+<!--            <button  class="btn button-primary info">More info</button>-->
             <br>
 <!--            <div sec:authorize="isAuthenticated()">-->
 <!--                <div th:if="userName == breederPost.user.username">-->

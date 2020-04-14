@@ -6,13 +6,13 @@
     <title>Companion Finder</title>
 </head>
 
-<body>
+<body class="companion">
 <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
 <h1>What Breed Is Best For Me!</h1>
 <hr/>
 
 
-<div class="container">
+<div class="companion-container ">
     <div class="row">
         <!--        =======================================-->
         <!--        Customer Survey Form-->
@@ -108,10 +108,8 @@
             </div>
         </div>
     </div>
-
-
+</div>
     <!--Custom Javascript -->
-    <!--<script type="text/javascript" src="../js/companionSearch.js"></script>-->
     <div th:replace="fragments/scripts.html :: scripts"></div>
 
 </body>

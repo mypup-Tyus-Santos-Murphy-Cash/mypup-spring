@@ -15,26 +15,45 @@
 <div class="main-contianer embed-responsive embed-responsive-4by3">
 
     <div class="wrapper">
-        <form th:action="@{|/admin-profile/${id}/update2|}" th:method="POST" th:object="${allPosts}">
-            <label for="dogBreed"><h3>Breed</h3>
-                <input type="text" th:field="*{dogBreed}" placeholder="Enter a title"  />
-            </label>
-            <label for="dogGroup"><h3>Group</h3>
-                <input type="text" th:field="*{dogGroup}" placeholder="Enter a description" />
-            </label>
-            <label for="dogDescription"><h3>Description</h3>
-                <input type="text" th:field="*{dogDescription}" placeholder="Enter a description" />
-            </label>
-            <label for="dogPrice"><h3>Price</h3>
-                <input type="text" th:field="*{dogPrice}" placeholder="Enter a description" />
-            </label>
-            <br/>
-            <input name="fileupload" id="fileupload" th:field="*{images}">
-            <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
-            <button type="submit">submit!</button>
-        </form>
-    </div>
-</div>
+            <div class="card-container">
+                <div class="card bg-light text-dark sign-up-form col-xl-4">
+                    <div class="card-body post-Update">
+                        <h5 class="card-title post-Create-Form user-Form-Text">Update Post</h5>
+                        <hr>
+                        <form th:action="@{|/admin-profile/${id}/update2|}" th:method="POST" th:object="${allPosts}">
+                        <div class="row">
+                                <div class="col-xl-12">
+                                    <label for="dogBreed">Breed</label>
+                                    <input type="text" th:field="*{dogBreed}" placeholder="Enter a title"/>
+                                </div>
+                                <div class="col-xl-12">
+                                    <label for="dogGroup">Group</label>
+                                    <input type="text" th:field="*{dogGroup}" placeholder="Enter a description"/>
+                                </div>
+
+                                <div class="col-xl-12">
+                                    <label for="dogPrice">Price</label>
+                                    <input type="text" th:field="*{dogPrice}" placeholder="Enter a description"/>
+                                </div>
+                                <div class="col-xl-12">
+                                    <label for="dogDescription">Description</label>
+                                    <textarea th:field="*{dogDescription}" placeholder="Enter a description"/>
+                                </div>
+
+                                <div class="col-xl-12 create-photo-upload">
+                                    <button class="button photo-upload upload-photo photo1" type="button" id="picker">Upload Image</button>
+                                    <input class="move-right1" name="fileupload" id="fileupload" th:field="*{images}">
+                                </div>
+                                <div class="col-xl-12">
+                                    <!--                        <button class="loginSign-btn sign-create-btn update-btn" type="submit">Update!</button>-->
+                                    <input id="update-post"  class="loginSign-btn sign-create-btn update-btn" value="Update Post"  type="submit"/>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
 <div th:block th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer.html :: footer"></footer>

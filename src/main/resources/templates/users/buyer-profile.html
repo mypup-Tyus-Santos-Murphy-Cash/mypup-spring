@@ -5,32 +5,66 @@
     <title>Title</title>
 </head>
 <body>
-<div class="breeder">
+<div class="buyer">
     <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
     <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center text-light display-1">Buyer Profile</h1>
+    <div class="jumbotron-buyer">
+        <h1 class="text-center text-light display-1" id="h1-buyer">Buyer Profile</h1>
     </div>
+    <h1 class="text-left text-light" id="h1-index"  th:text="Welcome+' '+ ${userRoleBuyer.getUsername()}"></h1>
 
-
-    <main class="container">
-        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="userRole : ${userRoleBuyer}">
+    <main class="container-buyer justify-center" style="width: 25rem;">
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" th:each="userRole : ${userRoleBuyer}">
             <img class="card-img-top" th:src="${userRole.profileImage}" alt="Card image cap">
             <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
             <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span></a>
             <br/>
         </div>
-
     </main>
 
-</div>
+    <div>
+        <h2 class="text-center text-light" id="buyer-fav">Favorite Post</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class=" card border-1 shadow">
+                        <div class=" card-body text-center">
+                            <img src="/images/3pups.jpg" style="width:200px;height:200px;" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-1 shadow">
+                        <div class="card-body text-center">
+                            <img src="/images/furry-dog.jpg" style="width:200px;height:200px;" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4 ">
+                    <div class="card border-1 shadow ">
+                        <div class="card-body text-center">
+                            <img src="/images/glasses.jpg"  style="width:200px;height:200px;" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4 ">
+                    <div class="card border-1 shadow ">
+                        <div class="card-body text-center">
+                            <img src="/images/little-pup.jpg"  style="width:200px;height:200px;" alt="Card image cap">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <br>
 <br>
-
+<div>
 <div th:replace="fragments/scripts.html :: scripts"></div>
-<div th:replace="fragments/footer.html :: footer"></div>
-
+<div th:replace="fragments/footer1.html :: footer1"></div>
+</div>
+</div>
 </body>
 </html>

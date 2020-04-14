@@ -2,27 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header.html :: header"></head>
 <body>
-<div class="wrapper">
+<div class="admin">
     <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
     <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center display-1" id="admin">Admin</h1>
+    <div class="jumbotron-admin">
+        <h1 class="text-center display-1" id="h1-admin">Admin</h1>
     </div>
-    <h1>Welcome admin!</h1>
-    <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="allPost : ${allPosts}">
-        <img class="card-img-top" th:src="${allPost.images}" alt="Card image cap">
-        <h1 th:text="${allPost.dogBreed}"></h1>
-        <p th:text="${allPost.dogGroup}"></p>
-        <p th:text="${allPost.dogDescription}"></p>
-        <p th:text="${allPost.dogPrice}"></p>
-        <br>
-        <form th:action="@{|/admin-profile/${allPost.id}/delete|}"  th:method="POST" style="display:inline">
-            <button>Delete</button>
-        </form>
-        <a th:href="@{|/admin-profile/${allPost.id}/update2|}">
-            <button>Update Post</button>
-        </a>
-
+    <h1 class="text-center" id="welcome-admin">Welcome admin!</h1>
+    <div class="row">
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="allPost : ${allPosts}">
+            <img class="card-img-top" th:src="${allPost.images}" alt="Card image cap">
+            <h1 th:text="${allPost.dogBreed}"></h1>
+            <p th:text="${allPost.dogGroup}"></p>
+            <p th:text="${allPost.dogDescription}"></p>
+            <p th:text="${allPost.dogPrice}"></p>
+            <br>
+            <div class="btn-container">
+                <form th:action="@{|/admin-profile/${allPost.id}/delete|}"  th:method="POST" style="display:inline">
+                    <button>Delete</button>
+                </form>
+                <a th:href="@{|/admin-profile/${allPost.id}/update2|}">
+                    <button>Update Post</button>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 </body>

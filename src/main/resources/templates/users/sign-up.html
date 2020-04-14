@@ -4,56 +4,78 @@
 
 
 <body>
-<div class="main-container sign">
+<div class="main-container embed-responsive sign">
     <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron-sign">
         <h1 class="text-left text-light mx-4.5 display-1" id="sign-up">Sign Up</h1>
     </div>
 
-    <div class="card-container">
+    <div class="card-container embed-responsive">
         <div class="card mx-5 my-5 bg-light text-dark col-md-4">
-            <div class="card-body">
+            <div class="card-body embed-responsive">
                 <h5 class="card-title text-center">Please Sign Up</h5>
                 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
-                    <label for="userRole">Select User Role</label>
+                    <div class="col-xl-12">
+                        <label for="userRole">Select User Role</label>
+
                         <select th:field="*{userRole}">
                             <option value="breeder">Breeder</option>
                             <option value="buyer">Buyer</option>
-<!--                            <option value="admin">Admin</option>-->
+                            <option value="admin">Admin</option>
                         </select>
                         <br>
+                        </select>
+                    </div>
+
+                    <div class="col-xl-12">
                         <label for="username">Username</label>
-                        <input th:field="*{username}" />
-                        <br>
+                        <input th:field="*{username}"/>
+                    </div>
+
+                    <div class="col-xl-12">
                         <label for="password">Password</label>
-                        <input type="password" th:field="*{password}" />
-                        <br>
+                        <input type="password" th:field="*{password}"/>
+                    </div>
+
+                    <div class="col-xl-12">
                         <label for="email">Email</label>
                         <input th:field="*{email}"/>
-                        <br>
-                        <label for="phoneNumber">phone number</label>
-                        <input th:field="*{phoneNumber}" />
-                        <br>
-                        <label for="city">city</label>
-                        <input th:field="*{city}" />
-                        <br>
-                        <label for="state">state</label>
-                        <input th:field="*{state}" />
-                        <br>
-                        <label for="zipcode">zipcode</label>
-                        <input th:field="*{zipcode}" />
-                        <br>
-                        <div class= "d-flex justify-content-center text-center">
-                            <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
-                            <input name="fileupload" id="fileupload" th:field="*{profileImage}">
-                        </div>
-                            <input id="signbtn" value="Sign me up!" type="submit" />
+                    </div>
 
-                    </form>
-            </div>
+                    <div class="col-xl-12">
+                        <label for="phoneNumber">Phone No.</label>
+                        <input th:field="*{phoneNumber}"/>
+                    </div>
+
+                    <div class="col-xl-12">
+                        <label for="city">City</label>
+                        <input th:field="*{city}"/>
+                    </div>
+
+                    <div class="col-xl-12">
+                        <label for="state">State</label>
+                        <input th:field="*{state}"/>
+                    </div>
+
+                    <div class="col-xl-12">
+                        <label for="zipcode">Zip Code</label>
+                        <input th:field="*{zipcode}"/>
+                    </div>
+
+
+                    <div class="col-xl-12">
+                        <button class="button photo-upload upload-photo" type="button" id="picker">Profile Image</button>
+                        <input class="move-right" name="fileupload" id="fileupload" th:field="*{profileImage}">
+                    </div>
+
+                    <div class="col-xl-12">
+                        <input id="signbtn"  class="loginSign-btn sign-create-btn" value="Sign me up!" type="submit"/>
+                    </div>
+                </form>
         </div>
     </div>
+</div>
 <div th:replace="fragments/scripts.html :: scripts"></div>
 <div th:replace="fragments/footer.html :: footer"></div>
 </div>

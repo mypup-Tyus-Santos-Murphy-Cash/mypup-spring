@@ -7,7 +7,7 @@
 <body>
 <div>
 <nav th:fragment="breeder-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" th:href="@{/home}">My Pup</a>
+    <a class="navbar-brand" th:href="@{/breeder-profile}">My Pup</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,9 +19,6 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/breeder-posts/create}">Create Post</a>
             </li>
-<!--            <li class="nav-item ml-auto">-->
-<!--                <a class="nav-link" th:href="@{/login}">Login</a>-->
-<!--            </li>-->
             <li class="nav-item ml-auto">
                 <a class="nav-link" th:href="@{/breeder-profile}">Profile</a>
             </li>
@@ -41,7 +38,7 @@
 
 <div>
     <nav th:fragment="buyer-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" th:href="@{/home}">My Pup</a>
+        <a class="navbar-brand" th:href="@{/index}">My Pup</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -71,11 +68,12 @@
                 <button class="btn btn-light my-2 my-sm-0"><a id="search_execute1" href="/search/">Search</a></button>
             </form>
     </nav>
+</div>
 
 
 <div>
     <nav th:fragment="visitor-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" th:href="@{/}">My Pup</a>
+        <a class="navbar-brand" th:href="@{/index}">My Pup</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -85,11 +83,10 @@
                     <a class="nav-link" th:href="@{/visitor-show}">All Posts</a>
                 </li>
                 <li class="nav-item ml-auto">
-                    <a class="nav-link" th:href="@{/login}">Login</a>
-                </li>
-
-                <li class="nav-item ml-auto">
                     <a class="nav-link" th:href="@{/sign-up}">Sign-up</a>
+                </li>
+                <li class="nav-item ml-auto">
+                    <a class="nav-link" th:href="@{/login}">login</a>
                 </li>
             </ul>
 
@@ -98,15 +95,15 @@
                 <button class="btn btn-light my-2 my-sm-0"><a id="search_execute2" href="/visitor-search/">Search</a></button>
             </form>
         </div>
-        <div>
-            <ul>
-                <li>
-                    <form th:action="@{/logout}" th:method="post">
-                        <button class="btn-link btn" style="margin-top: 1px">Logout</button>
-                    </form>
-                </li>
-            </ul>
-        </div>
+<!--        <div>-->
+<!--            <ul>-->
+<!--                <li>-->
+<!--                    <form th:action="@{/logout}" th:method="post">-->
+<!--                        <button class="btn-link btn" style="margin-top: 1px">Logout</button>-->
+<!--                    </form>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
     </nav>
 </div>
 
@@ -121,11 +118,8 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/breeder-posts}">Posts</a>
             </li>
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" th:href="@{/breeder-posts/create}">Create Post</a>-->
-<!--            </li>-->
             <li class="nav-item ml-auto">
-                <a class="nav-link" th:href="@{/login}">Login</a>
+                <a class="nav-link" th:href="@{/admin-profile}">Profile</a>
             </li>
             <li>
                 <form th:action="@{/logout}" th:method="post">
