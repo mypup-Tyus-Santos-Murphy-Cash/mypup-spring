@@ -8,106 +8,111 @@
 
 <body class="companion">
 <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
-<h1>What Breed Is Best For Me!</h1>
+<h1 class="mx-4">What Breed Is Best For Me!</h1>
 <hr/>
 
+<div class="companion-container">
+    <div class="" style="float: left; width: 50%;">
+        <div class="">
+            <!--        =======================================-->
+            <!--        Customer Survey Form-->
+            <!--        =======================================-->
+            <form id="survey" name="survey" th:method="POST" th:action="@{/companion-search}">
 
-<div class="companion-container ">
-    <div class="row">
-        <!--        =======================================-->
-        <!--        Customer Survey Form-->
-        <!--        =======================================-->
-        <form id="survey" name="survey" th:method="POST" th:action="@{/companion-search}">
+                <p class="questions">How many dogs have you currently or have previously owned?</p>
 
-            <p class="questions">How many dogs have you currently or have previously owned?</p>
-            <input type="radio" class="check" name="question1" value=0> None<br>
-            <input type="radio" class="check" name="question1" value=5> Between 1 - 2<br>
-            <input type="radio" class="check" name="question1" value=10> 3 or more<br>
-
-
-            <p class="questions">What type of home do you live in?</p>
-            <label for="mc"></label>
-            <input type="radio" class="check" name="question2" value=0> An Apartment<br>
-            <input type="radio" class="check" name="question2" value=5> House with small yard<br>
-            <input type="radio" class="check" name="question2" value=10> House with large yard (Ranch)<br>
+                <input type="radio" class="check" name="question1" value=0>None<br>
+                <input type="radio" class="check" name="question1" value=5>Between 1 - 2<br>
+                <input type="radio" class="check" name="question1" value=10>3 or more<br>
 
 
-            <p class="questions">What’s your activity level?</p>
-            <label for="mc"></label>
-            <input type="radio" class="check" name="question3" value=0> Like to hang around the house <br>
-            <input type="radio" class="check" name="question3" value=5> Enjoy outside activity<br>
-            <input type="radio" class="check" name="question3" value=10> Adventure seeking<br>
-
-            <p class="questions">What size dog do you prefer?</p>
-            <label for="mc"></label>
-            <input type="radio" class="check" name="question4" value=0> Small <br>
-            <input type="radio" class="check" name="question4" value=5> Medium<br>
-            <input type="radio" class="check" name="question4" value=10> Large<br>
-
-            <p class="questions">Do you have young children (under age 10)?</p>
-            <input type="radio" class="check" name="question5" value=5> Yes<br>
-            <input type="radio" class="check" name="question5" value=0> No<br>
+                <p class="questions">What type of home do you live in?</p>
+                <input type="radio" class="check" name="question2" value=0>An Apartment<br>
+                <input type="radio" class="check" name="question2" value=5>House with small yard<br>
+                <input type="radio" class="check" name="question2" value=10>House with large yard (Ranch)<br>
 
 
-            <p class="questions">What is your noise tolerance for barking (noise)?</p>
-            <input type="radio" class="check" name="question6" value=0> Light <br>
-            <input type="radio" class="check" name="question6" value=5> Medium<br>
-            <input type="radio" class="check" name="question6" value=10> Strong<br>
+                <p class="questions">What’s your activity level?</p>
+                <input type="radio" class="check" name="question3" value=0>Like to hang around the house<br>
+                <input type="radio" class="check" name="question3" value=5>Enjoy outside activity<br>
+                <input type="radio" class="check" name="question3" value=10>Adventure seeking<br>
 
-            <p class="questions">What is your tolerance for shedding?</p>
-            <input type="radio" class="check" name="question7" value=0> Light <br>
-            <input type="radio" class="check" name="question7" value=5> Medium<br>
-            <input type="radio" class="check" name="question7" value=10> Strong<br>
+                <p class="questions">What size dog do you prefer?</p>
+                <input type="radio" class="check" name="question4" value=0>Small<br>
+                <input type="radio" class="check" name="question4" value=5>Medium<br>
+                <input type="radio" class="check" name="question4" value=10>Large<br>
 
-            <br>
-            <input type="button" name="resultButton" id="totalSum" onclick="handleClick();" value="Get Result">
-            <input type="button" onclick="resetForm()" value="Reset form">
-            <br>
-            <br>
+                <p class="questions">Do you have young children (under age 10)?</p>
+                <input type="radio" class="check" name="question5" value=5>Yes<br>
+                <input type="radio" class="check" name="question5" value=0>No<br>
 
-        </form>
+
+                <p class="questions">What is your noise tolerance for barking (noise)?</p>
+                <input type="radio" class="check" name="question6" value=0>Light <br>
+                <input type="radio" class="check" name="question6" value=5>Medium<br>
+                <input type="radio" class="check" name="question6" value=10>Strong<br>
+
+                <p class="questions">What is your tolerance for shedding?</p>
+                <input type="radio" class="check" name="question7" value=0>Light<br>
+                <input type="radio" class="check" name="question7" value=5>Medium<br>
+                <input type="radio" class="check" name="question7" value=10>Strong<br>
+
+                <br>
+                <input type="button" name="resultButton" id="totalSum" onclick="handleClick();" value="Get Result">
+                <input type="button" onclick="resetForm()" value="Reset form">
+                <br>
+                <br>
+
+            </form>
+
+        </div>
+    </div>
+
 
         <div class="container">
-            <!-- =========================================-->
-            <!--   Survey Output Area - Recommended Breeds  -->
-            <!-- =========================================   -->
-            <div id="after_submit-0">
-                <div id="survey-out">
+            <div class="">
+               <div class="" style="float: right; width: 50%;">
+                    <!-- =========================================-->
+                    <!--   Survey Output Area - Recommended Breeds  -->
+                    <!-- =========================================   -->
+                    <div id="after_submit-0">
+                        <div id="survey-out">
 
-                    <div id="dogInfo">
-                        <h3 id="after_submit-4" style="visibility: hidden">Advice</h3>
-                        <p id="info"></p>
+                            <div id="dogInfo">
+                                <h3 id="after_submit-4" style="visibility: hidden">Advice</h3>
+                                <p id="info"></p>
+                            </div>
+
+                            <div id="dogList">
+                                <h3 id="after_submit-1" style="visibility: hidden">Suggested Dog Breed</h3>
+                                <ul class="dogUl">
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
-                    <div id="dogList">
-                        <h3 id="after_submit-1" style="visibility: hidden">Suggested Dog Breed</h3>
-                        <ul class="dogUl">
-                        </ul>
+                    <!-- =========================================-->
+                    <!--    Dog API Search-->
+                    <!-- =========================================   -->
+                    <div class="container" id="hidden-container" style="visibility: hidden">
+                        <h3>Research Breed</h3>
+                        <p>Select a Breed</p>
+                        <select class="breed_select">
+                            <option></option>
+                        </select>
+
+                        <div id="breed_data">
+                            <img id="breed_image" src=""/>
+                            <p id="after_submit-5" style="visibility: hidden;">
+                                Breed Data
+                            </p>
+                            <table id="breed_data_table">
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- =========================================-->
-            <!--    Dog API Search-->
-            <!-- =========================================   -->
-            <div class="container" id="hidden-container" style="visibility: hidden">
-                <h3>Research Breed</h3>
-                <p>Select a Breed</p>
-                <select class="breed_select">
-                    <option></option>
-                </select>
-
-                <div id="breed_data">
-                    <img id="breed_image" src=""/>
-                    <p id="after_submit-5" style="visibility: hidden;">
-                        Breed Data
-                    </p>
-                    <table id="breed_data_table">
-                    </table>
                 </div>
             </div>
         </div>
-    </div>
 </div>
     <!--Custom Javascript -->
     <div th:replace="fragments/scripts.html :: scripts"></div>

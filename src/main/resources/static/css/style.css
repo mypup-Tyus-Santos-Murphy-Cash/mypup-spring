@@ -492,11 +492,40 @@ input, textarea{
 
 .companion{
     border: lightseagreen 15px solid;
-    /*background-image: url("/images/dog-bone.png");*/
+    padding: 3px;
 }
 .companion-container{
-    /*background: lightseagreen;*/
+    background-image: url("/images/finder.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 400px;
     border: black 15px solid;
+    height: 200vh;
+    padding: 10px;
+}
+
+#breed_data {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    font-size: 12px;
+    text-align: left;
+    transition: all 0.2s;
+    margin: 0 auto;
+    width: 500px;
+}
+#breed_image {
+    background: #fff;
+    margin: 0 auto;
+    width: 460px;
+}
+
+.check{
+    margin-right: -10rem;
+}
+
+.questions{
+    margin-top: 1rem;
 }
 
 
