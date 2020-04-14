@@ -98,15 +98,40 @@
 
 .jumbotron-show {
     background-image: url("/images/3pups.jpg");
-    /*background-size: 160px;*/
     background-repeat: no-repeat;
     /*background: none;*/
-    min-height: 30vh;
+    min-height: 40vh;
     /*height: auto;*/
     width: auto;
-    /*position: center;*/
+    position: center;
     /*z-index: -1;*/
     font-family: 'Pacifico', cursive;
+}
+
+.breeder{
+    border: lightseagreen 15px solid;
+    height: 380vh;
+
+}
+
+.jumbotron-breeder{
+    background-image: url("/images/dog-friends.jpg");
+    min-height: 40vh;
+    background-position: center;
+    background-size: 800px;
+    background-repeat: no-repeat;
+
+}
+
+#h1-breederProfile{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+#h1-create{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
 }
 
 #create{
@@ -124,10 +149,9 @@
 .jumbotron-create{
     max-height: 50vh;
     width: 100%;
-    font-family: 'Pacifico', cursive;
+
     margin-top: 100px;
     z-index: 1;
-
 }
 
 
