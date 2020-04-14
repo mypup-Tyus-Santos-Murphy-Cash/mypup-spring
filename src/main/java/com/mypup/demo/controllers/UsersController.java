@@ -74,7 +74,6 @@ public class UsersController {
 
     @GetMapping("/breeder-contact/{id}")
     public String goToBreederContactInfo(@PathVariable long id, Model model){
-        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("breeder",usersdao.findUserByDogPost(dogPostDao.findById(id)));
         return "users/breeder-contact";
     }

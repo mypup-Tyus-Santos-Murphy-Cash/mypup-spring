@@ -36,11 +36,9 @@
             <form th:action="@{|/breeder-contact/${breederPost.id}|}"><button class="btn button-primary info">More info</button></form>
             <br>
             <!-- Button trigger modal -->
-            <form th:action="@{|/show/${grabFromPosts}|}" th:object="${grabFromPosts}">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:action="@{|/breeder-posts/${breederPost.id}|}">
                 Launch demo modal
             </button>
-            </form>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -52,11 +50,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img class="card-img-top" th:src="${grabFromPosts.getImages()}" alt="Card image cap">
-                            <h1 th:text="${grabFromPosts.getDogBreed()}"></h1>
-                            <p th:text="${grabFromPosts.getDogGroup}"></p>
-                            <p th:text="${grabFromPosts.getDogDescription}"></p>
-                            <p th:text="${grabFromPosts.getDogPrice}"></p>
+                            <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
+                            <h1 th:text="${breederPost.dogBreed}"></h1>
+                            <p th:text="${breederPost.dogGroup}"></p>
+                            <p th:text="${breederPost.dogDescription}"></p>
+                            <p th:text="${breederPost.dogPrice}"></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -65,7 +63,6 @@
                     </div>
                 </div>
             </div>
-            </form>
             </div>
         </div>
     </div>

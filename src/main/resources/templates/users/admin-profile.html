@@ -9,6 +9,7 @@
         <h1 class="text-center display-1" id="admin">Admin</h1>
     </div>
     <h1>Welcome admin!</h1>
+    <div class="row">
     <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="allPost : ${allPosts}">
         <img class="card-img-top" th:src="${allPost.images}" alt="Card image cap">
         <h1 th:text="${allPost.dogBreed}"></h1>
@@ -23,6 +24,7 @@
             <button>Update Post</button>
         </a>
 
+    </div>
     </div>
 </div>
 </body>

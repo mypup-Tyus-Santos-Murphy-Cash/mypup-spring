@@ -1,6 +1,7 @@
 USE mypup_db;
 
 
+
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price, images, user_id) values ('Labrador Retriever', 'Sporting', 'The sweet-faced,lovable Labrador Retriever is America''s most popular dog breed. Labs are friendly, outgoing, and high -spirited companions who have more than enough affection to go around for a family looking for a medium - to -large dog.', '$1, 200.00 ','https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/31151939/Afghan-Hound-running-in-the-winter.jpg', 2);
 
 insert into dog_posts (dog_breed, dog_group, dog_description, dog_price, images, user_id) values ('Cocker Spaniel', 'Sporting', 'The merry and frolicsome Cocker Spaniel, with his big,dreamy eyes and impish personality, is one of the worlds best - loved breeds.They were developed as huntingdogs, but Cockers gained their wide popularity as all-around companions.', '$1, 800.00 ','https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13001904/Akita-On-White-01.jpg',3);

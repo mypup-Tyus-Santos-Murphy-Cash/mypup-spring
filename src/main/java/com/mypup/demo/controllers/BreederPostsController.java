@@ -45,12 +45,6 @@ public class BreederPostsController {
     }
 
 
-    @GetMapping ("/breeder-posts/{id}")
-    public String getBreederPosts(@PathVariable long id, Model model){
-        model.addAttribute("breederPosts", dogPostDao.getOne(id));
-        return "breeder-posts/show";
-    }
-
     //get these to work//
     @GetMapping("/breeder-posts/create")
     public String getCreatedBreederPostForm(Model model){
@@ -158,12 +152,12 @@ public class BreederPostsController {
         }
     }
 
-    @GetMapping("/show/{id}")
-    public String grabFromList(@PathVariable long id, Model model) {
-        model.addAttribute("grabFromPosts", dogPostDao.getOne(id));
+    @GetMapping ("/breeder-posts/{id}")
+    public String getBreederPosts(@PathVariable long id, Model model){
+        model.addAttribute("breederPosts", dogPostDao.getOne(id));
+        model.addAttribute("grabPost", dogPostDao.findDogPostsById(id));
         return "breeder-posts/show";
     }
-
 
     @PostMapping("/buyer-profile/{id}/addToFavorites")
     public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
