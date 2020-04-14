@@ -35,9 +35,7 @@
     font-size: 20px;
     font-family: Roboto, sans-serif;
 }
-.card-login{
-    margin-left: 500px;
-}
+
 
 .landing{
     background: black;
@@ -108,16 +106,22 @@
 
 }
 
+/*.card-login{*/
+/*    margin-left: 500px;*/
+/*}*/
+
+
+
 #sign-up{
     text-align: start;
     margin-left: 150px;
 }
 
-#signbtn{
-    border: black 2px solid;
-    background-color: lightseagreen;
-    border-radius: 5px;
-}
+/*#signbtn{*/
+/*    border: black 2px solid;*/
+/*    background-color: lightseagreen;*/
+/*    border-radius: 5px;*/
+/*}*/
 
 .sign{
     background-image: url("/images/3pups.jpg");
@@ -125,52 +129,160 @@
     background-size: 1700px;
     background-position: center;
     height: 100%;
-
-}
-.loginCard{
-    /*margin-bottom: 100px;*/
-}
-
-#login-card1{
-    z-index: 2;
-    margin-bottom: 100px;
 }
 
 
 .login{
-    /*background-image: url("/images/little-pup.jpg");*/
     background-repeat: no-repeat;
     background-size: 1800px;
-    /*height: 100%;*/
-    /*margin-bottom: 200px;*/
-    /*padding: 0;*/
 }
+
+/* ======================================================*/
+
+
+.loginSign-btn{
+    border: black 2px solid;
+    border-radius: 5px;
+    margin-top: -1rem;
+    color: lightseagreen;
+    margin-left: 0rem;
+}
+
+.sign-create-btn {
+    margin-top: 1rem;
+    margin-left: 6rem;
+}
+
+.loginSign-btn:hover {
+    background-color: lightseagreen;
+    color: white;
+}
+
+.title-box{
+    margin-bottom: 2px;
+}
+
+.user-Form-Text{
+    font-size: 2rem;
+    color: black;
+    font-family:'Pacifico', cursive ;
+    margin-left:0rem;
+}
+
+
+.loginCard{
+    display: block;
+    align-content: center;
+}
+
+.form-body{
+    margin-top: -20px;
+}
+
+.sign-up-form label {
+    width: 10em;
+    margin-right: 5em;
+}
+
+.sign-up-photo{
+    margin-right: 6rem;
+    margin-bottom: 4rem;
+    border: black 2px  solid;
+}
+
+.linkSignUp{
+   font-size: .9rem;
+    margin-left: 0.5rem;
+}
+
+
+/*#signbtn{*/
+/*    margin-left: 8rem;*/
+/*    margin-top: -3rem;*/
+/*}*/
+
+hr {
+    border-top: 2px solid lightseagreen;
+    margin-top: -10px;
+}
+
+
+.upload-photo{
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5.8rem;
+}
+
+.upload-photo:hover {
+    background-color: lightseagreen;
+    color: whitesmoke;
+}
+
+.create-photo-upload{
+    margin-top: .5rem;
+}
+.post-Create label{
+    /*display: block;*/
+    width: 10em;
+    margin-right: 3em;
+}
+
+textarea{
+    vertical-align: middle;
+}
+
+input, textarea{
+width: 200px;
+}
+
+.move-right{
+    margin-left: 2.3rem;
+}
+
+.move-right1{
+    margin-left: 1.9rem;
+}
+
+.move-right2{
+    margin-right: 2.5rem;
+}
+
+.update-btn{
+    margin-left: 7rem;
+}
+
+.photo1{
+    margin-right: 6rem;
+}
+/*.upload-photo1{*/
+/*    background-color: #007bff;*/
+/*    color: white;*/
+/*    border-radius: 5px;*/
+/*    margin-right: 4.8rem;*/
+/*}*/
+
+
+    /* ======================================================*/
+
+
 
 .jumbotron-login{
     background-size: 50%;
-    /*background-repeat: no-repeat;*/
-    /*background-position: center;*/
-    /*height: 30vh;*/
     min-height: 40vh;
     width: 100%;
     font-family: 'Pacifico', cursive;
     margin-top: 100px;
     z-index: 1;
 }
-#loginbtn{
-    border: black 2px solid;
-    background-color: lightseagreen;
-    border-radius: 5px;
+
+
+
+
+.main-container{
+    min-height: 100vh;
 }
 
-#login{
-    text-align: start;
-    margin-left: 170px;
-}
-
-.breeder{
-
-}
 
 .transparent-black {
     background-color: rgba(0, 0, 0, .5);
@@ -206,7 +318,6 @@
 .btn:hover {
      background-color: lightseagreen;
 
-
 }
 
 .btn{
@@ -216,4 +327,9 @@
 .nav-item:hover{
     color: lightseagreen;
 }
+
+
+
+
+
 
