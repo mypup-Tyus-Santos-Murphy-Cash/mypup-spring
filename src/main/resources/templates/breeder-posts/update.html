@@ -12,6 +12,7 @@
     <h1 class="text-center text-light display-1" id="update">Update a Post</h1>
 </div>
 
+
 <div class="card-container">
     <div class="card bg-light text-dark sign-up-form col-xl-4">
         <div class="card-body post-Update">
@@ -27,27 +28,28 @@
                         <label for="dogGroup">Group</label>
                         <input type="text" th:field="*{dogGroup}" placeholder="Enter a description"/>
                     </div>
-
+                    <div class="col-xl-12">
+                        <label for="dogDescription">Description</label>
+                        <input type="text" th:field="*{dogDescription}" placeholder="Enter a description"/>
+                    </div>
                     <div class="col-xl-12">
                         <label for="dogPrice">Price</label>
                         <input type="text" th:field="*{dogPrice}" placeholder="Enter a description"/>
                     </div>
                     <div class="col-xl-12">
-                        <label for="dogDescription">Description</label>
-                        <textarea th:field="*{dogDescription}" placeholder="Enter a description"/>
-                    </div>
-
-                    <div class="col-xl-12 create-photo-upload">
-                        <button class="button photo-upload upload-photo photo1" type="button" id="picker">Upload Image</button>
+                        <button class="button photo-upload upload-photo" type="button" id="picker">Upload Image</button>
                         <input class="move-right1" name="fileupload" id="fileupload" th:field="*{images}">
                     </div>
                     <div class="col-xl-12">
-<!--                        <button class="loginSign-btn sign-create-btn update-btn" type="submit">Update!</button>-->
-                        <input id="update-post"  class="loginSign-btn sign-create-btn update-btn"  value="Update Post"  type="submit"/>
+                        <!--                        <button class="loginSign-btn sign-create-btn update-btn" type="submit">Update!</button>-->
+                        <input id="update-post" class="loginSign-btn sign-create-btn update-btn" value="Update!"
+                               type="submit"/>
 
                     </div>
                 </div>
             </form>
+
+
         </div>
     </div>
 </div>

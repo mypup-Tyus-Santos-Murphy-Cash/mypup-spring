@@ -2,19 +2,19 @@
 <head th:replace="fragments/header.html :: header"></head>
 
 
-
 <body>
-<div class="main-container embed-responsive sign">
+<div class="main-container sign">
     <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron-sign">
         <h1 class="text-left text-light mx-4.5 display-1" id="sign-up">Sign Up</h1>
     </div>
 
-    <div class="card-container embed-responsive">
-        <div class="card mx-5 my-5 bg-light text-dark col-md-4">
-            <div class="card-body embed-responsive">
-                <h5 class="card-title text-center">Please Sign Up</h5>
+    <div class="card-container">
+        <div class="card bg-light text-dark col-xl-4">
+            <div class="card-body sign-up-form">
+                <h5 class="card-title user-Form-Text">User Sign Up</h5>
+                <hr>
                 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                     <div class="col-xl-12">
                         <label for="userRole">Select User Role</label>
@@ -23,8 +23,7 @@
                             <option value="breeder">Breeder</option>
                             <option value="buyer">Buyer</option>
                             <option value="admin">Admin</option>
-                        </select>
-                        <br>
+                            <!--                            <option value="admin">Admin</option>-->
                         </select>
                     </div>
 
@@ -65,19 +64,22 @@
 
 
                     <div class="col-xl-12">
-                        <button class="button photo-upload upload-photo" type="button" id="picker">Profile Image</button>
+                        <button class="button photo-upload upload-photo" type="button" id="picker">Profile Image
+                        </button>
                         <input class="move-right" name="fileupload" id="fileupload" th:field="*{profileImage}">
                     </div>
 
                     <div class="col-xl-12">
-                        <input id="signbtn"  class="loginSign-btn sign-create-btn" value="Sign me up!" type="submit"/>
+                        <input id="signbtn" class="loginSign-btn sign-create-btn" value="Sign me up!" type="submit"/>
                     </div>
                 </form>
+
+            </div>
+
         </div>
     </div>
-</div>
-<div th:replace="fragments/scripts.html :: scripts"></div>
-<div th:replace="fragments/footer.html :: footer"></div>
+    <div th:replace="fragments/scripts.html :: scripts"></div>
+    <div th:replace="fragments/footer.html :: footer"></div>
 </div>
 </body>
 </html>

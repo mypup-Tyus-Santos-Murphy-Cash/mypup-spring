@@ -6,17 +6,17 @@
 </head>
 <body id="create">
 <div class="main-container">
-<div th:if="${showUserRoles.getUserRole().equals('breeder')}">
-    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
-</div>
-<div th:if="${showUserRoles.getUserRole().equals('admin')}">
-    <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
-</div>
+    <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
+        <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+    </div>
+    <div th:if="${showUserRoles.getUserRole().equals('admin')}">
+        <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
+    </div>
 
-<header class="container my-5"></header>
-<div class="jumbotron-create">
-    <h1 class="text-left text-light mx-5 display-1" id="h1-create"> Create a Post</h1>
-</div>
+    <header class="container my-5"></header>
+    <div class="jumbotron-create">
+        <h1 class="text-left text-light mx-5 display-1" id="h1-create"> Create a Post</h1>
+    </div>
 
     <div class="card-container">
         <div class="card bg-light text-dark col-xl-4">
@@ -45,21 +45,25 @@
                     </div>
 
                     <div class="col-xl-12 create-photo-upload">
-                        <button class="button photo-upload upload-photo photo1 move-right2" type="button" id="picker">Upload Image</button>
-                        <input  name="fileupload" id="fileupload" th:field="*{images}">
+                        <button class="button photo-upload upload-photo photo1 move-right2" type="button" id="picker">
+                            Upload Image
+                        </button>
+                        <input name="fileupload" id="fileupload" th:field="*{images}">
                     </div>
                     <div class="col-xl-12">
                         <!--                            <button class="loginSign-btn" id="save">Save Post</button>-->
-                        <input id="save"  class="loginSign-btn sign-create-btn" value="Create Post"  type="submit"/>
+                        <input id="save" class="loginSign-btn sign-create-btn" value="Create Post" type="submit"/>
 
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
 
 </div>
 <div class="fixed-bottom">
-<div th:block th:replace="fragments/scripts.html :: scripts"></div>
-<footer th:replace="fragments/footer1.html :: footer1"></footer>
+    <div th:block th:replace="fragments/scripts.html :: scripts"></div>
+    <footer th:replace="fragments/footer1.html :: footer1"></footer>
 </div>
 </body>
 </html>
