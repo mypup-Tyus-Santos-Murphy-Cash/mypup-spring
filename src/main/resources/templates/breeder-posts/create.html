@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Create Post</title>
 </head>
-<body id="create">
+<body class="create">
 <div class="main-container">
     <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
         <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
@@ -18,7 +18,7 @@
         <h1 class="text-left text-light mx-5 display-1" id="h1-create"> Create a Post</h1>
     </div>
 
-    <div class="card-container">
+    <div class="card-container mx-5">
         <div class="card bg-light text-dark col-xl-4">
             <div class="card-body post-Create">
                 <h5 class="card-title post-Create-Form user-Form-Text">Create a Post</h5>

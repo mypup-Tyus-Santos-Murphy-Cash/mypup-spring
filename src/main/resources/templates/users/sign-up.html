@@ -2,15 +2,15 @@
 <head th:replace="fragments/header.html :: header"></head>
 
 
-<body>
-<div class="main-container sign">
+<body class="sign">
+<div class="main-container">
     <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron-sign">
-        <h1 class="text-left text-light mx-4.5 display-1" id="sign-up">Sign Up</h1>
+        <h1 class="text-left text-light mx-4.5 display-1" id="h1-sign-up">Sign Up</h1>
     </div>
 
-    <div class="card-container">
+    <div class="card-container mx-5 my-5">
         <div class="card bg-light text-dark col-xl-4">
             <div class="card-body sign-up-form">
                 <h5 class="card-title user-Form-Text">User Sign Up</h5>
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="col-xl-12">
-                        <input id="signbtn" class="loginSign-btn sign-create-btn" value="Sign me up!" type="submit"/>
+                        <input class="loginSign-btn sign-create-btn" value="Sign me up!" type="submit"/>
                     </div>
                 </form>
 

@@ -19,10 +19,10 @@
             <br>
             <div class="btn-container">
                 <form th:action="@{|/admin-profile/${allPost.id}/delete|}"  th:method="POST" style="display:inline">
-                    <button>Delete</button>
+                    <button class="btn">Delete</button>
                 </form>
                 <a th:href="@{|/admin-profile/${allPost.id}/update2|}">
-                    <button>Update Post</button>
+                    <button class="btn">Update Post</button>
                 </a>
             </div>
         </div>

@@ -133,7 +133,7 @@
 }
 
 .jumbotron-show {
-    background-image: url("/images/3pups.jpg");
+    /*background-image: url("/images/3pups.jpg");*/
     background-repeat: no-repeat;
     /*background: none;*/
     min-height: 40vh;
@@ -168,6 +168,22 @@
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
+.update{
+    background-image: url("/images/dog-in-blanket.jpg");
+    background-size: 1700px;
+    background-repeat: no-repeat;
+}
+
+.jumbotron-update{
+    margin-top: 5vh;
+}
+
+#h1-update{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+
 #h1-buyer{
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
@@ -199,13 +215,13 @@
     z-index: 1;
 }
 
-.h1-create{
+#h1-create{
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 
 }
 
-#create{
+.create{
     background-image: url("/images/brown-puppy.jpg");
     background-repeat: no-repeat;
     background-size: 1720px;
@@ -242,9 +258,11 @@
 
 }
 
-#sign-up{
+#h1-sign-up{
     text-align: start;
     margin-left: 150px;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
 }
 
 #signbtn{
@@ -287,9 +305,9 @@
     border-radius: 5px;
 }
 
-#login{
+#h1-login{
     text-align: start;
-    margin-left: 170px;
+    margin-left: 100px;
     margin-top: 10px;
 }
 
@@ -302,7 +320,7 @@
 /*    margin-bottom: 100px;*/
 /*}*/
 
-#breeder-posts{
+#h1-show{
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 
@@ -364,6 +382,7 @@
     border-radius: 5px;
     margin-top: -1rem;
     color: lightseagreen;
+    background-color: white;
     margin-left: 0rem;
 }
 
@@ -376,6 +395,8 @@
     background-color: lightseagreen;
     color: white;
 }
+
+
 
 .title-box{
     margin-bottom: 2px;
