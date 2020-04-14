@@ -3,49 +3,48 @@
 <head th:replace="fragments/header.html :: header">
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
-<div class="wrapper">
+<div class="breeder">
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+    <div class="parallax"></div>
     <header class="container my-5"></header>
-    <div class="jumbotron">
-        <h1 class="text-center text-light display-1">Breeder Profile</h1>
+    <div class="jumbotron-breeder">
+        <h1 class="text-center text-light display-1" id="h1-breederProfile">Breeder Profile</h1>
     </div>
-    <h1> hello</h1>
-    <main class="container">
-        <h1>Hello from breeder profile</h1>
-        <div>
+    <div class="container">
+        <h1>Hello </h1>
+        <div class="">
             <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="userRole : ${userRoleBreeders}">
                 <img class="card-img-top" th:src="${userRole.profileImage}" alt="Card image cap">
                 <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
                 <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span></a>
                 <br/>
+            </div>
+            <div class="row">
                 <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="breederPost : ${breederPosts}">
                     <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
                     <h1 th:text="${breederPost.dogBreed}"></h1>
                     <p th:text="${breederPost.dogGroup}"></p>
                     <p th:text="${breederPost.dogDescription}"></p>
                     <p th:text="${breederPost.dogPrice}"></p>
+                <div class="btn-container">
+                    <button class="btn" type="button" th:action="@{|/breeder-profile/${breederPost.id}/delete|}"  th:method="POST">Delete</button>
                     <br>
-                    <form th:action="@{|/breeder-profile/${breederPost.id}/delete|}"  th:method="POST" style="display:inline">
-                        <button>Delete</button>
-                    </form>
-                    <a th:href="@{|/breeder-profile/${breederPost.id}/update|}">
-                        <button>Update Post</button>
-                    </a>
+                    <button class="btn" type="button" th:href="@{|/breeder-profile/${breederPost.id}/update|}">Update Post</button>
                 </div>
-                <br/>
+                </div>
             </div>
-
+            </div>
         </div>
-    </main>
-</div>
+
 
 <br>
-<br>
-<br>
+    <div class="">
 <div th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer1.html :: footer1"></footer>
-
+    </div>
+</div>
 </body>
 </html>

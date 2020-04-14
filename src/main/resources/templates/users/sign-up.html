@@ -3,18 +3,25 @@
 
 
 <body>
-<div class="main-container sign">
+<div class="main-container embed-responsive sign">
     <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron-sign">
         <h1 class="text-left text-light mx-4.5 display-1" id="sign-up">Sign Up</h1>
     </div>
 
+<<<<<<< HEAD
     <div class="card-container">
         <div class="card bg-light text-dark col-xl-4">
             <div class="card-body sign-up-form">
                 <h5 class="card-title user-Form-Text">User Sign Up</h5>
                 <hr>
+=======
+    <div class="card-container embed-responsive">
+        <div class="card mx-5 my-5 bg-light text-dark col-md-4">
+            <div class="card-body embed-responsive">
+                <h5 class="card-title text-center">Please Sign Up</h5>
+>>>>>>> d5a1cf2d4302cf805ac4405c43179fe9282798a2
                 <form th:action="@{/sign-up}" method="POST" th:object="${user}">
                     <div class="col-xl-12">
                         <label for="userRole">Select User Role</label>
@@ -22,7 +29,11 @@
                         <select th:field="*{userRole}">
                             <option value="breeder">Breeder</option>
                             <option value="buyer">Buyer</option>
+<<<<<<< HEAD
                             <!--                            <option value="admin">Admin</option>-->
+=======
+                            <option value="admin">Admin</option>
+>>>>>>> d5a1cf2d4302cf805ac4405c43179fe9282798a2
                         </select>
                     </div>
 
@@ -39,6 +50,7 @@
                     <div class="col-xl-12">
                         <label for="email">Email</label>
                         <input th:field="*{email}"/>
+<<<<<<< HEAD
                     </div>
 
                     <div class="col-xl-12">
@@ -72,6 +84,28 @@
                     </div>
                 </form>
 
+=======
+                        <br>
+                        <label for="phoneNumber">Phone Number</label>
+                        <input th:field="*{phoneNumber}" />
+                        <br>
+                        <label for="city">City</label>
+                        <input th:field="*{city}" />
+                        <br>
+                        <label for="state">State</label>
+                        <input th:field="*{state}" />
+                        <br>
+                        <label for="zipcode">Zipcode</label>
+                        <input th:field="*{zipcode}" />
+                        <br>
+                        <div class= "d-flex justify-content-center text-center">
+                            <button class="button photo-upload" type="button" id="picker">Upload Profile Image</button>
+                            <input name="fileupload" id="fileupload" th:field="*{profileImage}">
+                        </div>
+                            <input id="signbtn" value="Sign me up!" type="submit" />
+
+                    </form>
+>>>>>>> d5a1cf2d4302cf805ac4405c43179fe9282798a2
             </div>
 
         </div>

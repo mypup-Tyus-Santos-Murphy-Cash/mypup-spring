@@ -5,14 +5,32 @@
 .body{
     border: lightseagreen 15px solid;
     background-color: lightseagreen;
-    /*margin: 10px;*/
+}
 
+.jumbotron-index{
+    margin-top: 20vh;
+    min-height: 35vh;
+}
+
+#index{
+    border: lightseagreen 15px solid;
+    background-image:url("/images/three-big-dogs.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#h1-index{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 #landing-container{
     background-image: url("/images/mypup2.jpg");
     background-size: 1800px;
-    height: 100%;
+    height: 100vh;
     background-repeat: no-repeat;
     border: lightseagreen 10px solid;
 }
@@ -21,14 +39,24 @@
    font-family: 'Pacifico', cursive;
 }
 
-.jumbotron {
-    background-image: url("/images/postImages/pixie.jpg");
-    background-size: 1620px;
+.jumbotron-visitor {
+    background-image: url("/images/adorable.jpg");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom;
+    background-size: 900px;
     min-height: 35vh;
     width: 100%;
+    position: center;
+    z-index: -1;
+}
+
+#visitor-posts{
     font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+.visitor-show{
+    border: lightseagreen 10px solid;
 }
 
 .landing-text{
@@ -38,66 +66,81 @@
 
 
 .landing{
-    background: black;
+    background: transparent;
 }
 
 .jumbotron-landing {
-    /*background-image: url("/images/mypup2.jpg");*/
     background-size: cover;
     background: none;
-    min-height: 75vh;
+    min-height: 55vh;
     height: auto;
     width: auto;
     position: center;
     z-index: -1;
     font-family: 'Pacifico', cursive;
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 
 .jumbotron-show {
     background-image: url("/images/3pups.jpg");
-    background-size: 100%;
     background-repeat: no-repeat;
-    /*background: none;*/
-    min-height: 30vh;
-    height: auto;
+    min-height: 40vh;
     width: auto;
-    /*position: center;*/
-    /*z-index: -1;*/
+    position: center;
     font-family: 'Pacifico', cursive;
+}
+
+.breeder{
+    border: lightseagreen 15px solid;
+    height: 380vh;
+
+}
+
+.jumbotron-breeder{
+    background-image: url("/images/dog-friends.jpg");
+    min-height: 40vh;
+    background-position: center;
+    background-size: 800px;
+    background-repeat: no-repeat;
+
+}
+
+#h1-breederProfile{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
+
+#h1-create{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
 }
 
 #create{
     background-image: url("/images/brown-puppy.jpg");
     background-repeat: no-repeat;
-    background-size: 1620px;
+    background-size: 1720px;
     background-position: center;
-    /*background: none;*/
-    min-height: 33vh;
-    /*height: auto;*/
+    border: lightseagreen 10px solid;
+    height: 100vh;
     width: 100%;
 }
 
 .jumbotron-create{
-    /*background-size: 1620px;*/
-    background-position: center;
-    /*background: none;*/
-    min-height: 35vh;
-    /*height: auto;*/
+    max-height: 50vh;
     width: 100%;
-    /*position: center;*/
-    /*z-index: -1;*/
-    font-family: 'Pacifico', cursive;
 
+    margin-top: 100px;
+    z-index: 1;
 }
 
 
 .jumbotron-home{
-    /*background-image: url("/images/little-pup.jpg");*/
     background-size: 50%;
     background-repeat: no-repeat;
     min-height: 30vh;
     font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
 .jumbotron-sign{
@@ -106,22 +149,11 @@
 
 }
 
-/*.card-login{*/
-/*    margin-left: 500px;*/
-/*}*/
-
-
-
 #sign-up{
     text-align: start;
     margin-left: 150px;
 }
 
-/*#signbtn{*/
-/*    border: black 2px solid;*/
-/*    background-color: lightseagreen;*/
-/*    border-radius: 5px;*/
-/*}*/
 
 .sign{
     background-image: url("/images/3pups.jpg");
@@ -138,7 +170,6 @@
 }
 
 /* ======================================================*/
-
 
 .loginSign-btn{
     border: black 2px solid;
@@ -162,6 +193,7 @@
     margin-bottom: 2px;
 }
 
+
 .user-Form-Text{
     font-size: 2rem;
     color: black;
@@ -184,11 +216,18 @@
     margin-right: 5em;
 }
 
+#about{
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+
+}
+
 .sign-up-photo{
     margin-right: 6rem;
     margin-bottom: 4rem;
     border: black 2px  solid;
 }
+
 
 .linkSignUp{
    font-size: .9rem;
@@ -196,14 +235,15 @@
 }
 
 
-/*#signbtn{*/
-/*    margin-left: 8rem;*/
-/*    margin-top: -3rem;*/
-/*}*/
-
 hr {
     border-top: 2px solid lightseagreen;
     margin-top: -10px;
+}
+
+.login{
+    background-repeat: no-repeat;
+    background-size: 1800px;
+    min-height:100vh;
 }
 
 
@@ -222,8 +262,9 @@ hr {
 .create-photo-upload{
     margin-top: .5rem;
 }
+
+
 .post-Create label{
-    /*display: block;*/
     width: 10em;
     margin-right: 3em;
 }
@@ -255,17 +296,8 @@ width: 200px;
 .photo1{
     margin-right: 6rem;
 }
-/*.upload-photo1{*/
-/*    background-color: #007bff;*/
-/*    color: white;*/
-/*    border-radius: 5px;*/
-/*    margin-right: 4.8rem;*/
-/*}*/
-
 
     /* ======================================================*/
-
-
 
 .jumbotron-login{
     background-size: 50%;
@@ -277,7 +309,17 @@ width: 200px;
 }
 
 
+#login{
+    text-align: start;
+    margin-left: 170px;
+    margin-top: 10px;
+}
 
+
+#breeder-posts {
+    font-family: 'Pacifico', cursive;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+}
 
 .main-container{
     min-height: 100vh;
@@ -317,14 +359,15 @@ width: 200px;
 
 .btn:hover {
      background-color: lightseagreen;
-
 }
+
 
 .btn{
     border: black 2px  solid;
+    margin-top: auto;
 }
 
-.nav-item:hover{
+.nav:hover{
     color: lightseagreen;
 }
 
