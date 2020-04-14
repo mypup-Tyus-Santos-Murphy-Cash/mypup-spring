@@ -2,28 +2,73 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header.html :: header">
 
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>MyPup</title>
+    <style>
+        .parallax {
+            /* The image used */
+            background-image: url("images/3pups.jpg");
+
+            /* Set a specific height */
+            min-height: 1000px;
+
+            /* Create the parallax scrolling effect */
+
+        }
+    </style>
+
+    <!-- Container element -->
+
 </head>
-<body>
-<div th:if="${showUserRoles.getUserRole().equals('breeder')}">
-    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
-</div>
-<div th:if="${showUserRoles.getUserRole().equals('buyer')}">
-    <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
-</div>
-<div th:if="${showUserRoles.getUserRole().equals('admin')}">
-    <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
-</div>
-
+<body id="index">
+    <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
+        <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+    </div>
+    <div th:if="${showUserRoles.getUserRole().equals('buyer')}">
+        <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
+    </div>
+    <div th:if="${showUserRoles.getUserRole().equals('admin')}">
+        <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
+    </div>
+    <div class="parallax"></div>
+<div class="main-container index"></div>
 <header class="container my-5"></header>
-<div class="jumbotron">
-    <h1 class="text-center text-light display-1">Welcome to MyPup</h1>
+<div class="jumbotron-index">
+    <h1 class="text-center text-light display-1" id="h1-index"  th:text="Welcome+' '+ ${showUserRoles.getUsername()}"></h1>
 </div>
-<!--add cards and other styling-->
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+    </div>
+        <div>
+            <div class="black-highlight" style="height:1000px;background-color:transparent;font-size:36px">
+                <h3 class="text-center text-light display-1">Community Events</h3>
+                <p class="text-center text-light">Here is where we will post about community event that are happening in your area.</p>
+            </div>
+
+            <div class="black-highlight" style="height:1000px;background-color:transparent;font-size:36px">
+                <h3 class="text-center text-light display-1">Sponsors</h3>
+
+            </div>
+
+            <div class="black-highlight" style="height:1000px;background-color:transparent;font-size:36px">
+                <h3 class="text-center text-light display-1">Information</h3>
+            </div>
+    </div>
+<div class="">
 <div th:replace="fragments/scripts.html :: scripts"></div>
 <div th:replace="fragments/footer.html :: footer"></div>
+</div>
+
 </body>
 </html>
 

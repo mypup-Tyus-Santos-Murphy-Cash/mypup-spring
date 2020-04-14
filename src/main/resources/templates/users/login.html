@@ -11,8 +11,8 @@
     <div class="jumbotron-login">
         <h1 class="text-left mx-4.5 display-1" id="login"> Login</h1>
     </div>
-
-
+    <br>
+    <br>
     <div class="card mx-5 bg-light text-dark col-md-4 loginCard">
         <div class="card-body embed-responsive" id="login-card1">
             <h5 class="card-title text-center">Please log in</h5>
@@ -31,7 +31,7 @@
             </form>
         </div>
 
-    </div>
+
 
     <div th:if="${param.error}">
         Invalid Username and Password.
@@ -41,15 +41,13 @@
         You have been logged out.
     </div>
 
-    <br>
-    <br>
-    <br>
 
+    </div>
 
-
-
-<div th:block th:replace="fragments/scripts.html :: scripts"></div>
+<div class="fixed-bottom">
 <footer th:replace="fragments/footer.html :: footer"></footer>
+<div th:block th:replace="fragments/scripts.html :: scripts"></div>
+</div>
 </div>
 </body>
 </html>

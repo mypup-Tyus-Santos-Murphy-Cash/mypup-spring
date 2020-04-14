@@ -13,15 +13,14 @@
     <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
 </div>
 
-
 <header class="container my-5"></header>
 <div class="jumbotron-create">
-    <h1 class="text-center text-light display-1">Create a Post</h1>
+    <h1 class="text-left mx-5 display-1" id="h1-create"> Create a Post</h1>
 </div>
 
 <div class="card-container">
     <div class="card mx-5 bg-light text-dark col-md-4">
-        <div class="card-body" id="sign-up">
+        <div class="card-body" id="create-post">
             <h5 class="card-title text-center">Create a Post</h5>
                     <div class="main-container">
 
@@ -49,7 +48,9 @@
     </div>
 </div>
 </div>
+<div class="fixed-bottom">
 <div th:block th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer1.html :: footer1"></footer>
+</div>
 </body>
 </html>
