@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Viewing Post</title>
 </head>
-<body class="visitor-show">
+<body class="visitorShow">
 <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
 <header class="container my-5"></header>
     <div class="jumbotron-visitor">
@@ -22,11 +22,9 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-            <div th:href="@{/login}">
-                <button class="btn" type="button"> Please log in for more information</button>
-<!--            <button th:action="@{breeder-profile.id}" type="button" class="btn"-->
-<!--            data-toggle="popover" data-content="Please Sign up or Login for more information">More Info</button>-->
-            </div>
+            <button th:action="@{breeder-profile.id}" type="button" class="btn"
+            data-toggle="popover" data-content="Please Sign up or Login for more information">More Info
+            </button>
             <br>
         </div>
     </div>

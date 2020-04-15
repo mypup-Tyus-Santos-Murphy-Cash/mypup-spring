@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Viewing Post</title>
 </head>
-<body class="show">
+<body class="showPost">
 
 <div th:if="${showUserRoles.getUserRole().equals('breeder')}">
     <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
@@ -33,11 +33,12 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-            <div th:if="${showUserRoles.getUserRole().equals('buyer')}">
-                <button th:action="@{|/breeder-contact/${breederPost.id}|}" type="button" class="btn">More info</button>
-            </div>
+<!--            <div th:if="${showUserRoles.getUserRole().equals('buyer')}">-->
+<!--                <form th:action="@{|/breeder-contact/${breederPost.id}|}">-->
+<!--                    <button type="submit" class="btn">More info</button>-->
+<!--                </form>-->
+<!--            </div>-->
             <br>
-
         </div>
     </div>
 </div>
