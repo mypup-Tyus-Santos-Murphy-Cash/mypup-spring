@@ -535,3 +535,7 @@ input, textarea{
     width: 70rem;
     border-radius: 25px;
 }
+
+.form-container1{
+    margin-left: 2rem;
+}
