@@ -31,7 +31,7 @@ public class HomeController {
         return "breeder-posts/home";
     }
 
-    @GetMapping("/about MyPup")
+    @GetMapping("/about-MyPup")
     public String aboutPage(Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);

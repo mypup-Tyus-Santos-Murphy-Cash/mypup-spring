@@ -9,8 +9,15 @@
 
 }
 
+.about-card{
+    border: black 5px solid;
+    border-radius: 5px;
+}
+
 .about{
     background-image: url("/images/dog-bone.png");
+    /*border: lightseagreen 15px solid;*/
+    /*height: 100vh;*/
 }
 
 #h1-about{
