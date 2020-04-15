@@ -9,8 +9,15 @@
 
 }
 
+.about-card{
+    border: black 5px solid;
+    border-radius: 5px;
+}
+
 .about{
     background-image: url("/images/dog-bone.png");
+    /*border: lightseagreen 15px solid;*/
+    /*height: 100vh;*/
 }
 
 #h1-about{
@@ -96,7 +103,7 @@
 
 
 }
-.visitor-show{
+.visitorShow{
     border: lightseagreen 10px solid;
 }
 
@@ -125,7 +132,7 @@
     margin-top: 10vh;
 }
 
-.show{
+.showPost{
     background-image: url("/images/dog-bone.png");
     background-size: 300px;
     border: lightseagreen 15px solid;

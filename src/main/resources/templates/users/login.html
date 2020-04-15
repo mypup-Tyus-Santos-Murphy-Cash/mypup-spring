@@ -64,10 +64,9 @@
 
     </div>
 
-    <div class="fixed-bottom">
-        <footer th:replace="fragments/footer.html :: footer"></footer>
-        <div th:block th:replace="fragments/scripts.html :: scripts"></div>
-    </div>
 </div>
+
+    <div th:replace="fragments/scripts.html :: scripts"></div>
+    <footer th:replace="fragments/footer.html :: footer"></footer>
 </body>
 </html>
