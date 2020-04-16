@@ -33,9 +33,11 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-            <div th:if="${showUserRoles.getUserRole().equals('buyer')}">
-                <button th:action="@{|/breeder-contact/${breederPost.id}|}" type="button" class="btn">More info</button>
-            </div>
+<!--            <div th:if="${showUserRoles.getUserRole().equals('buyer')}">-->
+<!--                <form th:action="@{|/breeder-contact/${breederPost.id}|}">-->
+<!--                    <button type="submit" class="btn">More info</button>-->
+<!--                </form>-->
+<!--            </div>-->
             <br>
 
         </div>
