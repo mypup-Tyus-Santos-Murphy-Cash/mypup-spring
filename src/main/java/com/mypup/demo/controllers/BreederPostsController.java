@@ -154,8 +154,7 @@ public class BreederPostsController {
 
     @GetMapping ("/breeder-posts/{id}")
     public String getBreederPosts(@PathVariable long id, Model model){
-        model.addAttribute("breederPosts", dogPostDao.getOne(id));
-        model.addAttribute("grabPost", dogPostDao.findDogPostsById(id));
+        model.addAttribute("breederPosts", dogPostDao.findDogPostsById(id));
         return "breeder-posts/show";
     }
 

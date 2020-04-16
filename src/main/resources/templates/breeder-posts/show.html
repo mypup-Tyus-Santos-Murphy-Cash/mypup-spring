@@ -33,10 +33,13 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-            <form th:action="@{|/breeder-contact/${breederPost.id}|}"><button class="btn button-primary info">More info</button></form>
+            <form th:action="@{|/breeder-contact/${breederPost.id}|}">
+                <button class="btn button-primary info">More info</button>
+            </form>
             <br>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:action="@{|/breeder-posts/${breederPost.id}|}">
+            <form th:action="@{|/breeder-posts/${breederPost.id}|}" th:object="${breederPosts}">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
                 Launch demo modal
             </button>
             <!-- Modal -->
@@ -50,11 +53,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
-                            <h1 th:text="${breederPost.dogBreed}"></h1>
-                            <p th:text="${breederPost.dogGroup}"></p>
-                            <p th:text="${breederPost.dogDescription}"></p>
-                            <p th:text="${breederPost.dogPrice}"></p>
+                            <img class="card-img-top" th:src="*{images}" alt="Card image cap">
+                            <h1 th:text="*{dogBreed}"></h1>
+                            <p th:text="*{dogGroup}"></p>
+                            <p th:text="*{dogDescription}"></p>
+                            <p th:text="*{dogPrice}"></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -63,10 +66,10 @@
                     </div>
                 </div>
             </div>
+            </form>
             </div>
         </div>
     </div>
-</div>
 <div th:replace="fragments/scripts.html :: scripts"></div>
 <footer th:replace="fragments/footer1.html :: footer1"></footer>
 </body>
