@@ -1,7 +1,9 @@
 package com.mypup.demo.models;
 
+
 import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
+
 
 import javax.persistence.*;
 

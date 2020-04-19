@@ -12,15 +12,14 @@
         <h1 class="text-center text-light display-1" id="h1-buyer">Buyer Profile</h1>
     </div>
     <h1 class="text-left text-light" id="h1-index"  th:text="Welcome+' '+ ${userRoleBuyer.getUsername()}"></h1>
-
-    <main class="container-buyer justify-center" style="width: 25rem;">
-        <div class="card vh card-body text-center ml-3 mr-3 mb-4" th:each="userRole : ${userRoleBuyer}">
+<main class="container">
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="userRole : ${userRoleBuyer}">
             <img class="card-img-top" th:src="${userRole.profileImage}" alt="Card image cap">
             <a th:href="@{|/breeder-profile|}"><h1 th:text="${userRole.username}"></h1></a>
             <a th:href="${userRole.email}"><span th:text="${userRole.email}"></span></a>
             <br/>
         </div>
-    </main>
+        <h1>Favorites</h1>
 
     <div>
         <h2 class="text-center text-light" id="buyer-fav">Favorite Post</h2>

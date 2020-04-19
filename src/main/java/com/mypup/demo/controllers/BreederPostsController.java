@@ -4,6 +4,7 @@ package com.mypup.demo.controllers;
 //import com.mypup.demo.models.DogPost;
 //import com.mypup.demo.models.User;
 import com.mypup.demo.models.DogPost;
+import com.mypup.demo.models.Favorites;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.FavoritesRepo;

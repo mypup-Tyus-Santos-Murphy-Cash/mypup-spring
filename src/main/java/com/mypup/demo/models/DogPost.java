@@ -34,8 +34,6 @@ public class DogPost {
     //    @ManyToMany(mappedBy = "dogPosts")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String images;
-
-    //    @ManyToMany(cascade = CascadeType.ALL)
 //    @JoinTable(name="favorites",
 //            joinColumns={@JoinColumn(name="dog_post_id")},
 //            inverseJoinColumns={@JoinColumn(name="user_id")}
