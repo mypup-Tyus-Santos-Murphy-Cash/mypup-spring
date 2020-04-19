@@ -6,6 +6,7 @@ package com.mypup.demo.controllers;
 import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
+import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,12 @@ public class BreederPostsController {
 
     private DogPostRepo dogPostDao;
     private UserRepo userDao;
+    private FavoritesRepo favoritesDao;
 
-    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao) {
+    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao, FavoritesRepo favoritesDao) {
         this.dogPostDao = dogPostDao;
         this.userDao = userDao;
+        this.favoritesDao = favoritesDao;
     }
 
 
@@ -38,13 +41,6 @@ public class BreederPostsController {
     public String getVisitorShow(Model model) {
         model.addAttribute("breederPosts2", dogPostDao.findAll());
         return "breeder-posts/visitor-show";
-    }
-
-
-    @GetMapping ("/breeder-posts/{id}")
-    public String getBreederPosts(@PathVariable long id, Model model){
-        model.addAttribute("breederPosts", dogPostDao.getOne(id));
-        return "breeder-posts/show";
     }
 
     //get these to work//
@@ -120,6 +116,24 @@ public class BreederPostsController {
         newDogPost.setImages(images);
         dogPostDao.save(newDogPost);
         return "redirect:/admin-profile";
+    }
+
+    @GetMapping ("/breeder-posts/{id}")
+    public String getBreederPosts(@PathVariable long id, Model model){
+        model.addAttribute("breederPosts", dogPostDao.findDogPostsById(id));
+        return "breeder-posts/show";
+    }
+
+    @PostMapping("/buyer-profile/{id}/addToFavorites")
+    public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
+        DogPost addToFavorites = favoritesDao.getOne(id);
+        addToFavorites.setDogBreed(dogBreed);
+        addToFavorites.setDogGroup(dogGroup);
+        addToFavorites.setDogDescription(dogDescription);
+        addToFavorites.setDogPrice(dogPrice);
+        addToFavorites.setImages(images);
+        favoritesDao.save(addToFavorites);
+        return "redirect:/buyer-profile";
     }
 
     @GetMapping("/companion-search")

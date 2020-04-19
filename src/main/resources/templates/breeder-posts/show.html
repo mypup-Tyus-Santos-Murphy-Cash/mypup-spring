@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <title>Viewing Post</title>
 </head>
-<body class="showPost">
+<body>
 
-<div th:if="${showUserRoles.getUserRole().equals('breeder')}">
-    <nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
-</div>
-<div th:if="${showUserRoles.getUserRole().equals('buyer')}">
-    <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
-</div>
-<div th:if="${showUserRoles.getUserRole().equals('admin')}">
-    <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>
-</div>
-<div th:if="${showUserRoles.getUsername().equals(null)}">
-    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>
-</div>
+<!--<div th:if="${showUserRoles.getUserRole().equals('breeder')}">-->
+<nav th:replace="fragments/navbar.html :: breeder-navbar"></nav>
+<!--</div>-->
+<!--<div th:if="${showUserRoles.getUserRole().equals('buyer')}">-->
+<!--    <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>-->
+<!--</div>-->
+<!--<div th:if="${showUserRoles.getUserRole().equals('admin')}">-->
+<!--    <nav th:replace="fragments/navbar.html :: admin-navbar"></nav>-->
+<!--</div>-->
+<!--<div th:if="${showUserRoles.getUsername().equals(null)}">-->
+<!--    <nav th:replace="fragments/navbar.html :: visitor-navbar"></nav>-->
+<!--</div>-->
 
-<header class="container my-5"></header>
+<header class="container my-5">
     <div class="jumbotron-show">
-        <h1 class="text-center text-dark display-1" id="h1-show">Breeder Posts</h1>
+        <h1 class="text-center text-light display-1" id="breeder-posts">Breeder Posts</h1>
     </div>
-
+</header>
 
 <div class="main-container">
     <div class="row">
@@ -33,12 +33,40 @@
             <p th:text="${breederPost.dogGroup}"></p>
             <p th:text="${breederPost.dogDescription}"></p>
             <p th:text="${breederPost.dogPrice}"></p>
-<!--            <div th:if="${showUserRoles.getUserRole().equals('buyer')}">-->
-<!--                <form th:action="@{|/breeder-contact/${breederPost.id}|}">-->
-<!--                    <button type="submit" class="btn">More info</button>-->
-<!--                </form>-->
-<!--            </div>-->
+            <form th:action="@{|/breeder-contact/${breederPost.id}|}">
+                <button class="btn button-primary info">More info</button>
+            </form>
             <br>
+            <!-- Button trigger modal -->
+            <form th:action="@{|/breeder-posts/${breederPost.id}|}">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
+                    Launch demo modal
+                </button>
+            </form>
+            <!-- Modal -->
+            <div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
+                            <h1 th:text="${breederPost.dogBreed}"></h1>
+                            <p th:text="${breederPost.dogGroup}"></p>
+                            <p th:text="${breederPost.dogDescription}"></p>
+                            <p th:text="${breederPost.dogPrice}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
