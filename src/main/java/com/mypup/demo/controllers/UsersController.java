@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class UsersController {
     private UserRepo usersdao;
@@ -46,6 +45,7 @@ public class UsersController {
     public String gotToBuyer(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userRoleBuyer", loggedIn);
+        model.addAttribute("favorites", favoritesDao.findAll());
         if(loggedIn.getUserRole().equals("buyer"))
             return "users/buyer-profile";
         else
