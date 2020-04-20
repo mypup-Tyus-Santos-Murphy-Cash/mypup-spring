@@ -8,7 +8,7 @@
     /*margin: 10px;*/
 
 }
-
+/*-----ABout styling---------*/
 .about-card{
     border: black 5px solid;
     border-radius: 5px;
@@ -27,7 +27,14 @@
 .about-container{
     margin-top: 10vh;
 }
+/*----------------------------*/
+/*----------------------------*/
+/*----------------------------*/
+/*----------------------------*/
 
+
+
+/*--------------admin page styling------------------*/
 .admin{
     background-image: url("/images/dog-bone.png");
     min-height: 35vh;
@@ -44,6 +51,17 @@
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 0 0 lightseagreen, -2px 0 0 lightseagreen, 0 2px 0 lightseagreen, 0 -2px 0 lightseagreen, 1px 1px lightseagreen, -1px -1px 0 lightseagreen, 1px -1px 0 lightseagreen, -1px 1px 0 lightseagreen;
 }
+
+/*----------------------------*/
+/*----------------------------*/
+/*----------------------------*/
+/*----------------------------*/
+
+
+/*-----------index page styling-----------------*/
+
+
+
 
 .jumbotron-index{
     margin-top: 20vh;
@@ -533,6 +551,16 @@ input, textarea{
 
 .questions{
     margin-top: 1rem;
+}
+.contact{
+    background-image: url("/images/dog-costume.jpg");
+    background-size: 1700px;
+    background-repeat: no-repeat;
+    border: lightseagreen 15px solid;
+    height: 200vh;
+}
+#h1-contact{
+    font-family: 'Pacifico', cursive;
 }
 
 

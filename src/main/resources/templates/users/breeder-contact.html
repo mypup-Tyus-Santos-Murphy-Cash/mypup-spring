@@ -4,30 +4,43 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="contact">
 <div class="wrapper">
     <nav th:replace="fragments/navbar.html :: buyer-navbar"></nav>
     <header class="container my-5"></header>
     <div class="jumbotron">
-        <h1 class="text-center text-light display-1">Contact info</h1>
+        <h1 class="text-center text-light display-1" id="h1-contact">Contact info</h1>
     </div>
-    <h1> hello</h1>
-    <main class="container">
+
+
+    <div class="contact-container">
+        
         <h1>Breeder Contact information</h1>
-        <div>
-            <div>
+        <div class="row">
+                <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 25rem;" th:each="userRole : ${userRoleBreeders}">
+                    <img class="card-img-top" th:src="${userRole.profileImage}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${breeder.username}"></h5>
+                        <p class="card-text" th:href="${breeder.email}"><span th:text="${breeder.email}"></span> </p>
+                        <p class="card-text"  th:text=><a th:href="${breeder.phoneNumber}">MyPhone#</a><span th:text="${breeder.phoneNumber}"></span> </p>
+                        <p class="card-text"  th:text="${breeder.city}"><span th:text="${breeder.city}"></span> </p>
+                        <p class="card-text"  th:text="${breeder.state}"><span th:text="${breeder.state}"></span> </p>
+                        <p class="card-text"  th:text="${breeder.zipcode}"><span th:text="${breeder.zipcode}"></span> </p>
+                    </div>
+                </div>
                 <p th:action="@{|/breeder-contact/${breeder.id}|}">
-                <h1 th:text="${breeder.username}"></h1>
-                <p th:href="${breeder.email}"><span th:text="${breeder.email}"></span> </p>
-                <p th:text="${breeder.phoneNumber}"><span th:text="${breeder.phoneNumber}"></span> </p>
-                <p th:text="${breeder.city}"><span th:text="${breeder.city}"></span> </p>
-                <p th:text="${breeder.state}"><span th:text="${breeder.state}"></span> </p>
-                <p th:text="${breeder.zipcode}"><span th:text="${breeder.zipcode}"></span> </p>
+
+
+                <div>
+                    <form th:action="@{|/breeder-contact/${breederPost.id}|}">
+                        <button type="submit" class="btn">More info</button>
+                    </form>
+                </div>
                 <br>
             </div>
         </div>
-    </main>
-</div>
+    </div>
+
 
 <br>
 <br>
