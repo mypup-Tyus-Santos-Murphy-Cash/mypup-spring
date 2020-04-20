@@ -2,6 +2,7 @@ package com.mypup.demo.controllers;
 
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
+import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,11 +19,13 @@ public class UsersController {
     private UserRepo usersdao;
     private PasswordEncoder passwordEncoder;
     private DogPostRepo dogPostDao;
+    private FavoritesRepo favoritesDao;
 
-    public UsersController(UserRepo users, PasswordEncoder passwordEncoder, DogPostRepo dogPostDao) {
+    public UsersController(UserRepo users, PasswordEncoder passwordEncoder, DogPostRepo dogPostDao, FavoritesRepo favoritesDao) {
         this.usersdao = users;
         this.passwordEncoder = passwordEncoder;
         this.dogPostDao = dogPostDao;
+        this.favoritesDao = favoritesDao;
     }
 
     @GetMapping("/sign-up")

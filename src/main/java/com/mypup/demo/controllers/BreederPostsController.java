@@ -127,7 +127,7 @@ public class BreederPostsController {
 
     @PostMapping("/buyer-profile/{id}/addToFavorites")
     public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
-        DogPost addToFavorites = favoritesDao.getOne(id);
+        Favorites addToFavorites = favoritesDao.getOne(id);
         addToFavorites.setDogBreed(dogBreed);
         addToFavorites.setDogGroup(dogGroup);
         addToFavorites.setDogDescription(dogDescription);
