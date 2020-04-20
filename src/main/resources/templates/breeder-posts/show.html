@@ -36,10 +36,11 @@
                 <button class="btn button-primary info">More info</button>
             </form>
             <br>
+
                 <button th:action="@{|/breeder-posts/${breederPost.id}|}" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
                     Launch demo modal
                 </button>
-             Modal
+
             <div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -58,8 +59,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <form th:action="@{/buyer-profile/${breederPost.id}/addToFavorites}">
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <form th:action="@{/buyer-profile/${breederPost.id}/addToFavorites}" th:method="POST">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                             </form>
                         </div>
                     </div>
