@@ -35,6 +35,7 @@ public class BreederPostsController {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
+        model.addAttribute("breederPosts2", dogPostDao.findDogPostsById(2L));
         return "breeder-posts/show";
     }
 
@@ -119,11 +120,11 @@ public class BreederPostsController {
         return "redirect:/admin-profile";
     }
 
-    @GetMapping ("/breeder-posts/{id}")
-    public String getBreederPosts(@PathVariable long id, Model model){
-        model.addAttribute("breederPosts2", dogPostDao.findDogPostsById(id));
-        return "breeder-posts/show";
-    }
+//    @GetMapping ("/breeder-posts/{id}")
+//    public String getBreederPosts(@PathVariable long id, Model model){
+//        model.addAttribute("breederPosts2", dogPostDao.findDogPostsById(id));
+//        return "breeder-posts/show";
+//    }
 
     @PostMapping("/buyer-profile/{id}/addToFavorites")
     public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
