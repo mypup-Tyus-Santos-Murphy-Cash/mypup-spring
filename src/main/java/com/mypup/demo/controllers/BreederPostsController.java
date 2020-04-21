@@ -11,10 +11,13 @@ import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
 //import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @Controller
 public class BreederPostsController {
@@ -31,11 +34,11 @@ public class BreederPostsController {
 
 
     @GetMapping("/breeder-posts")
-    public String getBreederPosts(Model model){
+    public String getBreederPosts(DogPost dogPost,Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        model.addAttribute("breederPosts2", dogPostDao.findDogPostsById(2L));
+        model.addAttribute("breederPosts2", dogPostDao.findById(dogPost.getId()));
         return "breeder-posts/show";
     }
 
