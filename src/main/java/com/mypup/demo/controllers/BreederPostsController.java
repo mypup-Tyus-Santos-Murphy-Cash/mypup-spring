@@ -10,6 +10,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import java.util.List;
 
 
 @Controller
@@ -27,10 +33,13 @@ public class BreederPostsController {
 
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        DogPost dogPost = (DogPost) session.createQuery("from DogPost").list();
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        model.addAttribute("breederPosts2", dogPostDao.findById(3L));
+        model.addAttribute("breederPosts2", dogPostDao.findById(dogPost.getId()));
         return "breeder-posts/show";
     }
 
