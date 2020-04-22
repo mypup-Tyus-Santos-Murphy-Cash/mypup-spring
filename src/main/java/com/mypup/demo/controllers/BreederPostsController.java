@@ -31,6 +31,7 @@ public class BreederPostsController {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
+        model.addAttribute("breederPosts2", dogPostDao.findDogPostsById(2L).get(0));
         return "breeder-posts/show";
     }
 
