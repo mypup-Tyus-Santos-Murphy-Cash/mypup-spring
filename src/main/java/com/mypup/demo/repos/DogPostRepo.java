@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface DogPostRepo extends JpaRepository<DogPost, Long> {
 DogPost findById(long id);
 @Query("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id=:dog_post_id")
-Optional<DogPost> findDogPostsById(@Param("dog_post_id") Long dog_post_id);
+List<DogPost> findDogPostsById(@Param("dog_post_id") Long dog_post_id);
 List<DogPost> findByDogBreed(String dogBreed);
 
 }

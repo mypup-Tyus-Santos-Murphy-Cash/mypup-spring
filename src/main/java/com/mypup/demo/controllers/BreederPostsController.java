@@ -33,11 +33,11 @@ public class BreederPostsController {
     }
 
     @GetMapping("/breeder-posts")
-    public String getBreederPosts(DogPost dogPost,Model model){
+    public String getBreederPosts(Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        model.addAttribute("breederPosts2", dogPostDao.findById(dogPost.getId()));
+        model.addAttribute("breederPosts2", dogPostDao.findById(loggedIn.getId()));
         return "breeder-posts/show";
     }
 
