@@ -41,7 +41,7 @@
                     Launch demo modal
                 </button>
 
-            <div th:action="@{|/breeder-posts/${breederPosts2}|}" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div th:action="@{|/breeder-posts/${breederPosts2}|}" th:object="${breederPosts2}" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -51,11 +51,11 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img class="card-img-top" th:src="${images}" alt="Card image cap">
-                            <h1 th:text="${dogBreed}"></h1>
-<!--                            <p th:text="${breederPosts2.getDogGroup}"></p>-->
-<!--                            <p th:text="${breederPosts2.getDogDescription}"></p>-->
-<!--                            <p th:text="${breederPosts2.getDogPrice}"></p>-->
+                            <img class="card-img-top" th:src="*{images}" alt="Card image cap">
+                            <h1 th:text="*{dogBreed}"></h1>
+                            <p th:text="*{dogGroup}"></p>
+                            <p th:text="*{dogDescription}"></p>
+                            <p th:text="*{dogPrice}"></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

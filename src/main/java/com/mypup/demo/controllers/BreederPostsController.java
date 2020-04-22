@@ -32,7 +32,6 @@ public class BreederPostsController {
         this.favoritesDao = favoritesDao;
     }
 
-
     @GetMapping("/breeder-posts")
     public String getBreederPosts(DogPost dogPost,Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
