@@ -32,7 +32,8 @@ public class BreederPostsController {
     public String getBreederPosts(Model model){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
-        DogPost dogPost = (DogPost) session.createQuery("from DogPost").list();
+        session.beginTransaction();
+        DogPost dogPost = (DogPost) session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id =:dog_post_id").list();
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
