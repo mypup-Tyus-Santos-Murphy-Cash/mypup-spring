@@ -6,6 +6,7 @@ import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
+import com.mypup.demo.util.HibernateUtil;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,8 +31,7 @@ public class BreederPostsController {
 
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         DogPost dogPost = (DogPost) session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id =:dog_post_id");
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
