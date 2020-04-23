@@ -4,7 +4,7 @@ import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
 import java.util.List;
-@Indexed
+
 @Entity
 @Table(name = "dog_posts")
 public class DogPost {
@@ -20,8 +20,7 @@ public class DogPost {
     private String dogDescription;
     @Column(columnDefinition = "VARCHAR(45)", name = "dog_price")
     private String dogPrice;
-    @ManyToOne
-//        (fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
     private User user;
     @ManyToMany(cascade = CascadeType.ALL)
