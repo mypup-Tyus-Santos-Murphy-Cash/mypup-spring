@@ -37,7 +37,7 @@ public class BreederPostsController {
     public String getBreederPosts(Model model){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        List<DogPost> dogPost = session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id= :dog_post_id", DogPost.class).list();
+        List<DogPost> dogPost = session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id=").list();
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
