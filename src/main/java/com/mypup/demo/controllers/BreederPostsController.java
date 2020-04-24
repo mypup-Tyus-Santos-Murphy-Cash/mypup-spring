@@ -15,6 +15,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import javax.management.Query;
+import java.util.List;
+
 
 @Controller
 public class BreederPostsController {
@@ -33,11 +36,13 @@ public class BreederPostsController {
     public String getBreederPosts(Model model){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        DogPost dogPost = (DogPost) session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id =:dog_post_id");
+        List<DogPost> dogPost = session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id =:dog_post_id").list();
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        model.addAttribute("breederPosts2", dogPostDao.findById(dogPost.getId()));
+        for(DogPost post : dogPost) {
+            model.addAttribute("breederPosts2", dogPostDao.findById(post.getId()));
+        }
         return "breeder-posts/show";
     }
 
