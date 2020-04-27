@@ -29,8 +29,7 @@ public class User {
     private String state;
     @Column(columnDefinition = "VARCHAR(12)")
     private String zipcode;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//            , orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<DogPost> dogPost;
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;

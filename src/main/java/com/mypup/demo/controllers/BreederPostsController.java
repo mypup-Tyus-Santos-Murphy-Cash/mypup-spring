@@ -6,7 +6,7 @@ import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
-import com.mypup.demo.util.HibernateUtil;
+//import com.mypup.demo.util.HibernateUtil;
 import jdk.jfr.Event;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -35,13 +35,10 @@ public class BreederPostsController {
 
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List<DogPost> dogPost = session.createQuery("SELECT dogPost FROM DogPost dogPost WHERE dogPost.id= :id", DogPost.class).list();
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("showUserRoles", loggedIn);
         model.addAttribute("breederPosts", dogPostDao.findAll());
-        for(DogPost post : dogPost) {
+        for(DogPost post : dogPostDao.findAll()) {
             model.addAttribute("breederPosts2", dogPostDao.findById(post.getId()));
         }
         return "breeder-posts/show";
