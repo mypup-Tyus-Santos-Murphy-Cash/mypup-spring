@@ -29,14 +29,22 @@ public class User {
     private String state;
     @Column(columnDefinition = "VARCHAR(12)")
     private String zipcode;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//            , orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<DogPost> dogPost;
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;
     @Column(nullable = false, columnDefinition = "TEXT", name = "profile_image")
     private String profileImage;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Favorites> favorites;
 
+    public List<Favorites> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(List<Favorites> favorites) {
+        this.favorites = favorites;
+    }
 
     public List<Breed> getBreeds() {
         return breeds;
@@ -53,7 +61,8 @@ public class User {
     public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
-    public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage) {
+
+    public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage, List<Favorites> favorites) {
         this.userRole = userRole;
         this.username = username;
         this.password = password;
@@ -65,6 +74,7 @@ public class User {
         this.dogPost = dogPost;
         this.breeds = breeds;
         this.profileImage = profileImage;
+        this.favorites = favorites;
     }
     public List<DogPost> getDogPost() {
         return dogPost;
@@ -81,9 +91,10 @@ public class User {
         city = copy.city;
         state = copy.state;
         zipcode = copy.zipcode;
+        dogPost = copy.dogPost;
         userRole = copy.userRole;
         profileImage = copy.profileImage;
-
+        favorites = copy.favorites;
     }
     public void setDogPost(List<DogPost> dogPost) {
         this.dogPost = dogPost;
