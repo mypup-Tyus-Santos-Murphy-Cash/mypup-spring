@@ -36,11 +36,10 @@
                 <button class="btn button-primary info">More info</button>
             </form>
             <br>
-            <div th:each="breederPost2 : ${breederPosts2}">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >
                     Launch demo modal
                 </button>
-                <div th:action="@{|/breeder-posts/${breederPosts2}|}" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div  class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -50,11 +49,11 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <img class="card-img-top" th:src="${breederPost2.images}" alt="Card image cap">
-                                <h1 th:text="${breederPost2.dogBreed}"></h1>
-                                <p th:text="${breederPost2.dogGroup}"></p>
-                                <p th:text="${breederPost2.dogDescription}"></p>
-                                <p th:text="${breederPost2.dogPrice}"></p>
+                                <img class="card-img-top" th:src="${breederPost.images}" alt="Card image cap">
+                                <h1 th:text="${breederPost.dogBreed}"></h1>
+                                <p th:text="${breederPost.dogGroup}"></p>
+                                <p th:text="${breederPost.dogDescription}"></p>
+                                <p th:text="${breederPost.dogPrice}"></p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -65,7 +64,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

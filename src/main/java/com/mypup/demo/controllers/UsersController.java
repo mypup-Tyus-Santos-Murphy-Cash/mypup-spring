@@ -71,7 +71,6 @@ public class UsersController {
             return "redirect:/login";
     }
 
-
     @GetMapping("/breeder-contact/{id}")
     public String goToBreederContactInfo(@PathVariable long id, Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
