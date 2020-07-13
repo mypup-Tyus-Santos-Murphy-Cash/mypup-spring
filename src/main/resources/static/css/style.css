@@ -564,3 +564,13 @@ input, textarea{
 }
 
 
+.form-container {
+    margin-top: 4rem;
+    margin-left: 2rem;
+    width: 70rem;
+    border-radius: 25px;
+}
+
+.form-container1{
+    margin-left: 2rem;
+}

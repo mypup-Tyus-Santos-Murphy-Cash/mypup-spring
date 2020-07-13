@@ -24,37 +24,12 @@
 
     <div>
         <h2 class="text-center text-light" id="buyer-fav">Favorite Post</h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class=" card border-1 shadow">
-                        <div class=" card-body text-center">
-                            <img src="/images/3pups.jpg" style="width:200px;height:200px;" alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-1 shadow">
-                        <div class="card-body text-center">
-                            <img src="/images/furry-dog.jpg" style="width:200px;height:200px;" alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-4 ">
-                    <div class="card border-1 shadow ">
-                        <div class="card-body text-center">
-                            <img src="/images/glasses.jpg"  style="width:200px;height:200px;" alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6 mb-4 ">
-                    <div class="card border-1 shadow ">
-                        <div class="card-body text-center">
-                            <img src="/images/little-pup.jpg"  style="width:200px;height:200px;" alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="card vh card-body text-center ml-3 mr-3 mb-4" style="width: 18rem;" th:each="favorite : ${favorites}">
+            <img class="card-img-top" th:src="${favorite.images}" alt="Card image cap">
+            <h1 th:text="${favorite.dogBreed}"></h1>
+            <p th:text="${favorite.dogGroup}"></p>
+            <p th:text="${favorite.dogDescription}"></p>
+            <p th:text="${favorite.dogPrice}"></p>
         </div>
     </div>
 

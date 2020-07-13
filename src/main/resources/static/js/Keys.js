@@ -1,1 +1,1 @@
-var FILESTACK_API_KEY = "ADOazdegRqy5cXXcTrXpQz";
+var FILESTACK_API_KEY = "AyXBJVswQsyD1F7jShDzJz";

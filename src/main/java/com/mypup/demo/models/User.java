@@ -4,6 +4,7 @@ package com.mypup.demo.models;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,8 +30,7 @@ public class User {
     private String state;
     @Column(columnDefinition = "VARCHAR(12)")
     private String zipcode;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//            , orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<DogPost> dogPost;
     @ManyToMany(mappedBy = "users")
     private List<Breed> breeds;
@@ -43,9 +43,15 @@ public class User {
         return favorites;
     }
 
+<<<<<<< HEAD
     public void setFavorites(List<Favorites> favorites) {
         this.favorites = favorites;
     }
+=======
+    @ManyToMany(mappedBy = "favorites")
+    private List<DogPost> favorites;
+
+>>>>>>> 76ecb1d1e7f4ac66c0e041b3cfa53b512ed5f332
 
     public List<Breed> getBreeds() {
         return breeds;
@@ -63,7 +69,19 @@ public class User {
         this.profileImage = profileImage;
     }
 
+<<<<<<< HEAD
     public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage, List<Favorites> favorites) {
+=======
+    public List<DogPost> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(List<DogPost> favorites) {
+        this.favorites = favorites;
+    }
+
+    public User(List<DogPost> favorites, String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage) {
+>>>>>>> 76ecb1d1e7f4ac66c0e041b3cfa53b512ed5f332
         this.userRole = userRole;
         this.username = username;
         this.password = password;
