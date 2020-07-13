@@ -4,7 +4,7 @@ import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
 import java.util.List;
-@Indexed
+
 @Entity
 @Table(name = "dog_posts")
 public class DogPost {
@@ -20,8 +20,7 @@ public class DogPost {
     private String dogDescription;
     @Column(columnDefinition = "VARCHAR(45)", name = "dog_price")
     private String dogPrice;
-    @ManyToOne
-//        (fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
     private User user;
     @ManyToMany(cascade = CascadeType.ALL)
@@ -31,20 +30,19 @@ public class DogPost {
             inverseJoinColumns={@JoinColumn(name="breed_id")}
     )
     private List<Breed> breeds;
-    //    @ManyToMany(mappedBy = "dogPosts")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String images;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="favorites",
+    @JoinTable(
+            name="favorites",
             joinColumns={@JoinColumn(name="dog_post_id")},
             inverseJoinColumns={@JoinColumn(name="user_id")}
     )
-    private List<User> users;
+    private List<User> favorites;
 
 
-
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> users) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> favorites) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -52,7 +50,7 @@ public class DogPost {
         this.breeds = breeds;
         this.user = user;
         this.images = images;
-        this.users = users;
+        this.favorites = favorites;
     }
 
     public String getImages() {
@@ -123,11 +121,11 @@ public class DogPost {
         this.user = user;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<User> getFavorites() {
+        return favorites;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setFavorites(List<User> favorites) {
+        this.favorites = favorites;
     }
 }

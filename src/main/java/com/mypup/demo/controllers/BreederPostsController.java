@@ -1,18 +1,17 @@
 package com.mypup.demo.controllers;
 
-//import com.mypup.demo.models;
-//import com.mypup.demo.models.DogPost;
-//import com.mypup.demo.models.User;
 import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
-//import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.beans.factory.annotation.Autowired;
+//import com.mypup.demo.util.HibernateUtil;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 
 @Controller
 public class BreederPostsController {
@@ -20,11 +19,11 @@ public class BreederPostsController {
     private DogPostRepo dogPostDao;
     private UserRepo userDao;
 
+
     public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao) {
         this.dogPostDao = dogPostDao;
         this.userDao = userDao;
     }
-
 
     @GetMapping("/breeder-posts")
     public String getBreederPosts(Model model){
@@ -40,24 +39,17 @@ public class BreederPostsController {
         return "breeder-posts/visitor-show";
     }
 
-
-    @GetMapping ("/breeder-posts/{id}")
-    public String getBreederPosts(@PathVariable long id, Model model){
-        model.addAttribute("breederPosts", dogPostDao.getOne(id));
-        return "breeder-posts/show";
-    }
-
     //get these to work//
     @GetMapping("/breeder-posts/create")
     public String getCreatedBreederPostForm(Model model){
-    model.addAttribute("newDogPost", new DogPost());
-    User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    model.addAttribute("showUserRoles", loggedIn);
-    if(loggedIn.getUserRole().equals("breeder")  || loggedIn.getUserRole().equals("admin"))
-        return "breeder-posts/create";
-    else
-        return "redirect:/home";
-}
+        model.addAttribute("newDogPost", new DogPost());
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("showUserRoles", loggedIn);
+        if(loggedIn.getUserRole().equals("breeder")  || loggedIn.getUserRole().equals("admin"))
+            return "breeder-posts/create";
+        else
+            return "redirect:/home";
+    }
 
     @PostMapping("/breeder-posts/create")
     public String createBreederPost(@ModelAttribute DogPost newDogPost, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, String images){
@@ -122,6 +114,23 @@ public class BreederPostsController {
         return "redirect:/admin-profile";
     }
 
+//    @GetMapping("/favorites/{id}")
+//    public String favorites(Model model, @PathVariable long id) {
+//        model.addAttribute("breederPost", dogPostDao.getOne(id));
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        model.addAttribute("favorites", loggedInUser.getFavorites());
+//        return "users/buyer-profile";
+//    }
+
+    @PostMapping("/favorites/{id}")
+    public String addToFavorites(@PathVariable long id) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<DogPost> favorites = loggedInUser.getFavorites();
+        favorites.add(dogPostDao.getOne(id));
+        return "redirect:/buyer-profile";
+    }
+
+
     @GetMapping("/companion-search")
     public String showCompanion(Model model){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -155,13 +164,4 @@ public class BreederPostsController {
     }
 
 
-    }
-
-
-
-
-
-
-
-
-
+}

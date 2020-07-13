@@ -1,5 +1,4 @@
 package com.mypup.demo.controllers;
-
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
@@ -7,11 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UsersController {
@@ -71,14 +66,11 @@ public class UsersController {
             return "redirect:/login";
     }
 
-
     @GetMapping("/breeder-contact/{id}")
     public String goToBreederContactInfo(@PathVariable long id, Model model){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("breeder",usersdao.findUserByDogPost(dogPostDao.findById(id)));
         return "users/breeder-contact";
     }
-
-
 
 }
