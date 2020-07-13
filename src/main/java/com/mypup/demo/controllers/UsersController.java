@@ -1,9 +1,7 @@
 package com.mypup.demo.controllers;
 
-import com.mypup.demo.models.Favorites;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
-import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,19 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
 @Controller
 public class UsersController {
     private UserRepo usersdao;
     private PasswordEncoder passwordEncoder;
     private DogPostRepo dogPostDao;
-    private FavoritesRepo favoritesDao;
 
-    public UsersController(UserRepo users, PasswordEncoder passwordEncoder, DogPostRepo dogPostDao, FavoritesRepo favoritesDao) {
+    public UsersController(UserRepo users, PasswordEncoder passwordEncoder, DogPostRepo dogPostDao) {
         this.usersdao = users;
         this.passwordEncoder = passwordEncoder;
         this.dogPostDao = dogPostDao;
-        this.favoritesDao = favoritesDao;
     }
 
     @GetMapping("/sign-up")
@@ -44,7 +39,6 @@ public class UsersController {
     public String gotToBuyer(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userRoleBuyer", loggedIn);
-        model.addAttribute("showAllFavorites", favoritesDao.findAll());
         if(loggedIn.getUserRole().equals("buyer"))
             return "users/buyer-profile";
         else
@@ -79,19 +73,5 @@ public class UsersController {
         model.addAttribute("breeder",usersdao.findUserByDogPost(dogPostDao.findById(id)));
         return "users/breeder-contact";
     }
-
-    @PostMapping("/buyer-profile/{id}/addToFavorites")
-    public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
-        Favorites addToFavorites = favoritesDao.getOne(id);
-        addToFavorites.setDogBreed(dogBreed);
-        addToFavorites.setDogGroup(dogGroup);
-        addToFavorites.setDogDescription(dogDescription);
-        addToFavorites.setDogPrice(dogPrice);
-        addToFavorites.setImages(images);
-        favoritesDao.save(addToFavorites);
-        return "redirect:/buyer-profile";
-    }
-
-
 
 }

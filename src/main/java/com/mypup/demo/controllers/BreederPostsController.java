@@ -1,23 +1,14 @@
 package com.mypup.demo.controllers;
 
 import com.mypup.demo.models.DogPost;
-import com.mypup.demo.models.Favorites;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
-import com.mypup.demo.repos.FavoritesRepo;
 import com.mypup.demo.repos.UserRepo;
 //import com.mypup.demo.util.HibernateUtil;
-import jdk.jfr.Event;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-import javax.management.Query;
-import java.util.List;
 
 
 @Controller
