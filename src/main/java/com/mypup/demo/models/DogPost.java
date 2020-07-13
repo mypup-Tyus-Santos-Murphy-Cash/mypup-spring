@@ -30,19 +30,19 @@ public class DogPost {
             inverseJoinColumns={@JoinColumn(name="breed_id")}
     )
     private List<Breed> breeds;
-    //    @ManyToMany(mappedBy = "dogPosts")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String images;
-    //    @JoinTable(name="favorites",
-//            joinColumns={@JoinColumn(name="dog_post_id")},
-//            inverseJoinColumns={@JoinColumn(name="user_id")}
-//    )
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "dogPost")
-    private List<Favorites> favorites;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="favorites",
+            joinColumns={@JoinColumn(name="dog_post_id")},
+            inverseJoinColumns={@JoinColumn(name="user_id")}
+    )
+    private List<User> favorites;
 
 
-
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<Favorites> favorites) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> favorites) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -121,11 +121,11 @@ public class DogPost {
         this.user = user;
     }
 
-    public List<Favorites> getFavorites() {
+    public List<User> getFavorites() {
         return favorites;
     }
 
-    public void setFavorites(List<Favorites> favorites) {
+    public void setFavorites(List<User> favorites) {
         this.favorites = favorites;
     }
 }

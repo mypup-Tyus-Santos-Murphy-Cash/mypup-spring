@@ -112,13 +112,6 @@ public class BreederPostsController {
         return "redirect:/admin-profile";
     }
 
-//    @GetMapping ("/breeder-posts/{id}")
-//    public String getBreederPosts(@PathVariable long id, Model model){
-//        model.addAttribute("breederPosts2", dogPostDao.findDogPostsById(id));
-//        return "breeder-posts/show";
-//    }
-
-
 
 
 

@@ -4,6 +4,7 @@ package com.mypup.demo.models;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -35,16 +36,10 @@ public class User {
     private List<Breed> breeds;
     @Column(nullable = false, columnDefinition = "TEXT", name = "profile_image")
     private String profileImage;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Favorites> favorites;
 
-    public List<Favorites> getFavorites() {
-        return favorites;
-    }
+    @ManyToMany(mappedBy = "favorites")
+    private List<DogPost> favorites;
 
-    public void setFavorites(List<Favorites> favorites) {
-        this.favorites = favorites;
-    }
 
     public List<Breed> getBreeds() {
         return breeds;
@@ -62,7 +57,15 @@ public class User {
         this.profileImage = profileImage;
     }
 
-    public User(String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage, List<Favorites> favorites) {
+    public List<DogPost> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(List<DogPost> favorites) {
+        this.favorites = favorites;
+    }
+
+    public User(List<DogPost> favorites, String userRole, String username, String password, String email, String phoneNumber, String city, String state, String zipcode, List<DogPost> dogPost, List<Breed> breeds, String profileImage) {
         this.userRole = userRole;
         this.username = username;
         this.password = password;
