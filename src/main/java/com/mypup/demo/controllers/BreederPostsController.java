@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Controller
 public class BreederPostsController {
@@ -112,11 +114,19 @@ public class BreederPostsController {
         return "redirect:/admin-profile";
     }
 
-    @GetMapping("/favorites/{id}")
-    public String addToFavorites(Model model, @PathVariable long id) {
+//    @GetMapping("/favorites/{id}")
+//    public String favorites(Model model, @PathVariable long id) {
+//        model.addAttribute("breederPost", dogPostDao.getOne(id));
+//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        model.addAttribute("favorites", loggedInUser.getFavorites());
+//        return "users/buyer-profile";
+//    }
+
+    @PostMapping("/favorites/{id}")
+    public String addToFavorites(@PathVariable long id) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        loggedInUser.setFavorites();
-        model.addAttribute("favorite", dogPostDao.getOne(id));
+        List<DogPost> favorites = loggedInUser.getFavorites();
+        favorites.add(dogPostDao.getOne(id));
         return "redirect:/buyer-profile";
     }
 
