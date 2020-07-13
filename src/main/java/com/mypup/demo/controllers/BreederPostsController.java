@@ -112,7 +112,13 @@ public class BreederPostsController {
         return "redirect:/admin-profile";
     }
 
-
+    @GetMapping("/favorites/{id}")
+    public String addToFavorites(Model model, @PathVariable long id) {
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        loggedInUser.setFavorites();
+        model.addAttribute("favorite", dogPostDao.getOne(id));
+        return "redirect:/buyer-profile";
+    }
 
 
     @GetMapping("/companion-search")
