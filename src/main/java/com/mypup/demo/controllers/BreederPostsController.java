@@ -25,12 +25,11 @@ public class BreederPostsController {
 
     private DogPostRepo dogPostDao;
     private UserRepo userDao;
-    private FavoritesRepo favoritesDao;
 
-    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao, FavoritesRepo favoritesDao) {
+
+    public BreederPostsController(DogPostRepo dogPostDao, UserRepo userDao) {
         this.dogPostDao = dogPostDao;
         this.userDao = userDao;
-        this.favoritesDao = favoritesDao;
     }
 
     @GetMapping("/breeder-posts")
@@ -128,17 +127,9 @@ public class BreederPostsController {
 //        return "breeder-posts/show";
 //    }
 
-    @PostMapping("/buyer-profile/{id}/addToFavorites")
-    public String addToFavorites(@PathVariable long id, @RequestParam String dogBreed, @RequestParam String dogGroup, @RequestParam String dogDescription, @RequestParam String dogPrice, @RequestParam String images) {
-        Favorites addToFavorites = favoritesDao.getOne(id);
-        addToFavorites.setDogBreed(dogBreed);
-        addToFavorites.setDogGroup(dogGroup);
-        addToFavorites.setDogDescription(dogDescription);
-        addToFavorites.setDogPrice(dogPrice);
-        addToFavorites.setImages(images);
-        favoritesDao.save(addToFavorites);
-        return "redirect:/buyer-profile";
-    }
+
+
+
 
     @GetMapping("/companion-search")
     public String showCompanion(Model model){
