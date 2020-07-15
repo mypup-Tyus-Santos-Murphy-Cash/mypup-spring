@@ -43,7 +43,7 @@ public class UsersController {
     @GetMapping("/buyer-profile")
     public String gotToBuyer(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        User user = usersdao.getOne(loggedIn.getId());
+        User user = usersdao.findUserById(loggedIn.getId());
         model.addAttribute("userRoleBuyer", user);
         model.addAttribute("favorites", user.getFavorites());
         if(loggedIn.getUserRole().equals("buyer"))
