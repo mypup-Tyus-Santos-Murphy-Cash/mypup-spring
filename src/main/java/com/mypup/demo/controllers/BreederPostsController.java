@@ -114,13 +114,13 @@ public class BreederPostsController {
         return "redirect:/admin-profile";
     }
 
-//    @GetMapping("/favorites/{id}")
-//    public String favorites(Model model, @PathVariable long id) {
-//        model.addAttribute("breederPost", dogPostDao.getOne(id));
-//        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        model.addAttribute("favorites", loggedInUser.getFavorites());
-//        return "users/buyer-profile";
-//    }
+    @GetMapping("/favorites/{id}")
+    public String favorites(Model model, @PathVariable long id) {
+        model.addAttribute("breederPost", dogPostDao.getOne(id));
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("favorites", loggedInUser.getFavorites());
+        return "users/buyer-profile";
+    }
 
     @PostMapping("/favorites/{id}")
     public String addToFavorites(@PathVariable long id, Model model) {
