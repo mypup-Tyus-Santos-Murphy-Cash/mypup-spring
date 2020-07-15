@@ -123,12 +123,13 @@ public class BreederPostsController {
     }
 
     @PostMapping("/favorites/{id}")
-    public String addToFavorites(@PathVariable long id, Model model) {
+    public String addToFavorites(@PathVariable long id) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(dogPostDao.getOne(id).getDogPrice());
-        List<DogPost> favorites = loggedInUser.getFavorites();
+        User user = userDao.getOne(loggedInUser.getId());
+        List<DogPost> favorites = user.getFavorites();
         favorites.add(dogPostDao.getOne(id));
-        loggedInUser.setFavorites(favorites);
+        user.setFavorites(favorites);
+        userDao.save(user);
         return "redirect:/buyer-profile";
     }
 
