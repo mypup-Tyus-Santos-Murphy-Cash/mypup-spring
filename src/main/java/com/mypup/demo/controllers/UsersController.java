@@ -1,4 +1,5 @@
 package com.mypup.demo.controllers;
+import com.mypup.demo.models.DogPost;
 import com.mypup.demo.models.User;
 import com.mypup.demo.repos.DogPostRepo;
 import com.mypup.demo.repos.UserRepo;
@@ -7,6 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class UsersController {
@@ -30,6 +34,8 @@ public class UsersController {
     public String saveBreeder(@ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
+        List<DogPost> favorites = new ArrayList<>();
+        user.setFavorites(favorites);
         usersdao.save(user);
         return "redirect:/login";
     }
@@ -38,6 +44,7 @@ public class UsersController {
     public String gotToBuyer(Model model) {
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("userRoleBuyer", loggedIn);
+        model.addAttribute("favorites", loggedIn.getFavorites());
         if(loggedIn.getUserRole().equals("buyer"))
             return "users/buyer-profile";
         else
