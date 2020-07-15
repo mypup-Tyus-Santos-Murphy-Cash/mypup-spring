@@ -131,7 +131,6 @@ public class BreederPostsController {
         return "redirect:/buyer-profile";
     }
 
-
     @GetMapping("/companion-search")
     public String showCompanion(Model model){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

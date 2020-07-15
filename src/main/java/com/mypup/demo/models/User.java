@@ -37,7 +37,7 @@ public class User {
     @Column(nullable = false, columnDefinition = "TEXT", name = "profile_image")
     private String profileImage;
 
-    @ManyToMany(mappedBy = "favorites")
+    @ManyToMany(mappedBy = "favorites", fetch = FetchType.EAGER)
     private List<DogPost> favorites;
 
 

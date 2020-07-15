@@ -33,7 +33,7 @@ public class DogPost {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String images;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name="favorites",
             joinColumns={@JoinColumn(name="dog_post_id")},
