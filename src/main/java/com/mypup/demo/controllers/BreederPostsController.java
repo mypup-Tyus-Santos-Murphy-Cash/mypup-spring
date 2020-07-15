@@ -125,6 +125,7 @@ public class BreederPostsController {
     @PostMapping("/favorites/{id}")
     public String addToFavorites(@PathVariable long id, Model model) {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(dogPostDao.getOne(id).getDogPrice());
         List<DogPost> favorites = loggedInUser.getFavorites();
         favorites.add(dogPostDao.getOne(id));
         loggedInUser.setFavorites(favorites);
