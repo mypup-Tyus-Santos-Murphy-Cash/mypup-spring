@@ -127,7 +127,7 @@ public class BreederPostsController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<DogPost> favorites = loggedInUser.getFavorites();
         model.addAttribute("favorites", favorites);
-//        favorites.add(dogPostDao.getOne(id));
+        favorites.add(dogPostDao.getOne(id));
         loggedInUser.setFavorites(favorites);
         return "redirect:/buyer-profile";
     }
