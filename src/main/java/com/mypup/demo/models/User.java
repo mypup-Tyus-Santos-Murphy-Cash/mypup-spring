@@ -38,7 +38,12 @@ public class User {
     private String profileImage;
 
     @ManyToMany(mappedBy = "favorites", fetch = FetchType.EAGER)
-    private List<DogPost> favorites;
+    private List<DogPost> favorites = new ArrayList<DogPost>();
+
+    public void addFavorite(DogPost dogPost) {
+        this.dogPost.add(dogPost);
+        
+    }
 
 
     public List<Breed> getBreeds() {

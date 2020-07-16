@@ -3,7 +3,9 @@ package com.mypup.demo.models;
 import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "dog_posts")
@@ -39,10 +41,10 @@ public class DogPost {
             joinColumns={@JoinColumn(name="dog_post_id")},
             inverseJoinColumns={@JoinColumn(name="user_id")}
     )
-    private List<User> favorites;
+    private Set<User> favorites = new HashSet<User>();
 
 
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, List<User> favorites) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -133,11 +135,11 @@ public class DogPost {
         this.user = user;
     }
 
-    public List<User> getFavorites() {
+    public Set<User> getFavorites() {
         return favorites;
     }
 
-    public void setFavorites(List<User> favorites) {
+    public void setFavorites(Set<User> favorites) {
         this.favorites = favorites;
     }
 }
