@@ -140,6 +140,12 @@ public class BreederPostsController {
         return "redirect:/buyer-profile";
     }
 
+    @PostMapping("/buyer-profile/{id}/remove-from-favorites")
+    public String removeFromFavorites(@PathVariable long id){
+        dogPostDao.deleteById(id);
+        return "redirect:/buyer-profile";
+    }
+
     @GetMapping("/companion-search")
     public String showCompanion(Model model){
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
