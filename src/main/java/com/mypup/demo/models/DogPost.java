@@ -41,7 +41,7 @@ public class DogPost {
             joinColumns={@JoinColumn(name="dog_post_id")},
             inverseJoinColumns={@JoinColumn(name="user_id")}
     )
-    private Set<User> favorites = new HashSet<User>();
+    private Set<User> favorites = new HashSet<>();
 
 
     public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites) {
