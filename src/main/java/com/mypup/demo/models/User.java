@@ -45,6 +45,11 @@ public class User {
         dogPost.getFavorites().add(this);
     }
 
+    public void removeFavorite(DogPost dogPost) {
+        this.dogPost.remove(dogPost);
+        dogPost.getFavorites().remove(this);
+    }
+
 
     public List<Breed> getBreeds() {
         return breeds;
