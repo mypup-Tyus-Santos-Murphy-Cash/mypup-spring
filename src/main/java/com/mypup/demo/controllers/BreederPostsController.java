@@ -129,20 +129,21 @@ public class BreederPostsController {
         System.out.println(dogPostDao.getOne(id).getDogPrice());
         User user = userDao.findUserById(loggedInUser.getId());
         DogPost dogPost = dogPostDao.findById(id);
-        List<User> fav2 = new ArrayList<>();
-        fav2.add(user);
-        dogPost.setFavorites(fav2);
-        List<DogPost> favorites = user.getFavorites();
-        favorites.add(dogPostDao.getOne(id));
-        user.setFavorites(favorites);
-        userDao.save(user);
-        dogPostDao.save(dogPost);
+
+//        List<User> fav2 = new ArrayList<>();
+//        fav2.add(user);
+//        dogPost.setFavorites(fav2);
+//        List<DogPost> favorites = user.getFavorites();
+//        favorites.add(dogPostDao.getOne(id));
+//        user.setFavorites(favorites);
+//        userDao.save(user);
+//        dogPostDao.save(dogPost);
         return "redirect:/buyer-profile";
     }
 
     @PostMapping("/buyer-profile/{id}/remove-from-favorites")
     public String removeFromFavorites(@PathVariable long id){
-        
+
         dogPostDao.deleteById(id);
         return "redirect:/buyer-profile";
     }
