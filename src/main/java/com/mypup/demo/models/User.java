@@ -42,7 +42,7 @@ public class User {
 
     public void addFavorite(DogPost dogPost) {
         this.dogPost.add(dogPost);
-
+        dogPost.getUser().add(this);
     }
 
 

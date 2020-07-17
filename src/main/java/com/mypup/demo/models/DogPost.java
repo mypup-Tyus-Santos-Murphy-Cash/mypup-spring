@@ -24,7 +24,7 @@ public class DogPost {
     private String dogPrice;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
-    private User user;
+    private Set<User> user = new HashSet<>();
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="dog_post_has_breed",
@@ -44,7 +44,7 @@ public class DogPost {
     private Set<User> favorites = new HashSet<>();
 
 
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, Set<User> user, List<Breed> breeds, String images, Set<User> favorites) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -127,11 +127,11 @@ public class DogPost {
         this.dogPrice = dogPrice;
     }
 
-    public User getUser() {
+    public Set<User> getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Set<User> user) {
         this.user = user;
     }
 
