@@ -10,8 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -129,15 +128,14 @@ public class BreederPostsController {
         System.out.println(dogPostDao.getOne(id).getDogPrice());
         User user = userDao.findUserById(loggedInUser.getId());
         DogPost dogPost = dogPostDao.findById(id);
-
-//        List<User> fav2 = new ArrayList<>();
-//        fav2.add(user);
-//        dogPost.setFavorites(fav2);
-//        List<DogPost> favorites = user.getFavorites();
-//        favorites.add(dogPostDao.getOne(id));
-//        user.setFavorites(favorites);
-//        userDao.save(user);
-//        dogPostDao.save(dogPost);
+        Set<User> fav2 = new HashSet<>();
+        fav2.add(user);
+        dogPost.setFavorites(fav2);
+        List<DogPost> favorites = user.getFavorites();
+        favorites.add(dogPostDao.getOne(id));
+        user.setFavorites(favorites);
+        userDao.save(user);
+        dogPostDao.save(dogPost);
         return "redirect:/buyer-profile";
     }
 
