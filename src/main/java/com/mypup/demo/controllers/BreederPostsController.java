@@ -128,6 +128,7 @@ public class BreederPostsController {
         User user = userDao.findUserById(loggedInUser.getId());
         DogPost dogPost = dogPostDao.findById(id);
         user.addFavorite(dogPost);
+
 //        Set<User> fav2 = new HashSet<>();
 //        fav2.add(user);
 //        dogPost.setFavorites(fav2);
