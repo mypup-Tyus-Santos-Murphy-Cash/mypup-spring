@@ -40,6 +40,7 @@ public class User {
     @ManyToMany(mappedBy = "favorites", fetch = FetchType.EAGER)
     private List<DogPost> favorites = new ArrayList<>();
 
+
     public void addFavorite(DogPost dogPost) {
         this.dogPost.add(dogPost);
         dogPost.getFavorites().add(this);
