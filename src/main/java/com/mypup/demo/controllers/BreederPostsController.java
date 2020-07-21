@@ -127,10 +127,9 @@ public class BreederPostsController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findUserById(loggedInUser.getId());
         DogPost dogPost = dogPostDao.findById(id);
-        List<DogPost> favorites = user.getFavorites();
-        Set<User> favoriteUser = dogPost.getFavorites();
-        user.addFavorite(dogPostDao.getOne(id));
+        user.addFavorite(dogPost);
 
+//        List<DogPost> favorites = user.getFavorites();
 //        Set<User> fav2 = new HashSet<>();
 //        fav2.add(user);
 //        dogPost.setFavorites(fav2);
