@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
 import java.util.*;
 
 
@@ -138,8 +139,9 @@ public class BreederPostsController {
         User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userDao.findUserById(loggedInUser.getId());
         DogPost dogPost = dogPostDao.findById(id);
-
-
+        user.removeFavorite(dogPost);
+        userDao.save(user);
+        dogPostDao.save(dogPost);
         return "redirect:/buyer-profile";
     }
 
