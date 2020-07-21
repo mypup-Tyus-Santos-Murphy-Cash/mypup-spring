@@ -128,15 +128,8 @@ public class BreederPostsController {
         User user = userDao.findUserById(loggedInUser.getId());
         DogPost dogPost = dogPostDao.findById(id);
         user.addFavorite(dogPost);
-
-//        List<DogPost> favorites = user.getFavorites();
-//        Set<User> fav2 = new HashSet<>();
-//        fav2.add(user);
-//        dogPost.setFavorites(fav2);
-//        favorites.add(dogPostDao.getOne(id));
-//        user.setFavorites(favorites);
-//        userDao.save(user);
-//        dogPostDao.save(dogPost);
+        userDao.save(user);
+        dogPostDao.save(dogPost);
         return "redirect:/buyer-profile";
     }
 
