@@ -135,6 +135,9 @@ public class BreederPostsController {
 
     @PostMapping("/buyer-profile/{id}/remove-from-favorites")
     public String removeFromFavorites(@PathVariable long id){
+        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.findUserById(loggedInUser.getId());
+        DogPost dogPost = dogPostDao.findById(id);
 
 
         return "redirect:/buyer-profile";

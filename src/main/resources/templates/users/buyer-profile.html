@@ -30,7 +30,7 @@
             <p th:text="${favorite.dogGroup}"></p>
             <p th:text="${favorite.dogDescription}"></p>
             <p th:text="${favorite.dogPrice}"></p>
-            <form th:method="POST" th:action="@{/buyer-profile/${favorite.id}/remove-from-favorites}">
+            <form th:method="POST" th:action="@{|/buyer-profile/${favorite.id}/remove-from-favorites|}">
                 <button>Remove from favorites</button>
             </form>
         </div>
