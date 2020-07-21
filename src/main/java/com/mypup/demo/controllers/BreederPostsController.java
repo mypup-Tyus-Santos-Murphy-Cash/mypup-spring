@@ -136,7 +136,7 @@ public class BreederPostsController {
     @PostMapping("/buyer-profile/{id}/remove-from-favorites")
     public String removeFromFavorites(@PathVariable long id){
 
-        dogPostDao.deleteById(id);
+
         return "redirect:/buyer-profile";
     }
 
