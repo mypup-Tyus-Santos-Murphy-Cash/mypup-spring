@@ -24,6 +24,7 @@
             const search_Button = document.getElementById('search_execute');
             search_Button.setAttribute("href", final_url);
         }
+
         function searchFunction1() {
             let url = "/search/";
             let pram = document.getElementById('search_bar1');
@@ -31,6 +32,7 @@
             const search_Button = document.getElementById('search_execute1');
             search_Button.setAttribute("href", final_url);
         }
+
         function searchFunction2() {
             let url = "/visitor-search/";
             let pram = document.getElementById('search_bar2');
@@ -46,6 +48,11 @@
             const search_Button = document.getElementById('search_execute3');
             search_Button.setAttribute("href", final_url);
         }
+
+        function hearted(x) {
+            x.classList.toggle("fas fa-heart")
+        }
+
     </script>
 
     <script>
