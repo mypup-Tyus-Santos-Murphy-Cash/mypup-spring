@@ -55,17 +55,6 @@ public class DogPost {
         this.favorites = favorites;
     }
 
-//    public DogPost(DogPost copy) {
-//        id = copy.id;
-//        dogBreed = copy.dogBreed;
-//        dogGroup = copy.dogGroup;
-//        dogDescription = copy.dogDescription;
-//        dogPrice = copy.dogPrice;
-//        breeds = copy.breeds;
-//        user = copy.user;
-//        images = copy.images;
-//        favorites = copy.favorites;
-//    }
 
     public String getImages() {
         return images;
