@@ -25,7 +25,7 @@ public class DogPost {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
     private User user;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name="dog_post_has_breed",
             joinColumns={@JoinColumn(name="dog_post_id")},
