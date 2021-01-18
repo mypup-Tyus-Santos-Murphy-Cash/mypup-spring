@@ -88,10 +88,11 @@
             tween2 = new mojs.Tween({
                 duration : 900,
                 onUpdate: function(progress) {
-                    var scaleProgress = scaleCurve(progress);
+                    const scaleProgress = scaleCurve(progress);
                     el.style.WebkitTransform = el.style.transform = 'scale3d(' + scaleProgress + ',' + scaleProgress + ',1)';
                 }
             });
+
             tween3 = new mojs.Burst({
                 parent: el,
                 radius:   { 0: 100 },
