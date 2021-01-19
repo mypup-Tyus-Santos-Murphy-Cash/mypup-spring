@@ -24,10 +24,11 @@
             <p th:text="${breederPost.dogPrice}"></p>
             <form th:action="@{|/breeder-contact/${breederPost.id}|}">
                 <button class="btn button-primary info">More info</button>
-                <div id='heart' class='button'></div>
             </form>
             <br>
-
+            <form th:action="@{|/favorites/${breederPost.id}|}" th:method="POST">
+                <button type="submit" id='heart' class='button'></button>
+            </form>
 
 
 <!--                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" th:attrappend="data-target=${breederPost.id}">-->
@@ -51,9 +52,9 @@
 <!--                            </div>-->
 <!--                            <div class="modal-footer">-->
 <!--                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                                <form th:action="@{|/favorites/${breederPost.id}|}" th:method="POST">-->
-<!--                                    <input value="Add to favorites" type="submit" class="btn btn-primary"/>-->
-<!--                                </form>-->
+<!--            <form th:action="@{|/favorites/${breederPost.id}|}" th:method="POST">-->
+<!--                <input value="Add to favorites" type="submit" class="btn btn-primary"/>-->
+<!--            </form>-->
 <!--                            </div>-->
 <!--                        </div>-->
 <!--                    </div>-->
