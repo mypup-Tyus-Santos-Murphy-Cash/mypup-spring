@@ -26,10 +26,12 @@
                 <button class="btn button-primary info">More info</button>
             </form>
             <br>
-                <div onclick="this.parentNode.submit()" id='heart' class='button'></div>
 
-            <!--            <form th:action="@{|/favorites/${breederPost.id}|}" th:method="POST">-->
-            <!--            </form>-->
+
+
+                        <form th:action="@{|/favorites/${breederPost.id}|}" th:method="POST">
+                            <div onclick="this.parentNode.submit()" id='heart' class='button'></div>
+                        </form>
 
         </div>
     </div>

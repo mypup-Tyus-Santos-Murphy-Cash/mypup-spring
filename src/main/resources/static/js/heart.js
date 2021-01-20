@@ -54,11 +54,10 @@ $( document ).ready(function() {
 
 // when clicking the button start the timeline/animation:
     $( ".button" ).click(function() {
-
         if ($(this).hasClass('active')){
             $(this).removeClass('active');
         }else{
-            timeline.play();
+            // timeline.play();
             $(this).addClass('active');
         }
     });
