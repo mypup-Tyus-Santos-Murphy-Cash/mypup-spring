@@ -10,6 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "dog_posts")
 public class DogPost {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, columnDefinition = "INT(10) UNSIGNED")
@@ -41,8 +42,8 @@ public class DogPost {
             joinColumns={@JoinColumn(name="dog_post_id")},
             inverseJoinColumns={@JoinColumn(name="user_id")}
     )
-    private Set<User> favorites = new HashSet<>();
 
+    private Set<User> favorites = new HashSet<>();
 
     public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites) {
         this.dogBreed = dogBreed;
@@ -54,7 +55,6 @@ public class DogPost {
         this.images = images;
         this.favorites = favorites;
     }
-
 
     public String getImages() {
         return images;
@@ -73,8 +73,6 @@ public class DogPost {
     public void setBreeds(List<Breed> breeds) {
         this.breeds = breeds;
     }
-
-
 
     public long getId() {
         return id;
