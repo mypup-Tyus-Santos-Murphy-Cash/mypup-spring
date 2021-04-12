@@ -23,6 +23,8 @@ public class DogPost {
     private String dogDescription;
     @Column(columnDefinition = "VARCHAR(45)", name = "dog_price")
     private String dogPrice;
+    @Column(columnDefinition = "tinyint(1) default 1", name = "heart")
+    private Boolean heart;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
     private User user;
