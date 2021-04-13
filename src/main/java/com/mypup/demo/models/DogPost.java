@@ -23,8 +23,8 @@ public class DogPost {
     private String dogDescription;
     @Column(columnDefinition = "VARCHAR(45)", name = "dog_price")
     private String dogPrice;
-    @Column(columnDefinition = "tinyint(1) default 1", name = "heart")
-    private Boolean heart;
+    @Column(columnDefinition = "VARCHAR(45)", name = "heart")
+    private String heart;
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name="user_id")
     private User user;
@@ -47,7 +47,7 @@ public class DogPost {
 
     private Set<User> favorites = new HashSet<>();
 
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites, Boolean heart) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites, String heart) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -59,11 +59,11 @@ public class DogPost {
         this.heart = heart;
     }
 
-    public Boolean getHeart() {
+    public String getHeart() {
         return heart;
     }
 
-    public void setHeart(Boolean heart) {
+    public void setHeart(String heart) {
         this.heart = heart;
     }
 
