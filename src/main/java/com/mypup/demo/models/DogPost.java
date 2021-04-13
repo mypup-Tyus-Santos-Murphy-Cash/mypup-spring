@@ -47,7 +47,7 @@ public class DogPost {
 
     private Set<User> favorites = new HashSet<>();
 
-    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites) {
+    public DogPost(String dogBreed, String dogGroup, String dogDescription, String dogPrice, User user, List<Breed> breeds, String images, Set<User> favorites, Boolean heart) {
         this.dogBreed = dogBreed;
         this.dogGroup = dogGroup;
         this.dogDescription = dogDescription;
@@ -56,6 +56,15 @@ public class DogPost {
         this.user = user;
         this.images = images;
         this.favorites = favorites;
+        this.heart = heart;
+    }
+
+    public Boolean getHeart() {
+        return heart;
+    }
+
+    public void setHeart(Boolean heart) {
+        this.heart = heart;
     }
 
     public String getImages() {
